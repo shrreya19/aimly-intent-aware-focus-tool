@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aimly - Settings</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#f9ddca",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#783200",
+            "surface-container-low": "#f6f3f2",
+            "background": "#fcf9f8",
+            "outline": "#8c7265",
+            "tertiary": "#6f5a4b",
+            "secondary-fixed-dim": "#ffba40",
+            "surface-bright": "#fcf9f8",
+            "on-secondary-container": "#6b4800",
+            "on-secondary-fixed": "#281800",
+            "on-tertiary-container": "#453426",
+            "on-tertiary-fixed-variant": "#554335",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#ffddae",
+            "primary-container": "#ff7a21",
+            "surface-tint": "#9d4400",
+            "inverse-surface": "#303030",
+            "surface": "#fcf9f8",
+            "primary-fixed": "#ffdbca",
+            "tertiary-container": "#b49c8a",
+            "inverse-primary": "#ffb690",
+            "surface-dim": "#dcd9d9",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a",
+            "primary": "#9d4400",
+            "error": "#ba1a1a",
+            "outline-variant": "#e0c0b1",
+            "on-primary-container": "#5f2600",
+            "surface-container-highest": "#e5e2e1",
+            "on-background": "#1b1b1c",
+            "inverse-on-surface": "#f3f0ef",
+            "surface-container-high": "#eae7e7",
+            "on-secondary-fixed-variant": "#604100",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#27190d",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#feb320",
+            "tertiary-fixed-dim": "#dcc2af",
+            "on-surface": "#1b1b1c",
+            "on-primary-fixed": "#331100",
+            "surface-variant": "#e5e2e1",
+            "secondary": "#7f5600",
+            "surface-container": "#f0eded",
+            "primary-fixed-dim": "#ffb690",
+            "on-surface-variant": "#584237"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "1rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-timer-mobile": ["Plus Jakarta Sans"],
+            "headline-hero-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-hero": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-caps": ["Plus Jakarta Sans"],
+            "stat-counter": ["Plus Jakarta Sans"],
+            "display-timer": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-timer-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "headline-hero-mobile": ["28px", { "lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "800" }],
+            "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "600" }],
+            "headline-hero": ["40px", { "lineHeight": "44px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "stat-counter": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-timer": ["72px", { "lineHeight": "76px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+            "headline-lg": ["24px", { "lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-md": ["18px", { "lineHeight": "22px", "letterSpacing": "0.03em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    /* Subtle custom backdrop styling matching Aimly aesthetic */
+    body {
+      background-color: #F3E6D3;
+      color: #1E1E1E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden antialiased select-none">
+<!-- Ambient Radiant Glowing Background Orbs (Strictly Warm Amber / Orange, No Botanical or Green) -->
+<div class="fixed top-[-80px] right-[-40px] w-[540px] h-[540px] rounded-full pointer-events-none blur-[90px] opacity-[0.22] bg-primary-container z-0"></div>
+<div class="fixed bottom-[-100px] left-[60px] w-[620px] h-[620px] rounded-full pointer-events-none blur-[100px] opacity-[0.18] bg-secondary-container z-0"></div>
+<div class="fixed top-1/2 left-1/3 w-[450px] h-[450px] rounded-full pointer-events-none blur-[120px] opacity-[0.12] bg-primary-fixed z-0"></div>
+<!-- Shared Component: SideNavBar (Fixed Left Rail 72px) -->
+<aside class="fixed top-0 left-0 h-full w-[72px] flex flex-col justify-between items-center py-6 bg-surface/45 dark:bg-inverse-surface/45 backdrop-blur-md border-r border-outline-variant/30 dark:border-outline/20 shadow-[0_8px_32px_0_rgba(255,122,33,0.08)] z-50">
+<!-- Top Brand Mark -->
+<div class="flex flex-col items-center gap-1 group cursor-pointer">
+<div class="w-11 h-11 rounded-full bg-primary-container flex items-center justify-center text-inverse-surface shadow-[0_0_20px_0_rgba(255,122,33,0.35)] transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined text-[22px]" data-icon="target" style="font-variation-settings: 'FILL' 1;">target</span>
+</div>
+<span class="font-headline-hero text-[12px] font-extrabold tracking-tight text-primary uppercase">Aimly</span>
+</div>
+<!-- Center Navigation Tabs (Settings Active) -->
+<nav class="flex flex-col items-center gap-4">
+<!-- Home Tab (Inactive) -->
+<a class="flex items-center justify-center w-12 h-12 rounded-full text-on-surface-variant dark:text-surface-variant transition-colors hover:text-primary hover:bg-surface-container-highest/40 active:scale-95" href="#" title="Home">
+<span class="material-symbols-outlined text-[24px]" data-icon="home">home</span>
+</a>
+<!-- Focus Tab (Inactive) -->
+<a class="flex items-center justify-center w-12 h-12 rounded-full text-on-surface-variant dark:text-surface-variant transition-colors hover:text-primary hover:bg-surface-container-highest/40 active:scale-95" href="#" title="Focus">
+<span class="material-symbols-outlined text-[24px]" data-icon="target">target</span>
+</a>
+<!-- Insights Tab (Inactive) -->
+<a class="flex items-center justify-center w-12 h-12 rounded-full text-on-surface-variant dark:text-surface-variant transition-colors hover:text-primary hover:bg-surface-container-highest/40 active:scale-95" href="#" title="Insights">
+<span class="material-symbols-outlined text-[24px]" data-icon="insights">insights</span>
+</a>
+<!-- Settings Tab (ACTIVE - Strict from Shared Components JSON) -->
+<a class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-fixed text-primary dark:bg-primary-container dark:text-on-primary-container shadow-[0_0_24px_0_rgba(255,122,33,0.35)] active:scale-95" href="#" title="Settings">
+<span class="material-symbols-outlined text-[24px]" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+</a>
+</nav>
+<!-- Bottom Help Tab -->
+<div class="flex flex-col items-center">
+<a class="flex items-center justify-center w-12 h-12 rounded-full text-on-surface-variant transition-colors hover:text-primary hover:bg-surface-container-highest/40 active:scale-95" href="#" title="Help">
+<span class="material-symbols-outlined text-[22px]" data-icon="help_outline">help_outline</span>
+</a>
+</div>
+</aside>
+<!-- Page Wrapper Offset by 72px Rail -->
+<div class="pl-[72px] min-h-screen flex flex-col relative z-10">
+<!-- Shared Component: TopNavBar (64px Docked Glass) -->
+<header class="docked full-width top-0 sticky z-40 bg-surface/65 dark:bg-inverse-surface/65 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20 shadow-[0_8px_32px_0_rgba(255,122,33,0.08)]">
+<div class="h-16 flex items-center justify-between px-8 w-full max-w-7xl mx-auto">
+<!-- Search Bar / Context Breadcrumb on Left -->
+<div class="flex items-center gap-4">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[18px]" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-1.5 rounded-full bg-surface-container-lowest/60 border border-surface-container-lowest/90 font-body-md text-body-md text-on-surface w-64 md:w-80 shadow-sm focus:outline-none cursor-default" placeholder="Settings &amp; Preferences" readonly="" type="text" value="Settings &amp; Preferences"/>
+</div>
+<div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed/50 border border-secondary-container/40">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-secondary-container">SYNCED LIVE</span>
+</div>
+</div>
+<!-- Trailing Icon Actions and User Profile Avatar -->
+<div class="flex items-center gap-4">
+<!-- Notification Bell Action -->
+<button class="relative w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-low/50 transition-colors active:scale-95" title="Notifications">
+<span class="material-symbols-outlined text-[22px]" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container"></span>
+</button>
+<!-- User Profile Avatar with 2px Warm Border -->
+<div class="flex items-center gap-3 pl-2 border-l border-outline-variant/30">
+<div class="text-right hidden sm:block">
+<div class="font-body-md text-body-md font-bold text-on-surface">Alex Mercer</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant">PRO SUITE</div>
+</div>
+<div class="w-10 h-10 rounded-full p-0.5 bg-tertiary-fixed border-2 border-primary-fixed shadow-sm overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover rounded-full" data-alt="A clean portrait avatar of a focused individual sitting in a softly lit, modern warm studio interior. Warm ambient amber and natural morning light illuminate the face. The composition is modern, refined, uncluttered, and strictly free of green plant decorations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgk6O5vCdSCOzdCRd11T84PskeiFpP9I9WJg0IcPoqGM9mNoAUAoQRy2q3z2Nq22C7JKe4N45iWLh8c2Yz130kKAHlqT6QiMVZemFJCw9BhQxLJYmn1uZLoePfb6tE22KetIKkSZu1YRguLoENaBYsHx10KIKU7K4PHekfBrcBfTX2R5OcjpWO2OUnf0hlThngwaY9g5VFsRzB9ct5O-0KuwRb1qFY2CrGjd2qIEzk0KnH3g1hHomo"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (Fluid 12-Column Grid max-w-7xl) -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-6 py-8 space-y-8">
+<!-- Page Header -->
+<section class="space-y-1">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest/70 border border-surface-container-lowest font-label-caps text-label-caps text-primary shadow-sm tracking-widest">
+<span class="material-symbols-outlined text-[14px]" data-icon="shield">shield</span>
+          PREFERENCES &amp; PRIVACY
+        </div>
+<h1 class="font-headline-hero text-headline-hero text-on-surface tracking-tight uppercase">SETTINGS</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          Tune Aimly's focus guardrails, session defaults, domain permissions, and local data.
+        </p>
+</section>
+<!-- Bento Grid of Settings Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Core Focus & Detection Rules (7 Cols) -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Card 1: Focus Detection & Drift Sensitivity -->
+<section class="rounded-[24px] p-7 bg-surface-container-lowest/65 backdrop-blur-md border border-surface-container-lowest/70 shadow-[0_8px_32px_0_rgba(255,122,33,0.08)] space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Focus Detection &amp; Drift Sensitivity</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Calibrate threshold detection for off-goal web exploration.</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-caps text-label-caps">ACTIVE AI CORE</span>
+</div>
+<!-- Sensitivity Discrete Stepper Selector -->
+<div class="space-y-3">
+<label class="block font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Detection Sensitivity</label>
+<div class="grid grid-cols-3 gap-3">
+<!-- Low Option -->
+<button class="p-3.5 rounded-2xl border border-surface-container-highest bg-surface-container-lowest/40 hover:bg-surface-container-lowest text-left transition-all group">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface font-bold">Low</span>
+<span class="w-3.5 h-3.5 rounded-full border-2 border-outline-variant"></span>
+</div>
+<p class="text-[12px] text-on-surface-variant leading-tight">Triggers after 5m off-topic</p>
+</button>
+<!-- Medium Option (Active Selected) -->
+<button class="p-3.5 rounded-2xl border-2 border-primary-container bg-surface-container-lowest shadow-[0_0_24px_0_rgba(255,122,33,0.25)] text-left relative">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface font-bold">Medium</span>
+<span class="w-3.5 h-3.5 rounded-full bg-primary-container ring-2 ring-primary-fixed flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary"></span>
+</span>
+</div>
+<p class="text-[12px] text-on-surface-variant leading-tight font-medium">Default: 2m adaptive drift</p>
+</button>
+<!-- High Option -->
+<button class="p-3.5 rounded-2xl border border-surface-container-highest bg-surface-container-lowest/40 hover:bg-surface-container-lowest text-left transition-all">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface font-bold">High</span>
+<span class="w-3.5 h-3.5 rounded-full border-2 border-outline-variant"></span>
+</div>
+<p class="text-[12px] text-on-surface-variant leading-tight">Instant zero-tolerance</p>
+</button>
+</div>
+<!-- Selected Detail Card -->
+<div class="p-3.5 rounded-xl bg-tertiary-fixed/30 border border-outline-variant/40 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5" data-icon="info">info</span>
+<p class="font-body-md text-body-md text-on-tertiary-container">
+<strong class="font-bold">Medium sensitivity:</strong> Balances deep work and quick references. Aimly inspects semantic intent and flags sustained diversions after 120 seconds.
+                </p>
+</div>
+</div>
+<div class="h-px bg-outline-variant/30"></div>
+<!-- Default Intervention Mode -->
+<div class="space-y-3">
+<label class="block font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Default Intervention Mode</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<!-- Soft Nudge (Selected) -->
+<div class="p-4 rounded-2xl border-2 border-primary-container bg-surface-container-lowest/80 shadow-[0_0_20px_0_rgba(255,122,33,0.18)] flex items-start gap-3 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="notifications_active">notifications_active</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Soft Nudge</h4>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-label-caps text-[10px]">SELECTED</span>
+</div>
+<p class="text-[12px] text-on-surface-variant mt-1 leading-snug">
+                      Gentle toast notifications and mindful pause reminders without intrusive screen locks.
+                    </p>
+</div>
+</div>
+<!-- Strict Lock -->
+<div class="p-4 rounded-2xl border border-surface-container-highest bg-surface-container-lowest/40 opacity-70 hover:opacity-100 transition-opacity flex items-start gap-3 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="lock">lock</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="font-label-md text-label-md text-on-surface font-bold">Strict Lock</h4>
+</div>
+<p class="text-[12px] text-on-surface-variant mt-1 leading-snug">
+                      Instant hard URL barrier and full-tab lock screen demanding intentional unblocking.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<div class="h-px bg-outline-variant/30"></div>
+<!-- Default Session Duration Chips -->
+<div class="space-y-3">
+<label class="block font-label-caps text-label-caps text-on-surface uppercase tracking-wider">Default Session Length</label>
+<div class="flex flex-wrap gap-2.5">
+<button class="px-4 py-2 rounded-full font-label-md text-label-md font-semibold bg-surface-container-lowest border border-outline-variant/40 text-on-surface hover:border-primary-container transition-all">
+                  15 min
+                </button>
+<!-- 25 min Selected in Vibrant Primary Pill -->
+<button class="px-5 py-2 rounded-full font-label-md text-label-md font-bold bg-primary-container text-inverse-surface shadow-[0_0_20px_0_rgba(255,122,33,0.35)] flex items-center gap-1.5 active:scale-95">
+<span class="material-symbols-outlined text-[16px]" data-icon="timer">timer</span>
+                  25 min
+                </button>
+<button class="px-4 py-2 rounded-full font-label-md text-label-md font-semibold bg-surface-container-lowest border border-outline-variant/40 text-on-surface hover:border-primary-container transition-all">
+                  45 min
+                </button>
+<button class="px-4 py-2 rounded-full font-label-md text-label-md font-semibold bg-surface-container-lowest border border-outline-variant/40 text-on-surface hover:border-primary-container transition-all">
+                  60 min
+                </button>
+<button class="px-4 py-2 rounded-full font-label-md text-label-md font-semibold bg-surface-container-lowest border border-dashed border-outline-variant text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="edit">edit</span>
+                  Custom
+                </button>
+</div>
+</div>
+</section>
+<!-- Card 2: Monitoring & Guardrails -->
+<section class="rounded-[24px] p-7 bg-surface-container-lowest/65 backdrop-blur-md border border-surface-container-lowest/70 shadow-[0_8px_32px_0_rgba(255,122,33,0.08)] space-y-6">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Monitoring &amp; Guardrails</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Global browser sensor and local tracking parameters.</p>
+</div>
+</div>
+<!-- Master Pause Banner with Amber Indicator -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest/80 border border-surface-container-lowest flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-2.5">
+<h3 class="font-headline-md text-headline-md text-on-surface">Pause all tracking</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-[10px] flex items-center gap-1.5 font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-inverse-surface animate-ping"></span>
+                    Currently Active
+                  </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                  Temporarily disables the Chrome extension monitoring during all browsing until manually resumed.
+                </p>
+</div>
+<!-- Interactive Toggle Switch -->
+<button class="relative inline-flex h-7 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-primary-container transition-colors duration-200 focus:outline-none shadow-[0_0_14px_0_rgba(255,122,33,0.4)]">
+<span class="translate-x-7 pointer-events-none inline-block h-6 w-6 transform rounded-full bg-surface-container-lowest shadow-md transition duration-200"></span>
+</button>
+</div>
+<!-- Extension & Model Version Note -->
+<div class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 text-on-surface-variant font-label-caps text-label-caps">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="memory">memory</span>
+<span>Aimly On-Device Semantic Model v2.4 • Zero cloud logging of URLs</span>
+</div>
+</section>
+</div>
+<!-- Right Column: Allowed Domains & Privacy Local Vault (5 Cols) -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Card 3: Allowed Domains (Always Relevant / Whitelist) -->
+<section class="rounded-[24px] p-7 bg-surface-container-lowest/65 backdrop-blur-md border border-surface-container-lowest/70 shadow-[0_8px_32px_0_rgba(255,122,33,0.08)] space-y-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="domain_verification">domain_verification</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Allowed Domains</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Always-relevant whitelist.</p>
+</div>
+</div>
+<span class="font-label-caps text-label-caps px-2 py-1 rounded bg-surface-container text-on-surface-variant">5 SITES</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Domains that Aimly will never classify as drifts, regardless of active session goal.
+            </p>
+<!-- Domain Input Form -->
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-2.5 text-on-surface-variant text-[18px]" data-icon="language">language</span>
+<input class="w-full pl-10 pr-3 py-2 rounded-full bg-surface-container-lowest/70 border border-surface-container-lowest/90 font-body-md text-body-md text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="e.g. stackoverflow.com" type="text"/>
+</div>
+<button class="px-4 py-2 rounded-full bg-primary-container text-inverse-surface font-label-md text-label-md font-bold hover:brightness-105 active:scale-95 transition-all shadow-[0_2px_12px_rgba(255,122,33,0.25)] flex items-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+                Add Domain
+              </button>
+</div>
+<!-- Allowed Domain List -->
+<div class="space-y-2 pt-2">
+<!-- Item 1: github.com -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-surface-container-lowest/60 border border-surface-container-lowest hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[16px]" data-icon="code">code</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-bold text-on-surface">github.com</span>
+<span class="ml-2 px-2 py-0.5 rounded-full bg-surface-container font-label-caps text-[10px] text-on-surface-variant">Development</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Remove github.com">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Item 2: leetcode.com -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-surface-container-lowest/60 border border-surface-container-lowest hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[16px]" data-icon="terminal">terminal</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-bold text-on-surface">leetcode.com</span>
+<span class="ml-2 px-2 py-0.5 rounded-full bg-surface-container font-label-caps text-[10px] text-on-surface-variant">Curriculum</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Remove leetcode.com">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Item 3: open.spotify.com -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-surface-container-lowest/60 border border-surface-container-lowest hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[16px]" data-icon="graphic_eq">graphic_eq</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-bold text-on-surface">open.spotify.com</span>
+<span class="ml-2 px-2 py-0.5 rounded-full bg-surface-container font-label-caps text-[10px] text-on-surface-variant">Lo-Fi Audio</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Remove spotify">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Item 4: docs.python.org -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-surface-container-lowest/60 border border-surface-container-lowest hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[16px]" data-icon="menu_book">menu_book</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-bold text-on-surface">docs.python.org</span>
+<span class="ml-2 px-2 py-0.5 rounded-full bg-surface-container font-label-caps text-[10px] text-on-surface-variant">Documentation</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Remove python docs">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Item 5: notion.so -->
+<div class="flex items-center justify-between p-3 rounded-2xl bg-surface-container-lowest/60 border border-surface-container-lowest hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[16px]" data-icon="sticky_note_2">sticky_note_2</span>
+</div>
+<div>
+<span class="font-body-md text-body-md font-bold text-on-surface">notion.so</span>
+<span class="ml-2 px-2 py-0.5 rounded-full bg-surface-container font-label-caps text-[10px] text-on-surface-variant">Workspace</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1" title="Remove notion.so">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Card 4: Privacy & Data Management Preview -->
+<section class="rounded-[24px] p-7 bg-surface-container-lowest/65 backdrop-blur-md border border-surface-container-lowest/70 shadow-[0_8px_32px_0_rgba(255,122,33,0.08)] space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock">lock</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Local Vault &amp; Data Ownership</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant">CLIENT-SIDE ENCRYPTION</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              All telemetry, focus logs, and drift timestamps are stored securely in your browser's encrypted on-device database.
+            </p>
+<div class="pt-2 flex flex-wrap gap-3">
+<!-- Export Data Pill -->
+<button class="px-4 py-2.5 rounded-full bg-surface-container-lowest border border-outline-variant/60 hover:bg-surface-container text-on-surface font-label-md text-label-md font-bold flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                Export my data (CSV &amp; JSON)
+              </button>
+<!-- Delete Data Pill (Triggers Modal) -->
+<button class="px-5 py-2.5 rounded-full bg-inverse-surface hover:bg-black text-on-primary font-label-md text-label-md font-bold flex items-center gap-2 transition-all active:scale-95 shadow-md">
+<span class="material-symbols-outlined text-[18px] text-secondary-container" data-icon="warning">warning</span>
+                Delete my data
+              </button>
+</div>
+</section>
+</div>
+</div>
+<!-- Quick Storage Telemetry Bar -->
+<footer class="rounded-2xl p-4 bg-surface-container-lowest/40 backdrop-blur-sm border border-surface-container-lowest/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-on-surface-variant">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="storage">storage</span>
+<span>Vault footprint: <strong class="text-on-surface font-semibold">14.2 MB</strong></span>
+</div>
+<div class="flex items-center gap-2 font-body-md text-body-md">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="sync">sync</span>
+<span>Last Indexed: <strong class="text-on-surface font-semibold">Just now</strong></span>
+</div>
+</div>
+<div class="font-label-caps text-label-caps text-on-surface-variant/70">
+          AIMLY CLIENT ENGINE 2.4.0 • PRIVACY FIRST
+        </div>
+</footer>
+</main>
+</div>
+<!-- Confirmation Dialog Overlay (Displayed as requested by user prompt) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-inverse-surface/35 backdrop-blur-sm">
+<!-- Frosted Dialog Container -->
+<div class="w-full max-w-lg rounded-[28px] p-8 bg-surface-container-lowest/90 backdrop-blur-2xl border border-surface-container-lowest shadow-[0_20px_50px_rgba(30,30,30,0.25),0_0_30px_rgba(255,122,33,0.12)] space-y-6 relative animate-in fade-in zoom-in duration-150">
+<!-- Modal Top Icon & Badge -->
+<div class="flex items-start justify-between">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shadow-[0_0_24px_rgba(255,180,34,0.35)]">
+<span class="material-symbols-outlined text-[32px] text-on-secondary-fixed" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="px-3 py-1 rounded-full bg-secondary-container/40 border border-secondary-container font-label-caps text-label-caps text-on-secondary-container">
+          IRREVERSIBLE ACTION
+        </div>
+</div>
+<!-- Header & Body -->
+<div class="space-y-2">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Delete all focus data?</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+          This will permanently erase all 84 tracked days, 186 focus sessions, streak history, and custom domain rules from your local machine. This action cannot be undone.
+        </p>
+</div>
+<!-- Highlighted Data Metric Chips -->
+<div class="grid grid-cols-3 gap-3 p-3.5 rounded-2xl bg-surface-container-low/80 border border-outline-variant/30">
+<div class="text-center">
+<div class="font-stat-counter text-headline-md font-extrabold text-on-surface">84</div>
+<div class="font-label-caps text-[10px] text-on-surface-variant">DAYS</div>
+</div>
+<div class="text-center border-x border-outline-variant/30">
+<div class="font-stat-counter text-headline-md font-extrabold text-primary">186</div>
+<div class="font-label-caps text-[10px] text-on-surface-variant">SESSIONS</div>
+</div>
+<div class="text-center">
+<div class="font-stat-counter text-headline-md font-extrabold text-on-surface">5</div>
+<div class="font-label-caps text-[10px] text-on-surface-variant">WHITELISTS</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-end gap-3 pt-2">
+<!-- Cancel Button -->
+<button class="px-6 py-3 rounded-full font-label-md text-label-md font-semibold bg-surface-container-lowest border border-outline-variant/50 hover:bg-surface-container text-on-surface transition-all active:scale-95 shadow-sm">
+          Cancel
+        </button>
+<!-- Permanent Delete Ink Button -->
+<button class="px-6 py-3 rounded-full font-label-md text-label-md font-bold bg-inverse-surface hover:bg-black text-on-primary transition-all active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.3)] flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary-container" data-icon="delete_forever">delete_forever</span>
+          Yes, permanently delete
+        </button>
+</div>
+</div>
+</div>
+</body></html>

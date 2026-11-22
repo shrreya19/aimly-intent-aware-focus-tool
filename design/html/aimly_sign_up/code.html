@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aimly - Create your account</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#27190d",
+            "inverse-primary": "#ffb690",
+            "on-background": "#1b1b1c",
+            "on-tertiary-fixed-variant": "#554335",
+            "on-primary": "#ffffff",
+            "surface-tint": "#9d4400",
+            "tertiary-container": "#b49c8a",
+            "on-primary-fixed": "#331100",
+            "on-secondary-fixed": "#281800",
+            "surface-container-high": "#eae7e7",
+            "error": "#ba1a1a",
+            "inverse-on-surface": "#f3f0ef",
+            "surface-variant": "#e5e2e1",
+            "on-primary-container": "#5f2600",
+            "outline": "#8c7265",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f6f3f2",
+            "tertiary-fixed": "#f9ddca",
+            "surface-container": "#f0eded",
+            "inverse-surface": "#303030",
+            "surface-container-highest": "#e5e2e1",
+            "background": "#fcf9f8",
+            "outline-variant": "#e0c0b1",
+            "secondary-fixed-dim": "#ffba40",
+            "on-tertiary-container": "#453426",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#dcc2af",
+            "primary-container": "#ff7a21",
+            "secondary-container": "#feb320",
+            "surface": "#fcf9f8",
+            "surface-bright": "#fcf9f8",
+            "on-primary-fixed-variant": "#783200",
+            "primary-fixed": "#ffdbca",
+            "surface-dim": "#dcd9d9",
+            "secondary": "#7f5600",
+            "primary": "#9d4400",
+            "on-secondary-fixed-variant": "#604100"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "margin": "2.5rem"
+          },
+          "fontFamily": {
+            "timer-display-mobile": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "timer-display": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "timer-display-mobile": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "timer-display": ["72px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "0.03em", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Warm cream base matching spec */
+    body {
+      background-color: #F3E6D3;
+      color: #1E1E1E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Ambient Warm Glass Card */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.68);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 8px 32px -4px rgba(255, 122, 33, 0.08), 0 2px 8px -1px rgba(30, 30, 30, 0.04);
+    }
+
+    .glass-interactive {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 16px 40px -6px rgba(255, 122, 33, 0.12), 0 4px 12px -2px rgba(30, 30, 30, 0.05);
+    }
+
+    .glass-input {
+      background: rgba(255, 245, 237, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      transition: all 0.2s ease;
+    }
+    .glass-input:focus {
+      outline: none;
+      border-color: #FF7A21;
+      box-shadow: 0 0 0 2px #FF7A21;
+      background: rgba(255, 255, 255, 0.92);
+    }
+  </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-inverse-surface">
+<!-- Ambient Depth Background Radiance Blobs -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+<!-- Top-left subtle amber illumination -->
+<div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-[#FFB422]/15 blur-[100px]"></div>
+<!-- Right side primary warm focus halo -->
+<div class="absolute top-1/4 right-10 w-[550px] h-[550px] rounded-full bg-[#FF7A21]/20 blur-[110px]"></div>
+<!-- Bottom amber ambient glow -->
+<div class="absolute -bottom-40 right-1/3 w-[600px] h-[600px] rounded-full bg-[#FFB422]/20 blur-[120px]"></div>
+</div>
+<main class="relative z-10 min-h-screen grid grid-cols-1 lg:grid-cols-12 max-w-[1440px] mx-auto">
+<!-- ========================================== -->
+<!-- LEFT COLUMN: AUTHENTICATION FORM CANVAS   -->
+<!-- ========================================== -->
+<div class="lg:col-span-6 flex flex-col justify-center px-6 sm:px-12 md:px-16 lg:px-14 xl:px-20 py-8 lg:py-12">
+<!-- Mini Brand Mark for Mobile Screens -->
+<div class="flex items-center gap-2 mb-6 lg:hidden">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-inverse-surface shadow-sm">
+<span class="material-symbols-outlined text-[18px]">adjust</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-extrabold tracking-tight text-on-surface">Aimly</span>
+</div>
+<!-- Main Form Glass Card -->
+<div class="glass-card rounded-[24px] p-6 sm:p-10 transition-all">
+<!-- Header Category Badge -->
+<div class="mb-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed/60 border border-white/60 text-on-primary-fixed text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+            AIMLY ACCOUNTS
+          </span>
+</div>
+<!-- Headline & Subtext -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight mb-2">
+          Create your account
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-7 leading-relaxed">
+          Start your focused work sessions with contextual drift alerts.
+        </p>
+<!-- Social Sign-In Pill Button -->
+<div class="mb-6">
+<button class="w-full h-12 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest border border-white/90 shadow-sm flex items-center justify-center gap-3 font-label-lg text-label-lg text-on-surface transition-all duration-150 active:scale-[0.99] group" type="button">
+<svg class="w-4 h-4 shrink-0 transition-transform duration-150 group-hover:scale-105" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+            Continue with Google
+          </button>
+<div class="relative flex items-center justify-center my-6">
+<div class="border-t border-outline-variant/30 w-full"></div>
+<span class="bg-surface/90 px-3 font-label-sm text-label-sm text-outline uppercase tracking-wider backdrop-blur-sm rounded-full">or with email</span>
+</div>
+</div>
+<!-- Registration Form -->
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<!-- Field 1: Full Name -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5" for="name">
+              Full Name
+            </label>
+<div class="relative">
+<input class="glass-input w-full h-[48px] px-4 rounded-2xl text-on-surface placeholder:text-outline/70 font-body-md text-body-md" id="name" placeholder="Alex Mercer" required="" type="text"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline/60 material-symbols-outlined pointer-events-none" data-icon="person">person</span>
+</div>
+</div>
+<!-- Field 2: Work Email -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5" for="email">
+              Work Email
+            </label>
+<div class="relative">
+<input class="glass-input w-full h-[48px] px-4 rounded-2xl text-on-surface placeholder:text-outline/70 font-body-md text-body-md" id="email" placeholder="you@work.com" required="" type="email"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 text-outline/60 material-symbols-outlined pointer-events-none" data-icon="mail">mail</span>
+</div>
+</div>
+<!-- Field 3: Password -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block font-label-md text-label-md text-on-surface" for="password">
+                Password
+              </label>
+<span class="font-label-sm text-label-sm text-outline">
+                Min. 8 characters
+              </span>
+</div>
+<div class="relative">
+<input class="glass-input w-full h-[48px] px-4 pr-12 rounded-2xl text-on-surface placeholder:text-outline/70 font-body-md text-body-md" id="password" placeholder="••••••••••••" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors p-1 flex items-center justify-center focus:outline-none" id="togglePassword" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility" id="passwordIcon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Consent Checkbox (Verbatim Mandatory String) -->
+<div class="pt-2">
+<label class="relative flex items-start gap-3 p-3.5 rounded-2xl bg-white/40 border border-white/60 hover:bg-white/60 transition-colors cursor-pointer select-none">
+<div class="relative flex items-center pt-0.5">
+<input class="peer appearance-none w-[20px] h-[20px] rounded-full border-2 border-primary-container bg-surface-container-lowest checked:bg-primary-container transition-all cursor-pointer focus:ring-0 focus:outline-none" required="" type="checkbox"/>
+<span class="material-symbols-outlined absolute pointer-events-none opacity-0 peer-checked:opacity-100 text-[14px] text-inverse-surface left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold" data-icon="check">check</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+                Aimly analyzes page titles and URLs only during active focus sessions. Nothing is tracked outside a session.
+              </span>
+</label>
+</div>
+<!-- CTA Button (Accessibility Critical: Ink text #1E1E1E on #FF7A21) -->
+<div class="pt-3">
+<button class="w-full h-[48px] rounded-full bg-primary-container hover:bg-secondary-container text-inverse-surface font-label-lg text-label-lg font-bold tracking-wide shadow-sm hover:scale-[1.01] active:scale-[0.98] transition-all duration-150 flex items-center justify-center gap-2" type="submit">
+<span>Create account</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Bottom Navigation Link -->
+<div class="mt-6 pt-5 border-t border-outline-variant/30 text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Already have an account? 
+            <a class="text-primary font-bold hover:underline transition-colors ml-1" href="#login">
+              Log in
+            </a>
+</p>
+</div>
+</div>
+<!-- Small Security Footnote -->
+<div class="flex items-center justify-center gap-4 mt-4 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="lock">lock</span>
+          Zero blocklists
+        </span>
+<span>•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="shield">shield</span>
+          Local contextual drift check
+        </span>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- RIGHT COLUMN: BRAND VISUAL & INTENT HERO   -->
+<!-- ========================================== -->
+<div class="lg:col-span-6 flex flex-col justify-between p-8 sm:p-12 lg:p-14 xl:p-16 relative overflow-hidden">
+<!-- Top Brand Anchor (Desktop) -->
+<div class="hidden lg:flex items-center justify-between z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-2xl bg-white/70 backdrop-blur-md border border-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="adjust">adjust</span>
+</div>
+<span class="font-headline-md text-headline-md font-extrabold tracking-tight text-on-surface">Aimly</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/60 backdrop-blur-md border border-white/80 font-label-sm text-label-sm text-on-surface font-semibold shadow-xs">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+          Chrome Extension v2.4
+        </div>
+</div>
+<!-- Centered Brand Value Presentation -->
+<div class="my-auto py-8 z-10 max-w-xl mx-auto lg:mx-0">
+<!-- Target Ring Micro Graphic -->
+<div class="mb-6 inline-flex p-3 rounded-2xl bg-white/50 backdrop-blur-md border border-white/70 shadow-xs">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full border-2 border-primary-container flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-primary-container"></div>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface tracking-wide uppercase">Smart Drift Detection</span>
+</div>
+</div>
+<!-- Hero Headline -->
+<h2 class="font-display-hero text-display-hero font-extrabold text-inverse-surface tracking-tight leading-[1.08] mb-5">
+          SET YOUR AIM. <br/>
+<span class="text-primary">STAY ON IT.</span>
+</h2>
+<!-- Subtext Description -->
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-8 max-w-lg">
+          The focus timer that understands what you're working on, not just which sites you visit. No blocklists needed.
+        </p>
+<!-- Floating Glassmorphism Micro-Card (Active Session Preview) -->
+<div class="glass-interactive rounded-[24px] p-6 transition-all hover:scale-[1.01] duration-300">
+<!-- Card Header & Status Chip -->
+<div class="flex items-center justify-between gap-3 mb-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed/80 border border-white/90 text-inverse-surface font-label-sm text-label-sm font-bold">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+              ACTIVE FOCUS • 45m session
+            </div>
+<span class="font-label-sm text-label-sm text-outline font-semibold">Live Simulation</span>
+</div>
+<!-- Goal Specification -->
+<div class="mb-5 bg-white/60 backdrop-blur-sm p-3.5 rounded-xl border border-white/80">
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-0.5">Active Target</div>
+<div class="font-headline-sm text-headline-sm text-inverse-surface font-extrabold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="task_alt">task_alt</span>
+              Write Q3 Product Spec
+            </div>
+</div>
+<!-- Drift Alert Real-time Indicator -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface/50 border border-outline-variant/30 mb-5">
+<div class="flex items-center gap-2.5">
+<div class="w-6 h-6 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[15px]" data-icon="radar">radar</span>
+</div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Contextual drift detector: <strong class="text-inverse-surface font-bold">ON</strong></span>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-semibold">(Zero page blocks)</span>
+</div>
+<!-- Big Metric & Session Ring Breakdown -->
+<div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div>
+<div class="font-timer-display-mobile text-timer-display-mobile text-inverse-surface font-extrabold leading-none tracking-tight">
+                94%
+              </div>
+<div class="font-label-md text-label-md text-on-surface-variant font-bold uppercase tracking-wider mt-1">
+                on-aim score today
+              </div>
+</div>
+<!-- Stylized Abstract Focus Gauge Ring -->
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 36 36">
+<!-- Track -->
+<path class="text-outline-variant/30" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<!-- Active Meter Value (94%) -->
+<path class="text-primary-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="94, 100" stroke-linecap="round" stroke-width="3.8"></path>
+</svg>
+<span class="absolute material-symbols-outlined text-[20px] text-primary" data-icon="bolt">bolt</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Micro-links (Matching Shared Components Spec) -->
+<div class="z-10 flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-outline-variant/20 font-label-sm text-label-sm text-on-surface-variant">
+<span>© 2024 Aimly Inc. Designed for pure focus.</span>
+<div class="flex items-center gap-4">
+<a class="hover:text-primary transition-colors" href="#privacy">Privacy Policy</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#terms">Terms of Service</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#permissions">Extension Permissions</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Interactive Script for Password Toggle and Micro-Feedback -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('togglePassword');
+      const passwordInput = document.getElementById('password');
+      const passwordIcon = document.getElementById('passwordIcon');
+
+      if (toggleBtn && passwordInput && passwordIcon) {
+        toggleBtn.addEventListener('click', () => {
+          const isPassword = passwordInput.type === 'password';
+          passwordInput.type = isPassword ? 'text' : 'password';
+          passwordIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+          passwordIcon.setAttribute('data-icon', isPassword ? 'visibility_off' : 'visibility');
+        });
+      }
+    });
+  </script>
+</body></html>

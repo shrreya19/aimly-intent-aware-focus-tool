@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment Variables & Secrets (CRITICAL: Never commit secrets)
+.env
+.env.local
+.env.*.local
+*.env
+*/.env
+*/.env.*
+!.env.example
+!*/.env.example
+
+# Production Builds
+dist/
+build/
+*/dist/
+*/build/
+
+# Python & ML Artifacts
+__pycache__/
+*/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# Logs & Debugging
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS & IDE Metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

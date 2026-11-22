@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aimly - Focus Session Setup</title>
+<!-- Plus Jakarta Sans Typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with custom theme -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#ffba40",
+            "on-tertiary-container": "#453426",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#b49c8a",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#e5e2e1",
+            "secondary": "#7f5600",
+            "inverse-primary": "#ffb690",
+            "on-error": "#ffffff",
+            "on-background": "#1b1b1c",
+            "background": "#fcf9f8",
+            "on-secondary-fixed": "#281800",
+            "surface-tint": "#9d4400",
+            "surface-container-lowest": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface": "#fcf9f8",
+            "on-surface": "#1b1b1c",
+            "inverse-surface": "#303030",
+            "on-secondary-fixed-variant": "#604100",
+            "on-primary": "#ffffff",
+            "surface-bright": "#fcf9f8",
+            "surface-dim": "#dcd9d9",
+            "surface-container": "#f0eded",
+            "primary": "#9d4400",
+            "on-primary-fixed-variant": "#783200",
+            "secondary-container": "#feb320",
+            "on-tertiary-fixed-variant": "#554335",
+            "primary-container": "#ff7a21",
+            "surface-container-high": "#eae7e7",
+            "error": "#ba1a1a",
+            "primary-fixed-dim": "#ffb690",
+            "tertiary-fixed-dim": "#dcc2af",
+            "tertiary-fixed": "#f9ddca",
+            "primary-fixed": "#ffdbca",
+            "on-surface-variant": "#584237",
+            "outline": "#8c7265",
+            "surface-container-low": "#f6f3f2",
+            "on-secondary-container": "#6b4800",
+            "outline-variant": "#e0c0b1",
+            "inverse-on-surface": "#f3f0ef",
+            "on-primary-container": "#5f2600",
+            "surface-container-highest": "#e5e2e1",
+            "on-primary-fixed": "#331100",
+            "tertiary": "#6f5a4b",
+            "secondary-fixed": "#ffddae",
+            "on-tertiary-fixed": "#27190d",
+            "on-secondary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "label-md": ["Plus Jakarta Sans"],
+            "display-timer": ["Plus Jakarta Sans"],
+            "headline-hero": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-timer-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-caps": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "stat-counter": ["Plus Jakarta Sans"],
+            "headline-hero-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "600" }],
+            "display-timer": ["72px", { "lineHeight": "76px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+            "headline-hero": ["40px", { "lineHeight": "44px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "headline-md": ["18px", { "lineHeight": "22px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "display-timer-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }],
+            "headline-lg": ["24px", { "lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "stat-counter": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-hero-mobile": ["28px", { "lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full bg-[#F3E6D3] text-[#1E1E1E] font-body-md text-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-[#1E1E1E]">
+<!-- Atmospheric Radiant Background Blurs (Strictly Abstract Non-Botanical Blobs) -->
+<div aria-hidden="true" class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-32 right-12 w-[520px] h-[520px] rounded-full bg-[#FF7A21] opacity-[0.16] blur-[100px] transform-gpu"></div>
+<div class="absolute bottom-[-100px] left-20 w-[600px] h-[600px] rounded-full bg-[#FFB422] opacity-[0.20] blur-[120px] transform-gpu"></div>
+<div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[440px] h-[440px] rounded-full bg-[#FFE3CF] opacity-[0.35] blur-[90px] transform-gpu"></div>
+</div>
+<!-- Main Desktop Layout Container -->
+<div class="relative z-10 flex min-h-screen w-full">
+<!-- Shared Component: SideNavBar (Fixed 72px Desktop Rail) -->
+<aside class="fixed top-0 left-0 h-screen w-[72px] z-50 flex flex-col justify-between items-center py-6 bg-surface/45 dark:bg-inverse-surface/45 backdrop-blur-md border-r border-outline-variant/30 dark:border-outline/20 shadow-[0_8px_32px_0_rgba(255,122,33,0.08)]">
+<!-- Top Brand Anchor / Badge -->
+<div class="flex flex-col items-center gap-6">
+<a class="group flex items-center justify-center w-12 h-12 rounded-2xl bg-surface-container-lowest/80 shadow-sm border border-white/60 transition-transform active:scale-95" href="#" title="Aimly Focus Studio">
+<span class="material-symbols-outlined text-primary-container text-2xl" data-icon="target" style="font-variation-settings: 'FILL' 1;">target</span>
+</a>
+<!-- Nav Item Cluster -->
+<nav class="flex flex-col items-center gap-3">
+<!-- Home (Inactive) -->
+<a class="flex items-center justify-center w-12 h-12 rounded-full text-on-surface-variant dark:text-surface-variant transition-colors hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container-highest/40 transition-all duration-200 active:scale-95 group relative" href="#" title="Home">
+<span class="material-symbols-outlined text-2xl" data-icon="home">home</span>
+<span class="absolute left-16 px-2.5 py-1 rounded-md bg-[#1E1E1E] text-white font-label-caps text-label-caps tracking-wider opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50 whitespace-nowrap shadow-md">HOME</span>
+</a>
+<!-- Focus (Active with primary orange glow) -->
+<a class="flex items-center justify-center w-12 h-12 rounded-full bg-primary-fixed text-primary dark:bg-primary-container dark:text-on-primary-container shadow-[0_0_24px_0_rgba(255,122,33,0.35)] transition-all duration-200 active:scale-95 group relative" href="#" title="Focus">
+<span class="material-symbols-outlined text-2xl text-[#1E1E1E]" data-icon="target" style="font-variation-settings: 'FILL' 1;">target</span>
+<span class="absolute left-16 px-2.5 py-1 rounded-md bg-[#1E1E1E] text-white font-label-caps text-label-caps tracking-wider opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50 whitespace-nowrap shadow-md">FOCUS</span>
+</a>
+<!-- Insights (Inactive) -->
+<a class="flex items-center justify-center w-12 h-12 rounded-full text-on-surface-variant dark:text-surface-variant transition-colors hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container-highest/40 transition-all duration-200 active:scale-95 group relative" href="#" title="Insights">
+<span class="material-symbols-outlined text-2xl" data-icon="insights">insights</span>
+<span class="absolute left-16 px-2.5 py-1 rounded-md bg-[#1E1E1E] text-white font-label-caps text-label-caps tracking-wider opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50 whitespace-nowrap shadow-md">INSIGHTS</span>
+</a>
+<!-- Settings (Inactive) -->
+<a class="flex items-center justify-center w-12 h-12 rounded-full text-on-surface-variant dark:text-surface-variant transition-colors hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container-highest/40 transition-all duration-200 active:scale-95 group relative" href="#" title="Settings">
+<span class="material-symbols-outlined text-2xl" data-icon="settings">settings</span>
+<span class="absolute left-16 px-2.5 py-1 rounded-md bg-[#1E1E1E] text-white font-label-caps text-label-caps tracking-wider opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50 whitespace-nowrap shadow-md">SETTINGS</span>
+</a>
+</nav>
+</div>
+<!-- Footer Action (Help) -->
+<div class="flex flex-col items-center">
+<a class="flex items-center justify-center w-12 h-12 rounded-full text-on-surface-variant dark:text-surface-variant transition-colors hover:text-primary dark:hover:text-inverse-primary hover:bg-surface-container-highest/40 transition-all duration-200 active:scale-95 group relative" href="#" title="Help">
+<span class="material-symbols-outlined text-2xl" data-icon="help_outline">help_outline</span>
+<span class="absolute left-16 px-2.5 py-1 rounded-md bg-[#1E1E1E] text-white font-label-caps text-label-caps tracking-wider opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50 whitespace-nowrap shadow-md">HELP</span>
+</a>
+</div>
+</aside>
+<!-- Shell Canvas wrapper with left offset -->
+<div class="flex-1 ml-[72px] flex flex-col min-h-screen">
+<!-- Shared Component: TopNavBar -->
+<header class="docked full-width top-0 sticky z-40 bg-surface/65 dark:bg-inverse-surface/65 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20 shadow-[0_8px_32px_0_rgba(255,122,33,0.08)]">
+<div class="h-16 flex items-center justify-between px-8 w-full max-w-7xl mx-auto">
+<!-- Left: Brand Wordmark + Search -->
+<div class="flex items-center gap-8 flex-1 max-w-xl">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-hero text-headline-hero text-primary dark:text-inverse-primary font-extrabold tracking-tight">Aimly</span>
+<span class="hidden xl:inline-block font-label-caps text-label-caps text-on-surface-variant/70 tracking-wider">FOCUS STUDIO</span>
+</div>
+<!-- Quick Session Search Input -->
+<div class="relative w-full max-w-sm hidden sm:block">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant/60 text-lg" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white/50 border border-white/80 rounded-full text-[#1E1E1E] placeholder-[#1E1E1E]/40 font-body-md text-body-md focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all backdrop-blur-sm" placeholder="Quick jump or session lookup..." type="text"/>
+</div>
+</div>
+<!-- Right Trailing Actions & Profile -->
+<div class="flex items-center gap-4">
+<!-- Drift Warning / Ambient State Pill -->
+<div class="hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFE3CF]/90 border border-white/70 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-[#1E1E1E] tracking-wider font-bold">READY TO LOCK IN</span>
+</div>
+<!-- Notifications Action -->
+<button class="relative flex items-center justify-center w-10 h-10 rounded-full bg-white/60 hover:bg-white/80 border border-white/70 text-[#1E1E1E] transition-all duration-200 active:scale-95 shadow-sm" title="Notifications">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#FF7A21]"></span>
+</button>
+<!-- User Avatar Anchor -->
+<div class="flex items-center gap-3 pl-2 border-l border-outline-variant/40">
+<div class="w-10 h-10 rounded-full p-0.5 bg-[#FFE3CF] ring-2 ring-white/80 shadow-sm overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover rounded-full" data-alt="Modern close-up studio headshot portrait of a focused creative director illuminated by warm radiant natural daylight against a neutral minimalist beige background. The composition exudes calm intentionality and polished executive clarity with crisp organic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOMdSsNvEZ9E0gZwSxgpI460aLxiwPU-0AMqR1soNw3BJpkBgrHVfJafeaMO4HJ5Rfp6YWDfs96rIn5yApnXIcbonhl3VoXRVYUvFWLrOL62MafvG5UWR0a6l9pwH_2WNV9Q0duTwCISzyaOPuD-UliAKudzuBdiv__NhvMsms8DZF7SvzvzjbsQmXAThd5O40VrXTwiTsNZZtU3fBIh1Sfz9zMCdhIQsZNxPd8VSyacn4AlEtGDlP"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Workspace Canvas -->
+<main class="flex-1 flex items-center justify-center px-4 py-10 lg:py-14 w-full max-w-7xl mx-auto">
+<!-- Center Focus Setup Modal / Glass Card -->
+<div class="w-full max-w-[740px] bg-white/70 backdrop-blur-xl rounded-[24px] border border-white/80 shadow-[0_20px_50px_rgba(255,122,33,0.08)] p-7 md:p-10 transition-all">
+<!-- Card Header Section -->
+<div class="flex flex-col items-start gap-3 mb-8">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFE3CF] border border-white/60 shadow-sm">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="adjust" style="font-variation-settings: 'FILL' 1;">adjust</span>
+<span class="font-label-caps text-label-caps text-[#1E1E1E] tracking-widest font-bold">NEW FOCUS SESSION</span>
+</div>
+<h1 class="font-headline-hero text-headline-hero text-[#1E1E1E] tracking-tight font-extrabold uppercase leading-tight">
+              What are you aiming for?
+            </h1>
+<p class="font-body-md text-body-md text-[#1E1E1E]/75 -mt-1 font-medium">
+              Set your target clearly. Aimly provides warm guardrails so you maintain unbroken momentum.
+            </p>
+</div>
+<!-- Form / Controls Cluster -->
+<form class="space-y-7" onsubmit="event.preventDefault();">
+<!-- Field 1: One-Line Goal Input -->
+<div class="space-y-2">
+<label class="block font-label-caps text-label-caps text-[#1E1E1E] font-bold tracking-wider" for="aim-input">
+                YOUR FOCUS AIM
+              </label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant/50 text-xl group-focus-within:text-primary-container transition-colors" data-icon="track_changes">track_changes</span>
+</div>
+<input autofocus="" class="w-full pl-12 pr-4 py-4 bg-white/60 border border-white/90 rounded-2xl text-[#1E1E1E] placeholder-[#1E1E1E]/40 font-body-lg text-body-lg font-semibold focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/30 transition-all shadow-sm" id="aim-input" placeholder="e.g. study DSA topic graphs" type="text" value="study DSA topic graphs"/>
+<div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+<span class="font-label-caps text-label-caps text-[#1E1E1E]/50 uppercase tracking-widest bg-white/70 px-2 py-1 rounded-md border border-white/50">AIM LOCK</span>
+</div>
+</div>
+</div>
+<!-- Field 2: Duration Chips Section -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-[#1E1E1E] font-bold tracking-wider">SESSION DURATION</span>
+<span class="font-body-md text-body-md text-[#1E1E1E]/60 text-xs font-medium">Recommended: 25m interval</span>
+</div>
+<!-- Pill Chips Row -->
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+<!-- 15 min (Inactive) -->
+<button class="py-3 px-4 rounded-full bg-white/55 border border-white/80 text-[#1E1E1E] font-semibold font-body-md text-body-md text-center hover:bg-white/80 hover:border-white transition-all active:scale-95 shadow-sm" type="button">
+                  15 min
+                </button>
+<!-- 25 min (Active Selected State) -->
+<button class="py-3 px-4 rounded-full bg-[#FF7A21] border border-[#FF7A21] text-[#1E1E1E] font-extrabold font-body-md text-body-md text-center shadow-[0_4px_16px_rgba(255,122,33,0.30)] ring-2 ring-white/60 transition-all active:scale-95 flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base" data-icon="timer" style="font-variation-settings: 'FILL' 1;">timer</span>
+                  25 min
+                </button>
+<!-- 45 min (Inactive) -->
+<button class="py-3 px-4 rounded-full bg-white/55 border border-white/80 text-[#1E1E1E] font-semibold font-body-md text-body-md text-center hover:bg-white/80 hover:border-white transition-all active:scale-95 shadow-sm" type="button">
+                  45 min
+                </button>
+<!-- 60 min (Inactive) -->
+<button class="py-3 px-4 rounded-full bg-white/55 border border-white/80 text-[#1E1E1E] font-semibold font-body-md text-body-md text-center hover:bg-white/80 hover:border-white transition-all active:scale-95 shadow-sm" type="button">
+                  60 min
+                </button>
+<!-- Custom (Inactive) -->
+<button class="col-span-2 sm:col-span-1 py-3 px-4 rounded-full bg-white/55 border border-white/80 text-[#1E1E1E] font-semibold font-body-md text-body-md text-center hover:bg-white/80 hover:border-white transition-all active:scale-95 shadow-sm flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+                  Custom
+                </button>
+</div>
+</div>
+<!-- Field 3: Drift Intervention Mode Selection -->
+<div class="space-y-3">
+<span class="block font-label-caps text-label-caps text-[#1E1E1E] font-bold tracking-wider">DRIFT INTERVENTION MODE</span>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Option 1: Soft Nudge (Selected Recommended State) -->
+<div class="relative p-5 rounded-2xl bg-white/85 border-2 border-primary-container shadow-[0_8px_24px_rgba(255,122,33,0.12)] cursor-pointer transition-all hover:shadow-md group">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-[#FFB422]/25 flex items-center justify-center text-[#1E1E1E]">
+<span class="material-symbols-outlined text-xl" data-icon="notifications_active" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+</div>
+<div>
+<span class="inline-block px-2 py-0.5 rounded-full bg-[#FFB422] text-[#1E1E1E] font-label-caps text-label-caps tracking-wider font-extrabold mb-0.5">
+                          RECOMMENDED
+                        </span>
+<h4 class="font-headline-md text-headline-md text-[#1E1E1E] font-bold">Soft nudge</h4>
+</div>
+</div>
+<!-- Selected Indicator Checkmark Badge -->
+<div class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-white text-sm font-bold" data-icon="check">check</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-[#1E1E1E]/80 pl-0.5 font-medium leading-snug">
+                    A warning lets you continue or discard when drifting off topic. Gentle &amp; mindful.
+                  </p>
+</div>
+<!-- Option 2: Strict Lock (Unselected State) -->
+<div class="relative p-5 rounded-2xl bg-white/40 border border-outline-variant/50 hover:bg-white/60 hover:border-white transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-black/5 flex items-center justify-center text-[#1E1E1E]/70 group-hover:text-[#1E1E1E] transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="lock">lock</span>
+</div>
+<div>
+<div class="h-[17px] mb-0.5"></div>
+<h4 class="font-headline-md text-headline-md text-[#1E1E1E]/90 font-bold">Strict lock</h4>
+</div>
+</div>
+<!-- Unselected Empty Circle -->
+<div class="w-6 h-6 rounded-full border border-[#1E1E1E]/20 group-hover:border-[#1E1E1E]/40 flex items-center justify-center"></div>
+</div>
+<p class="font-body-md text-body-md text-[#1E1E1E]/65 pl-0.5 font-normal leading-snug">
+                    You must close the off-task tab to continue. Zero tolerance during peak focus hours.
+                  </p>
+</div>
+</div>
+</div>
+<!-- Primary Action CTA -->
+<div class="pt-2 space-y-4">
+<button class="w-full py-4 px-8 rounded-full bg-[#FF7A21] hover:brightness-105 active:scale-[0.99] text-[#1E1E1E] font-extrabold font-headline-md text-headline-md shadow-[0_12px_32px_rgba(255,122,33,0.35)] transition-all flex items-center justify-center gap-3 border border-white/40" type="submit">
+<span>Start focus</span>
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Discreet Privacy / Monitoring Note -->
+<div class="flex items-center justify-center gap-1.5 text-center text-[#1E1E1E]/70 font-body-md text-body-md">
+<span class="material-symbols-outlined text-base" data-icon="visibility">visibility</span>
+<span class="text-xs font-medium">Aimly will check pages you visit during this session. All analysis remains on-device.</span>
+</div>
+</div>
+</form>
+</div>
+</main>
+<!-- Atmospheric Micro Footer Info -->
+<footer class="py-4 px-8 text-center text-[#1E1E1E]/40 font-label-caps text-label-caps tracking-widest uppercase">
+        AIMLY FOCUS SUITE • POSITIVE GUIDANCE ENGINE • ACTIVE WORKSPACE
+      </footer>
+</div>
+</div>
+<!-- Interactive State Micro-Interactions Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Duration Chip Switcher
+      const durationChips = document.querySelectorAll('.grid-cols-2 button, .grid-cols-5 button');
+      durationChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          durationChips.forEach(c => {
+            c.className = "py-3 px-4 rounded-full bg-white/55 border border-white/80 text-[#1E1E1E] font-semibold font-body-md text-body-md text-center hover:bg-white/80 hover:border-white transition-all active:scale-95 shadow-sm";
+          });
+          chip.className = "py-3 px-4 rounded-full bg-[#FF7A21] border border-[#FF7A21] text-[#1E1E1E] font-extrabold font-body-md text-body-md text-center shadow-[0_4px_16px_rgba(255,122,33,0.30)] ring-2 ring-white/60 transition-all active:scale-95 flex items-center justify-center gap-1.5";
+        });
+      });
+
+      // Intervention Mode Card Selection
+      const modeCards = document.querySelectorAll('.grid-cols-1.md\\:grid-cols-2 > div');
+      modeCards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          modeCards.forEach(c => {
+            c.classList.remove('border-2', 'border-primary-container', 'bg-white/85', 'shadow-[0_8px_24px_rgba(255,122,33,0.12)]');
+            c.classList.add('border', 'border-outline-variant/50', 'bg-white/40');
+            const check = c.querySelector('.w-6.h-6');
+            if (check) {
+              check.className = "w-6 h-6 rounded-full border border-[#1E1E1E]/20 group-hover:border-[#1E1E1E]/40 flex items-center justify-center";
+              check.innerHTML = '';
+            }
+          });
+
+          card.classList.remove('border', 'border-outline-variant/50', 'bg-white/40');
+          card.classList.add('border-2', 'border-primary-container', 'bg-white/85', 'shadow-[0_8px_24px_rgba(255,122,33,0.12)]');
+          const check = card.querySelector('.w-6.h-6');
+          if (check) {
+            check.className = "w-6 h-6 rounded-full bg-primary-container flex items-center justify-center shadow-sm";
+            check.innerHTML = '<span class="material-symbols-outlined text-white text-sm font-bold" data-icon="check">check</span>';
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

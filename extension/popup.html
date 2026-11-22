@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aimly</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="ambient-blob"></div>
+
+  <div class="popup-container">
+    <!-- Shared Header -->
+    <header class="popup-header">
+      <div class="brand-logo">
+        <span class="brand-dot"></span>
+        <span>Aimly</span>
+      </div>
+      <div id="user-avatar-btn" class="user-avatar" title="Account profile">
+        <span id="user-initials">?</span>
+      </div>
+    </header>
+
+    <!-- Compact Focus Rewards Line (Level, Points, Streak, Freezes) -->
+    <div id="rewards-mini-bar" class="rewards-mini-bar" style="display: none;">
+      <span id="rewards-tier-badge" class="badge-tier">Beginner</span>
+      <div class="rewards-mini-stats">
+        <span id="rewards-pts">0 pts</span>
+        <span class="sep">•</span>
+        <span id="rewards-streak">0d</span>
+        <span class="sep">•</span>
+        <span class="rewards-freeze-pill" title="Streak freezes held">
+          <svg style="width: 11px; height: 11px; fill: var(--primary); flex-shrink: 0;" viewBox="0 0 24 24"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/></svg>
+          <span id="rewards-freezes">0</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Gentle Streak-at-Risk Hint -->
+    <div id="streak-at-risk-hint" class="streak-risk-banner" style="display: none;">
+      Your streak is waiting, one session keeps it alive.
+    </div>
+
+    <!-- Error Banner (if backend unreachable) -->
+    <div id="error-banner" class="error-banner" style="display: none;"></div>
+
+    <!-- State: Loading Skeleton -->
+    <div id="state-loading" style="display: none; padding: 40px 0; text-align: center;">
+      <div style="width: 32px; height: 32px; border: 3px solid var(--primary); border-top-color: transparent; border-radius: 50%; margin: 0 auto 12px; animation: spin 0.8s linear infinite;"></div>
+      <p style="font-size: 12px; font-weight: 700; color: #555;">Connecting to Aimly...</p>
+    </div>
+
+    <!-- State 1: Logged Out -->
+    <main id="state-logged-out" style="display: none; flex: 1; flex-direction: column; justify-content: center; text-align: center;">
+      <div style="margin-bottom: 24px;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+          <div style="width: 18px; height: 18px; border-radius: 50%; background: var(--ink);"></div>
+        </div>
+        <h1 style="font-size: 20px; font-weight: 900; text-transform: uppercase;">Log in to start focusing</h1>
+        <p style="font-size: 12px; font-weight: 600; color: #666; margin-top: 4px;">Your goals, your pace.</p>
+      </div>
+
+      <div class="frosted-card" style="margin-bottom: 16px;">
+        <form id="login-form">
+          <input type="email" id="login-email" placeholder="Email address" class="pill-input" required style="margin-bottom: 10px;" />
+          <input type="password" id="login-password" placeholder="Password" class="pill-input" required style="margin-bottom: 16px;" />
+          <button type="submit" id="login-submit-btn" class="btn-pill btn-primary">Log in</button>
+          <button type="button" id="btn-quick-demo-fill" class="btn-pill" style="margin-top: 8px; font-size: 11px; background: var(--soft-orange); border: 1px solid rgba(255, 122, 33, 0.3); color: var(--ink); cursor: pointer;">Use Demo (demo@aimly.app)</button>
+        </form>
+      </div>
+
+      <div style="font-size: 11px; font-weight: 700;">
+        <a id="link-create-account" href="#" style="color: var(--ink); text-decoration: underline;">Create account in Aimly</a>
+      </div>
+    </main>
+
+    <!-- State 2: Idle (Logged In) -->
+    <main id="state-idle" style="display: none; flex: 1; flex-direction: column; gap: 12px;">
+      <div>
+        <h1 style="font-size: 22px; font-weight: 900; text-transform: uppercase; line-height: 1.1;">Ready to focus?</h1>
+        <p id="idle-weekly-stat" style="font-size: 11px; font-weight: 700; color: #666; margin-top: 2px;">Loading weekly stats...</p>
+      </div>
+
+      <!-- Card a: Quick Start -->
+      <div class="frosted-card frosted-card-accent">
+        <input type="text" id="quick-goal-input" placeholder="e.g. study DSA topic graphs" class="pill-input" />
+        
+        <div class="chip-row">
+          <button type="button" class="duration-chip" data-min="15">15 min</button>
+          <button type="button" class="duration-chip selected" data-min="25">25 min</button>
+          <button type="button" class="duration-chip" data-min="45">45 min</button>
+        </div>
+
+        <div class="segmented-toggle">
+          <button type="button" class="toggle-opt selected" data-mode="soft">Soft</button>
+          <button type="button" class="toggle-opt" data-mode="strict">Strict</button>
+        </div>
+        <p id="toggle-hint-text" class="toggle-hint">Soft: you can continue or discard</p>
+
+        <button type="button" id="start-session-btn" class="btn-pill btn-primary" disabled>Start</button>
+      </div>
+
+      <!-- Card b: Resume Last Goal -->
+      <div id="resume-card" class="frosted-card" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px;">
+        <div style="flex: 1; overflow: hidden; padding-right: 8px;">
+          <p id="last-goal-text" style="font-size: 12px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">No sessions yet</p>
+          <div id="last-goal-chips" style="display: flex; gap: 4px; margin-top: 2px;">
+            <span id="last-goal-duration" style="font-size: 9px; font-weight: 800; background: var(--soft-orange); padding: 2px 6px; border-radius: 9999px;">25m</span>
+            <span id="last-goal-mode" style="font-size: 9px; font-weight: 800; background: var(--amber); padding: 2px 6px; border-radius: 9999px; text-transform: uppercase;">soft</span>
+          </div>
+        </div>
+        <button id="resume-btn" style="width: 34px; height: 34px; border-radius: 50%; background: var(--primary); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;" title="Resume goal">
+          <svg style="width: 14px; height: 14px; fill: var(--ink);" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      </div>
+
+      <!-- Card c: Open Dashboard -->
+      <div id="open-dashboard-card" class="frosted-card" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg style="width: 16px; height: 16px; fill: var(--ink);" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+          <span style="font-size: 12px; font-weight: 800;">Open Dashboard</span>
+        </div>
+        <span id="weekly-total-preview" style="font-size: 11px; font-weight: 700; color: #666;">--</span>
+      </div>
+    </main>
+
+    <!-- State 3: Running Session -->
+    <main id="state-running" style="display: none; flex: 1; flex-direction: column; justify-content: space-between; text-align: center;">
+      <div>
+        <!-- Mode & Drift chips -->
+        <div style="display: flex; justify-content: center; gap: 6px; margin-bottom: 8px;">
+          <span id="running-mode-chip" style="font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 9999px; text-transform: uppercase;">Soft</span>
+          <span id="running-drift-chip" style="font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 9999px; background: rgba(255, 180, 34, 0.3);">0 drifts</span>
+        </div>
+
+        <p id="running-goal-text" style="font-size: 14px; font-weight: 800; line-height: 1.3; max-height: 38px; overflow: hidden; margin-bottom: 4px;">Goal Text</p>
+
+        <!-- 180px Countdown Ring -->
+        <div class="ring-container">
+          <svg class="ring-svg" viewBox="0 0 180 180">
+            <circle cx="90" cy="90" r="76" stroke="rgba(30, 30, 30, 0.08)" stroke-width="12" fill="transparent" />
+            <circle id="countdown-progress-ring" cx="90" cy="90" r="76" stroke="var(--primary)" stroke-width="12" stroke-linecap="round" fill="transparent" />
+          </svg>
+          <div class="ring-center">
+            <span id="countdown-digits" class="ring-numerals">25:00</span>
+            <span id="countdown-label" class="ring-status">Focusing</span>
+          </div>
+        </div>
+
+        <!-- Inline End Session Confirmation -->
+        <div id="inline-end-confirm" style="display: none; background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 12px; margin-bottom: 10px;">
+          <p style="font-size: 11px; font-weight: 800; margin-bottom: 8px;">End this session?</p>
+          <div style="display: flex; gap: 6px;">
+            <button id="btn-confirm-complete" class="btn-pill btn-primary" style="height: 32px; font-size: 11px;">Complete</button>
+            <button id="btn-confirm-discard" class="btn-pill btn-outline" style="height: 32px; font-size: 11px;">Discard</button>
+          </div>
+          <button id="btn-cancel-end" style="background: none; border: none; font-size: 10px; font-weight: 700; color: #777; margin-top: 6px; cursor: pointer;">Cancel</button>
+        </div>
+
+        <!-- Running Buttons: Pause & End -->
+        <div id="running-main-actions" style="display: flex; gap: 8px; margin-top: 8px;">
+          <button id="btn-toggle-pause" class="btn-pill btn-outline" style="flex: 1;">Pause</button>
+          <button id="btn-open-end-confirm" class="btn-pill btn-ink" style="flex: 1;">End session</button>
+        </div>
+
+        <!-- Earn-a-Break Action & Active Break Countdown -->
+        <div id="running-break-container" style="display: none; margin-top: 8px;">
+          <button type="button" id="btn-redeem-break" class="btn-pill btn-break" style="width: 100%; height: 32px; font-size: 11px;">
+            Take 5-min break (100 pts)
+          </button>
+          <div id="running-break-active" style="display: none; background: var(--soft-orange); border: 1px solid var(--primary); border-radius: 9999px; padding: 5px 10px; font-size: 10px; font-weight: 800; color: var(--ink);">
+            Break active: <span id="break-countdown-digits">05:00</span> (Drift paused)
+          </div>
+        </div>
+      </div>
+
+      <div style="padding-top: 10px;">
+        <a id="link-running-dashboard" href="#" style="font-size: 11px; font-weight: 700; color: #555; text-decoration: underline;">Open dashboard</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <div id="footer-streak" class="streak-chip">
+        <svg style="width: 12px; height: 12px; fill: var(--primary);" viewBox="0 0 24 24"><path d="M12 2c1.1 0 2 .9 2 2 0 .7-.4 1.4-1 1.7V7c2.8.5 5 2.9 5 5.8 0 3.4-2.8 6.2-6.2 6.2S5.6 16.2 5.6 12.8c0-2.9 2.2-5.3 5-5.8V5.7c-.6-.3-1-1-1-1.7 0-1.1.9-2 2-2m0 8c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"/></svg>
+        <span id="footer-streak-text">0 day streak</span>
+      </div>
+      <div class="privacy-lock">
+        <svg style="width: 10px; height: 10px; fill: #666;" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+        <span>Tracking only during sessions</span>
+      </div>
+    </footer>
+  </div>
+
+  <style>
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+  </style>
+
+  <script src="popup.js"></script>
+</body>
+</html>

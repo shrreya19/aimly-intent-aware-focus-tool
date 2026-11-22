@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aimly • Streak &amp; History</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#feb320",
+            "surface-dim": "#dcd9d9",
+            "on-primary": "#ffffff",
+            "tertiary-container": "#b49c8a",
+            "secondary": "#7f5600",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e5e2e1",
+            "on-tertiary-fixed": "#27190d",
+            "surface-container-highest": "#e5e2e1",
+            "error-container": "#ffdad6",
+            "outline": "#8c7265",
+            "on-secondary-container": "#6b4800",
+            "on-primary-fixed-variant": "#783200",
+            "tertiary-fixed-dim": "#dcc2af",
+            "primary": "#9d4400",
+            "outline-variant": "#e0c0b1",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#281800",
+            "on-surface": "#1b1b1c",
+            "on-tertiary-fixed-variant": "#554335",
+            "inverse-surface": "#303030",
+            "on-tertiary-container": "#453426",
+            "surface-bright": "#fcf9f8",
+            "on-primary-container": "#5f2600",
+            "on-primary-fixed": "#331100",
+            "on-error": "#ffffff",
+            "surface-tint": "#9d4400",
+            "tertiary": "#6f5a4b",
+            "surface-container": "#f0eded",
+            "background": "#fcf9f8",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#f6f3f2",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#f3f0ef",
+            "secondary-fixed-dim": "#ffba40",
+            "on-secondary-fixed-variant": "#604100",
+            "tertiary-fixed": "#f9ddca",
+            "primary-container": "#ff7a21",
+            "error": "#ba1a1a",
+            "on-background": "#1b1b1c",
+            "secondary-fixed": "#ffddae",
+            "primary-fixed": "#ffdbca",
+            "surface": "#fcf9f8",
+            "primary-fixed-dim": "#ffb690",
+            "surface-container-high": "#eae7e7",
+            "on-surface-variant": "#584237",
+            "inverse-primary": "#ffb690"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin": "2.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "margin-mobile": "1.25rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "timer-display-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "timer-display": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "0.03em", "fontWeight": "800" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "timer-display-mobile": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "timer-display": ["72px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#F3E6D3] text-on-surface antialiased min-h-screen flex flex-col relative selection:bg-primary-container selection:text-on-primary-fixed overflow-x-hidden">
+<!-- Ambient Glowing Depth Radial Blurs (Design System Grounding) -->
+<div class="fixed top-[-100px] left-1/4 w-[480px] h-[480px] bg-primary-container rounded-full opacity-25 blur-[100px] pointer-events-none -z-10 transform -translate-x-1/2"></div>
+<div class="fixed top-[260px] right-[-80px] w-[540px] h-[540px] bg-secondary-container rounded-full opacity-20 blur-[120px] pointer-events-none -z-10"></div>
+<div class="fixed bottom-[-60px] left-10 w-[420px] h-[420px] bg-primary-container rounded-full opacity-15 blur-[90px] pointer-events-none -z-10"></div>
+<!-- Shared Component: TopNavBar -->
+<header class="bg-surface/65 backdrop-blur-md border-b border-surface-container-highest/60 sticky top-0 z-50 shadow-[0_8px_32px_-4px_rgba(255,122,33,0.08),0_2px_8px_-1px_rgba(30,30,30,0.04)]">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin max-w-7xl mx-auto h-16">
+<!-- Brand & Product Name -->
+<div class="flex items-center gap-space-lg">
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-surface shadow-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined fill-icon text-white text-[18px]">target</span>
+</div>
+<span class="text-headline-md font-headline-md font-extrabold text-on-surface tracking-tight">Aimly</span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-space-lg pl-space-md">
+<a class="text-on-surface-variant font-label-lg hover:text-on-surface pb-1 transition-colors" href="#">Focus</a>
+<a class="text-on-surface-variant font-label-lg hover:text-on-surface pb-1 transition-colors" href="#">Tasks</a>
+<!-- Active intent match: Insights / Streak & History -->
+<a class="text-primary font-headline-sm border-b-2 border-primary pb-1" href="#">Insights</a>
+<a class="text-on-surface-variant font-label-lg hover:text-on-surface pb-1 transition-colors" href="#">Settings</a>
+</nav>
+</div>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-space-md">
+<!-- Shared Action: notifications -->
+<button aria-label="Notifications" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface-container/50 transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<!-- Shared Action: tune -->
+<button aria-label="Audio &amp; Ambient Tuning" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface-container/50 transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+<!-- User profile avatar with golden focus badge -->
+<div class="relative group cursor-pointer pl-1">
+<div class="w-9 h-9 rounded-full ring-2 ring-primary-container/40 p-0.5 overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover rounded-full" data-alt="A clean portrait photo of a focused modern professional wearing minimal neutral clothing, set against a warm sunlit amber studio background. High clarity, calm, contemporary aesthetic with natural skin tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZNVaT1Tn6VGeyoBboj1AefyVii7QQhqbC9sF_d_XubrR6u_dHJ7PVLoVPsCu58yonaLYbw2zQ047sGmJ4gN-GWoM-MV8tUeM1LRvfxayR86IS90L-qGXJnmaQgqlRP99XOd6Ixf3ZmpPDUNm_ba0UJE7sk-Hb7xEd2VKlFRRlfHdDSG8Vea6vJqH6jVuSAvxc6pt-G7pwysIxNDXfCWCMNgj3xvZd4OWHZ_wfwjLsnWaweioJgeq6"/>
+</div>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-secondary-container ring-2 ring-surface rounded-full flex items-center justify-center" title="Level 9 Focus Aura">
+<span class="material-symbols-outlined text-[9px] text-on-secondary-container font-black">bolt</span>
+</span>
+</div>
+<!-- Trailing Primary Action -->
+<button class="hidden sm:inline-flex items-center gap-2 bg-primary-container text-on-surface hover:bg-secondary-container font-label-lg text-label-lg h-10 px-5 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-[0_4px_16px_rgba(255,122,33,0.25)] font-bold">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Start Session</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (12-column layout max 1280px) -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-xl">
+<!-- Hero Streak Banner Card -->
+<section class="relative overflow-hidden rounded-[24px] bg-white/65 backdrop-blur-lg border border-white/80 p-space-lg md:p-space-xl shadow-[0_8px_32px_-4px_rgba(255,122,33,0.12),0_2px_8px_-1px_rgba(30,30,30,0.04)]">
+<!-- Glow ambient circle inside card -->
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-space-lg relative z-10">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<!-- Tag / Breadcrumb -->
+<div class="inline-flex items-center gap-2 self-start bg-tertiary-fixed/60 border border-white/80 px-3 py-1 rounded-full text-on-tertiary-fixed font-label-sm text-label-sm tracking-wide">
+<span class="material-symbols-outlined text-[14px] text-primary">verified</span>
+<span>Aimly Performance • Consistency Engine</span>
+</div>
+<!-- Headline -->
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tight leading-tight mt-1">
+            Your focus streak: <span class="text-primary-container inline-flex items-center gap-2 relative underline decoration-secondary-container/40 underline-offset-8">9 days</span>
+</h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">
+            You're 5 days away from unlocking the <strong class="text-on-surface font-semibold">2-Week Momentum</strong> milestone. Keep showing up.
+          </p>
+</div>
+<!-- Quick Action Pill CTA -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm w-full md:w-auto">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary-container hover:bg-secondary-container text-on-surface font-label-lg text-label-lg h-12 px-7 rounded-full shadow-[0_8px_24px_rgba(255,122,33,0.30)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] font-bold">
+<span class="material-symbols-outlined text-[20px] fill-icon">local_fire_department</span>
+<span>Start Focus Now</span>
+</button>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/70 hover:bg-[#FFE3CF] text-on-surface font-label-lg text-label-lg h-12 px-6 rounded-full border border-white/90 backdrop-blur-md transition-all duration-200 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Log Focus Session</span>
+</button>
+</div>
+</div>
+<!-- Quick Session Strip Stats within Hero -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-md mt-space-lg pt-space-lg border-t border-surface-container-highest/60">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Current Pace</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-extrabold mt-0.5">3.4 hrs / day</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Freeze Shields</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-extrabold">2 active</span>
+<span class="material-symbols-outlined text-primary text-[18px]" title="Streak Protection Active">shield</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Session Accuracy</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-extrabold mt-0.5">94.8%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Next Shield Unlock</span>
+<span class="font-headline-sm text-headline-sm text-primary font-extrabold mt-0.5">in 3 days</span>
+</div>
+</div>
+</section>
+<!-- Three Frosted Metric Stat Cards (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Card 1: Longest Streak -->
+<div class="rounded-[24px] bg-white/65 backdrop-blur-md border border-white/80 p-space-lg shadow-[0_8px_32px_-4px_rgba(255,122,33,0.08),0_2px_8px_-1px_rgba(30,30,30,0.04)] hover:bg-white/80 transition-all duration-300 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Longest streak</span>
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">military_tech</span>
+</div>
+</div>
+<div class="my-3">
+<div class="font-timer-display text-headline-lg md:text-[44px] font-extrabold text-on-surface leading-tight">21 days</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Sept 12 – Oct 3 • High-flow period</div>
+</div>
+<div class="pt-3 border-t border-surface-container-highest/40 flex items-center gap-2">
+<span class="inline-flex items-center gap-0.5 bg-[#FFE3CF] text-on-primary-container px-2.5 py-0.5 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+4 days</span>
+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">vs previous personal record</span>
+</div>
+</div>
+<!-- Card 2: Total Focus Hours -->
+<div class="rounded-[24px] bg-white/65 backdrop-blur-md border border-white/80 p-space-lg shadow-[0_8px_32px_-4px_rgba(255,122,33,0.08),0_2px_8px_-1px_rgba(30,30,30,0.04)] hover:bg-white/80 transition-all duration-300 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total focus hours</span>
+<div class="w-9 h-9 rounded-full bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">timelapse</span>
+</div>
+</div>
+<div class="my-3">
+<div class="font-timer-display text-headline-lg md:text-[44px] font-extrabold text-on-surface leading-tight">148.5 hrs</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Calculated across 84 tracked days</div>
+</div>
+<div class="pt-3 border-t border-surface-container-highest/40 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">112h Deep Focus (75%)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">36.5h Light Focus</span>
+</div>
+</div>
+<!-- Card 3: Sessions Completed -->
+<div class="rounded-[24px] bg-white/65 backdrop-blur-md border border-white/80 p-space-lg shadow-[0_8px_32px_-4px_rgba(255,122,33,0.08),0_2px_8px_-1px_rgba(30,30,30,0.04)] hover:bg-white/80 transition-all duration-300 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Sessions completed</span>
+<div class="w-9 h-9 rounded-full bg-primary-fixed/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+</div>
+<div class="my-3">
+<div class="font-timer-display text-headline-lg md:text-[44px] font-extrabold text-on-surface leading-tight">186 sessions</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">48 mins average session duration</div>
+</div>
+<div class="pt-3 border-t border-surface-container-highest/40 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface">98.2% completion rate</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Zero abandoned</span>
+</div>
+</div>
+</section>
+<!-- 12-Week Focus Calendar Heatmap Card -->
+<section class="rounded-[24px] bg-white/65 backdrop-blur-md border border-white/80 p-space-lg md:p-space-xl shadow-[0_8px_32px_-4px_rgba(255,122,33,0.08),0_2px_8px_-1px_rgba(30,30,30,0.04)]">
+<!-- Heatmap Header -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-space-sm pb-space-md border-b border-surface-container-highest/60">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Activity Heatmap (Last 12 Weeks)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">84 total tracked days • 412 focus sessions • Visualizing sustained cognitive load</p>
+</div>
+<div class="flex items-center gap-2 self-stretch sm:self-auto">
+<!-- Filter Select -->
+<div class="relative inline-block w-full sm:w-auto">
+<select class="w-full sm:w-auto appearance-none bg-white/70 hover:bg-white text-on-surface font-label-sm text-label-sm pl-4 pr-9 py-2 rounded-full border border-white/90 focus:outline-none focus:ring-2 focus:ring-primary-container transition-all cursor-pointer">
+<option selected="">All Sessions</option>
+<option>Deep Work Only (90m+)</option>
+<option>Sprint Blocks (25m)</option>
+</select>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-white/70 flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white transition-colors" title="Export Heatmap Data">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</div>
+<!-- Heatmap Grid Container with Month Header and Day labels -->
+<div class="mt-space-lg overflow-x-auto pb-4">
+<div class="min-w-[820px] flex flex-col gap-2">
+<!-- Month Dividers Row -->
+<div class="grid grid-cols-[48px_repeat(12,1fr)] gap-2 text-label-sm font-label-sm text-on-surface-variant mb-1">
+<span></span>
+<span class="col-span-3 text-left pl-1">October</span>
+<span class="col-span-4 text-left pl-1">November</span>
+<span class="col-span-4 text-left pl-1">December</span>
+<span class="col-span-1 text-left pl-1">Jan</span>
+</div>
+<!-- Heatmap Body: 7 rows (Mon-Sun) x 12 columns (Weeks) -->
+<div class="flex gap-2">
+<!-- Day of Week Labels (Mon, Wed, Fri, Sun visible) -->
+<div class="flex flex-col justify-between w-12 py-1 text-label-sm font-label-sm text-on-surface-variant">
+<span class="h-8 flex items-center">Mon</span>
+<span class="h-8 flex items-center text-transparent">Tue</span>
+<span class="h-8 flex items-center">Wed</span>
+<span class="h-8 flex items-center text-transparent">Thu</span>
+<span class="h-8 flex items-center">Fri</span>
+<span class="h-8 flex items-center text-transparent">Sat</span>
+<span class="h-8 flex items-center">Sun</span>
+</div>
+<!-- Heatmap 12 Column Matrix -->
+<div class="grid grid-cols-12 gap-2 flex-grow relative">
+<!-- Column 1 (W1) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer" title="Oct 7: 15m"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer" title="Oct 8: 40m"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer" title="Oct 9: 75m"></div>
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer" title="Oct 10: Rest"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer" title="Oct 11: 30m"></div>
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer" title="Oct 12: Rest"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer" title="Oct 13: 45m"></div>
+</div>
+<!-- Column 2 (W2) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+</div>
+<!-- Column 3 (W3) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+</div>
+<!-- Column 4 (W4) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+</div>
+<!-- Column 5 (W5) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+</div>
+<!-- Column 6 (W6) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+</div>
+<!-- Column 7 (W7) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+</div>
+<!-- Column 8 (W8) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+</div>
+<!-- Column 9 (W9) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+</div>
+<!-- Column 10 (W10) - Features the Active Tooltip on Wednesday Dec 18 -->
+<div class="flex flex-col gap-2 relative">
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<!-- Wednesday Dec 18 (Pre-hovered / Active Interactive Cell) -->
+<div class="h-8 rounded-lg bg-primary-container ring-2 ring-primary ring-offset-2 ring-offset-[#F3E6D3] shadow-[0_0_12px_rgba(255,122,33,0.7)] transition-transform scale-110 cursor-pointer relative z-30">
+<!-- Active Pre-hovered Tooltip Card -->
+<div class="absolute -top-[76px] left-1/2 -translate-x-1/2 w-72 bg-inverse-surface/95 text-inverse-on-surface backdrop-blur-xl border border-white/20 p-2.5 rounded-xl shadow-2xl z-50 pointer-events-none flex flex-col gap-1">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="font-bold text-secondary-fixed">Wednesday, Dec 18</span>
+<span class="bg-primary-container text-on-surface px-1.5 py-0.2 rounded font-black text-[10px]">DEEP WORK</span>
+</div>
+<div class="text-body-sm font-body-sm text-surface-variant leading-tight">
+<strong>3h 15m</strong> focused across 4 sessions
+                    </div>
+<div class="text-label-sm text-tertiary-fixed-dim truncate">
+                      Goal: DSA Graph Algorithms
+                    </div>
+<!-- Tooltip Arrow -->
+<div class="w-2.5 h-2.5 bg-inverse-surface/95 border-b border-r border-white/20 rotate-45 absolute -bottom-1.5 left-1/2 -translate-x-1/2"></div>
+</div>
+</div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+</div>
+<!-- Column 11 (W11) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#f59e0b] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#fed7aa] border border-white/60 transition-transform hover:scale-110 cursor-pointer"></div>
+</div>
+<!-- Column 12 (Current Streak Week - W12) -->
+<div class="flex flex-col gap-2">
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer"></div>
+<div class="h-8 rounded-lg bg-[#ff7a21] border border-white/80 shadow-[0_0_8px_rgba(255,122,33,0.35)] transition-transform hover:scale-110 cursor-pointer ring-1 ring-primary-container"></div>
+<div class="h-8 rounded-lg bg-[#fff3ec] border border-dashed border-primary/40 flex items-center justify-center text-primary font-bold text-[10px]" title="Today: Ready">NOW</div>
+<div class="h-8 rounded-lg bg-surface-container/40 border border-white/40 opacity-40"></div>
+<div class="h-8 rounded-lg bg-surface-container/40 border border-white/40 opacity-40"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Heatmap Footer with Legend & Focus Tiers -->
+<div class="flex flex-col sm:flex-row justify-between items-center gap-space-sm pt-space-md mt-space-sm border-t border-surface-container-highest/60">
+<div class="flex items-center gap-4 text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">flare</span>
+<span>Streak continuous since Dec 12</span>
+</span>
+<span class="hidden sm:inline-block">•</span>
+<span class="hidden sm:inline-flex items-center gap-1">
+<span>Peak session duration:</span>
+<strong class="text-on-surface font-semibold">1h 45m</strong>
+</span>
+</div>
+<!-- Legend -->
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span>Less</span>
+<div class="flex items-center gap-1.5">
+<span class="w-4 h-4 rounded bg-[#fff3ec] border border-white/80" title="0m (Rest)"></span>
+<span class="w-4 h-4 rounded bg-[#fed7aa] border border-white/80" title="1 - 45m (Light Focus)"></span>
+<span class="w-4 h-4 rounded bg-[#f59e0b] border border-white/80" title="45 - 90m (Medium Focus)"></span>
+<span class="w-4 h-4 rounded bg-primary-container border border-white/80 shadow-sm" title="90m+ (Deep Focus)"></span>
+</div>
+<span>More</span>
+<span class="ml-2 text-[11px] text-tertiary">(0m, 1-45m, 45-90m, 90m+)</span>
+</div>
+</div>
+</section>
+<!-- Streak Milestones (Progress & Achievements) -->
+<section class="flex flex-col gap-space-md">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Streak Milestones</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Badges awarded for sustained high-intensity consistency. Milestone badges empower long-term momentum.</p>
+</div>
+<!-- Horizontal Pill Milestone Badges -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md">
+<!-- Badge 1: 7 Days • Foundation (Achieved) -->
+<div class="bg-primary-container text-on-surface rounded-2xl p-4 flex flex-col justify-between shadow-[0_8px_20px_rgba(255,122,33,0.25)] border border-white/40 group hover:scale-[1.02] transition-transform">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center font-bold">
+<span class="material-symbols-outlined fill-icon text-[18px] text-white">check_circle</span>
+</div>
+<span class="bg-black/10 text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold">ACHIEVED</span>
+</div>
+<div class="mt-4">
+<h3 class="font-label-lg text-label-lg font-bold leading-tight">7 Days • Foundation</h3>
+<p class="font-body-sm text-body-sm opacity-90 mt-0.5 text-on-surface">Unlocked Dec 21</p>
+</div>
+<div class="mt-3 text-label-sm font-label-sm font-extrabold flex items-center gap-1">
+<span>Badge Minted #4029</span>
+</div>
+</div>
+<!-- Badge 2: 14 Days • Fortitude (In Progress 9/14) -->
+<div class="bg-white/75 backdrop-blur-md rounded-2xl p-4 flex flex-col justify-between border-2 border-primary-container shadow-[0_8px_24px_rgba(255,122,33,0.12)] group hover:scale-[1.02] transition-transform">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">timelapse</span>
+</div>
+<span class="bg-[#FFE3CF] text-on-primary-container font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold">9 / 14 DAYS</span>
+</div>
+<div class="mt-4">
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface leading-tight">14 Days • Fortitude</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">5 days remaining</p>
+</div>
+<!-- Mini Progress Bar -->
+<div class="mt-3 flex flex-col gap-1">
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Progress</span>
+<span class="font-bold text-primary">64%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-[64%]"></div>
+</div>
+</div>
+</div>
+<!-- Badge 3: 30 Days • Flow Master (Locked) -->
+<div class="bg-white/40 backdrop-blur-md rounded-2xl p-4 flex flex-col justify-between border border-surface-container-highest opacity-85 group hover:opacity-100 transition-opacity">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</div>
+<span class="text-outline font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container/60 font-semibold">LOCKED</span>
+</div>
+<div class="mt-4">
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface leading-tight">30 Days • Flow Master</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">21 days to go</p>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container-highest text-label-sm font-label-sm text-on-surface-variant">
+            Unlocks Pro Audio Presets
+          </div>
+</div>
+<!-- Badge 4: 60 Days • Unstoppable (Locked) -->
+<div class="bg-white/40 backdrop-blur-md rounded-2xl p-4 flex flex-col justify-between border border-surface-container-highest opacity-75 group hover:opacity-100 transition-opacity">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</div>
+<span class="text-outline font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container/60 font-semibold">LOCKED</span>
+</div>
+<div class="mt-4">
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface leading-tight">60 Days • Unstoppable</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">51 days to go</p>
+</div>
+<div class="mt-3 pt-2 border-t border-surface-container-highest text-label-sm font-label-sm text-on-surface-variant">
+            Unlocks Personal Domain Sync
+          </div>
+</div>
+<!-- Badge 5: 100 Days • Aimly Legend (Locked Golden Shimmer) -->
+<div class="bg-white/40 backdrop-blur-md rounded-2xl p-4 flex flex-col justify-between border border-secondary-container/50 relative overflow-hidden group hover:opacity-100 transition-opacity">
+<div class="absolute -top-6 -right-6 w-16 h-16 bg-secondary-container/20 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+<span class="text-secondary font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-fixed/50 font-bold">LEGENDARY</span>
+</div>
+<div class="mt-4">
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface leading-tight">100 Days • Aimly Legend</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">91 days to go</p>
+</div>
+<div class="mt-3 pt-2 border-t border-secondary-container/30 text-label-sm font-label-sm text-secondary font-bold">
+            Permanent Lifetime Badge
+          </div>
+</div>
+</div>
+</section>
+<!-- Daily Streak Log / History Table -->
+<section class="rounded-[24px] bg-white/65 backdrop-blur-md border border-white/80 p-space-lg md:p-space-xl shadow-[0_8px_32px_-4px_rgba(255,122,33,0.08),0_2px_8px_-1px_rgba(30,30,30,0.04)]">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-space-sm pb-space-md border-b border-surface-container-highest/60">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Recent Streak Days</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Audited logs for the current 9-day active sequence.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/70 hover:bg-white text-on-surface font-label-sm text-label-sm border border-white/90 transition-all">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+<span>Filter by Target</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/70 hover:bg-white text-on-surface font-label-sm text-label-sm border border-white/90 transition-all">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span>All December</span>
+</button>
+</div>
+</div>
+<!-- History Table Structure -->
+<div class="overflow-x-auto mt-space-md">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-container-highest/50 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-3 px-4 font-bold">Date &amp; Day</th>
+<th class="py-3 px-4 font-bold">Target Goal</th>
+<th class="py-3 px-4 font-bold">Total Time</th>
+<th class="py-3 px-4 font-bold">Drifts / Distractions</th>
+<th class="py-3 px-4 font-bold text-right">Streak Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest/40 font-body-sm text-body-sm">
+<!-- Row 1: Today (Dec 21) -->
+<tr class="hover:bg-white/60 transition-colors">
+<td class="py-4 px-4 font-bold text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span>Today, Dec 21</span>
+</div>
+</td>
+<td class="py-4 px-4 font-medium text-on-surface">
+                Distributed Database Architecture RFC
+              </td>
+<td class="py-4 px-4 font-bold text-primary">
+                3h 45m (4 blocks)
+              </td>
+<td class="py-4 px-4 text-on-surface-variant">
+<span class="inline-flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span>0 drifts detected</span>
+</span>
+</td>
+<td class="py-4 px-4 text-right">
+<span class="inline-flex items-center gap-1 bg-[#FFE3CF] text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full font-bold">
+<span class="material-symbols-outlined text-[14px] text-primary">local_fire_department</span>
+<span>Active (Day 9)</span>
+</span>
+</td>
+</tr>
+<!-- Row 2: Dec 20 -->
+<tr class="hover:bg-white/60 transition-colors">
+<td class="py-4 px-4 font-bold text-on-surface">
+                Friday, Dec 20
+              </td>
+<td class="py-4 px-4 font-medium text-on-surface">
+                Payment Gateway Microservice Refactor
+              </td>
+<td class="py-4 px-4 font-bold text-on-surface">
+                4h 10m (5 blocks)
+              </td>
+<td class="py-4 px-4 text-on-surface-variant">
+                1 tab switch (auto-muted)
+              </td>
+<td class="py-4 px-4 text-right">
+<span class="inline-flex items-center gap-1 bg-white/70 border border-white/90 text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px] text-primary">shield</span>
+<span>Protected</span>
+</span>
+</td>
+</tr>
+<!-- Row 3: Dec 19 -->
+<tr class="hover:bg-white/60 transition-colors">
+<td class="py-4 px-4 font-bold text-on-surface">
+                Thursday, Dec 19
+              </td>
+<td class="py-4 px-4 font-medium text-on-surface">
+                System Benchmark &amp; P99 Latency Profiling
+              </td>
+<td class="py-4 px-4 font-bold text-on-surface">
+                2h 50m (3 blocks)
+              </td>
+<td class="py-4 px-4 text-on-surface-variant">
+                0 drifts detected
+              </td>
+<td class="py-4 px-4 text-right">
+<span class="inline-flex items-center gap-1 bg-white/70 border border-white/90 text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px] text-primary">shield</span>
+<span>Protected</span>
+</span>
+</td>
+</tr>
+<!-- Row 4: Dec 18 -->
+<tr class="hover:bg-white/60 transition-colors">
+<td class="py-4 px-4 font-bold text-on-surface">
+                Wednesday, Dec 18
+              </td>
+<td class="py-4 px-4 font-medium text-on-surface">
+                DSA Graph Algorithms &amp; Bellman-Ford Study
+              </td>
+<td class="py-4 px-4 font-bold text-on-surface">
+                3h 15m (4 blocks)
+              </td>
+<td class="py-4 px-4 text-on-surface-variant">
+                0 drifts detected
+              </td>
+<td class="py-4 px-4 text-right">
+<span class="inline-flex items-center gap-1 bg-white/70 border border-white/90 text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px] text-primary">shield</span>
+<span>Protected</span>
+</span>
+</td>
+</tr>
+<!-- Row 5: Dec 17 -->
+<tr class="hover:bg-white/60 transition-colors">
+<td class="py-4 px-4 font-bold text-on-surface">
+                Tuesday, Dec 17
+              </td>
+<td class="py-4 px-4 font-medium text-on-surface">
+                Client API Schema Validation v2
+              </td>
+<td class="py-4 px-4 font-bold text-on-surface">
+                2h 30m (3 blocks)
+              </td>
+<td class="py-4 px-4 text-on-surface-variant">
+                2 drifts (shield intervened)
+              </td>
+<td class="py-4 px-4 text-right">
+<span class="inline-flex items-center gap-1 bg-white/70 border border-white/90 text-on-surface font-label-sm text-label-sm px-3 py-1 rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px] text-primary">shield</span>
+<span>Protected</span>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Bottom Log Summary -->
+<div class="mt-space-md pt-space-md border-t border-surface-container-highest/60 flex flex-col sm:flex-row justify-between items-center text-body-sm font-body-sm text-on-surface-variant gap-2">
+<span>Showing 5 of 84 recorded streak logs</span>
+<a class="text-primary font-semibold hover:underline flex items-center gap-1" href="#">
+<span>View full detailed session archive</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Shared Component: Footer -->
+<footer class="bg-surface/40 backdrop-blur-sm border-t border-surface-container-highest/40 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin py-space-lg max-w-7xl mx-auto gap-space-sm">
+<!-- Brand & Copyright -->
+<div class="flex items-center gap-3">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface">Aimly</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">
+          © 2024 Aimly Focus Technologies. Grounded high-performance productivity.
+        </span>
+</div>
+<!-- Footer Navigation Links from JSON -->
+<nav class="flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors duration-150" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors duration-150" href="#">Shortcuts</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors duration-150" href="#">Extension Settings</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors duration-150" href="#">Support</a>
+</nav>
+</div>
+</footer>
+</body></html>

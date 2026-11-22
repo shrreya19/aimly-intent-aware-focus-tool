@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aimly • Set your aim. Stay on it.</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#303030",
+            "secondary-fixed": "#ffddae",
+            "on-tertiary-fixed-variant": "#554335",
+            "background": "#fcf9f8",
+            "on-primary-fixed-variant": "#783200",
+            "surface-container-highest": "#e5e2e1",
+            "error": "#ba1a1a",
+            "primary-fixed": "#ffdbca",
+            "on-secondary-container": "#6b4800",
+            "surface-container-high": "#eae7e7",
+            "primary-container": "#ff7a21",
+            "tertiary": "#6f5a4b",
+            "on-tertiary-fixed": "#27190d",
+            "secondary-fixed-dim": "#ffba40",
+            "surface-dim": "#dcd9d9",
+            "on-background": "#1b1b1c",
+            "secondary": "#7f5600",
+            "on-surface-variant": "#584237",
+            "secondary-container": "#feb320",
+            "outline": "#8c7265",
+            "tertiary-container": "#b49c8a",
+            "surface-container": "#f0eded",
+            "on-tertiary-container": "#453426",
+            "outline-variant": "#e0c0b1",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#ffb690",
+            "surface-bright": "#fcf9f8",
+            "on-primary-fixed": "#331100",
+            "surface-tint": "#9d4400",
+            "surface-container-low": "#f6f3f2",
+            "on-primary-container": "#5f2600",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#9d4400",
+            "on-secondary-fixed-variant": "#604100",
+            "on-error": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-surface": "#1b1b1c",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#f3f0ef",
+            "surface-variant": "#e5e2e1",
+            "surface": "#fcf9f8",
+            "inverse-primary": "#ffb690",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#dcc2af",
+            "tertiary-fixed": "#f9ddca",
+            "on-secondary-fixed": "#281800"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "margin": "3rem",
+            "space-xl": "2.5rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "label-caps": ["Plus Jakarta Sans"],
+            "label-btn": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "stat-counter-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "stat-counter": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "display-hero-mobile": ["44px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }],
+            "label-btn": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "0.05em", "fontWeight": "800" }],
+            "stat-counter-mobile": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "32px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "display-hero": ["72px", { "lineHeight": "76px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "stat-counter": ["64px", { "lineHeight": "68px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .focal-glow-1 {
+      filter: blur(120px);
+      background: radial-gradient(circle, #FF7A21 0%, rgba(255, 122, 33, 0) 70%);
+    }
+    .focal-glow-2 {
+      filter: blur(110px);
+      background: radial-gradient(circle, #FEB320 0%, rgba(254, 179, 32, 0) 70%);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden relative selection:bg-primary-fixed selection:text-on-surface selection:font-semibold">
+<!-- Ambient Radiant Physics Glow Blobs (strictly abstract geometric/warm light - zero nature/plants) -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute -top-32 -left-32 w-[620px] h-[620px] focal-glow-1 opacity-[0.18]"></div>
+<div class="absolute top-1/4 -right-24 w-[580px] h-[580px] focal-glow-2 opacity-[0.22]"></div>
+<div class="absolute bottom-10 left-1/3 w-[640px] h-[640px] focal-glow-1 opacity-[0.14]"></div>
+</div>
+<!-- Shared Component: TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/65 backdrop-blur-md border-b border-surface-container-lowest/80 shadow-sm transition-all duration-200">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin flex items-center justify-between h-20 w-full">
+<!-- Brand Logo Anchor -->
+<a class="flex items-center gap-3 group active:scale-95 transition-transform duration-150" href="#">
+<!-- Abstract Concentric Aim / Target Rings Geometric Icon -->
+<div class="relative w-10 h-10 flex items-center justify-center">
+<span class="absolute inset-0 rounded-full border-[2.5px] border-primary-container opacity-40 group-hover:scale-105 transition-transform"></span>
+<span class="absolute inset-1.5 rounded-full border-[2px] border-secondary-container opacity-80"></span>
+<span class="w-3.5 h-3.5 rounded-full bg-on-surface"></span>
+</div>
+<span class="text-headline-md font-headline-md text-on-surface tracking-tight font-extrabold">Aimly</span>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary-container font-bold border-b-2 border-primary-container pb-1 text-label-btn font-label-btn transition-colors duration-200" href="#how-it-works">Dashboard</a>
+<a class="text-on-surface-variant font-medium pb-1 hover:text-primary-container transition-colors duration-200 text-label-btn font-label-btn" href="#features">Sessions</a>
+<a class="text-on-surface-variant font-medium pb-1 hover:text-primary-container transition-colors duration-200 text-label-btn font-label-btn" href="#telemetry">Telemetry</a>
+<a class="text-on-surface-variant font-medium pb-1 hover:text-primary-container transition-colors duration-200 text-label-btn font-label-btn" href="#settings">Settings</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-3 md:gap-4">
+<div class="hidden sm:flex items-center gap-1.5 text-on-surface-variant mr-2">
+<button aria-label="Notifications" class="p-2 rounded-full hover:bg-surface-container-high transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="Active Timer" class="p-2 rounded-full hover:bg-surface-container-high transition-colors" title="Active Timer">
+<span class="material-symbols-outlined text-[20px]" data-icon="timer">timer</span>
+</button>
+</div>
+<a class="hidden sm:inline-block text-label-btn font-label-btn text-on-surface hover:text-primary-container transition-colors px-3 py-2" href="#signin">
+          Sign In
+        </a>
+<a class="inline-flex items-center gap-2 bg-primary-container text-on-surface hover:bg-[#ff8633] active:scale-95 transition-all duration-150 px-6 py-3 rounded-full text-label-btn font-label-btn shadow-[0_8px_20px_-4px_rgba(255,122,33,0.35)]" href="#chrome-extension">
+<span>Start Focus</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<main class="max-w-7xl mx-auto px-margin-mobile md:px-margin pt-10 md:pt-16 pb-20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Left Column: Value Proposition -->
+<div class="lg:col-span-6 flex flex-col items-start gap-6">
+<!-- Status Pill Chip -->
+<div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-primary-fixed border border-primary-container/30">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-container"></span>
+</span>
+<span class="text-label-caps font-label-caps text-on-surface tracking-wider font-bold">
+            INTELLIGENT FOCUS TIMER • NO BLOCKLIST
+          </span>
+</div>
+<!-- Headline -->
+<h1 class="text-display-hero-mobile md:text-display-hero font-display-hero text-on-surface leading-[1.05] tracking-tight font-extrabold uppercase">
+          Set your aim. <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-on-surface via-primary-container to-secondary-container">Stay on it.</span>
+</h1>
+<!-- Subtext -->
+<p class="text-body-lg font-body-lg text-on-surface/85 max-w-xl">
+          A focus timer that understands what you're working on, not just which sites you visit. Powered by local context evaluation, not blunt restriction lists.
+        </p>
+<!-- CTA Row -->
+<div class="flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-primary-container text-on-surface px-8 py-4 rounded-full text-label-btn font-label-btn shadow-[0_12px_24px_-6px_rgba(255,122,33,0.4)] hover:translate-y-[-1px] active:translate-y-0 transition-all duration-150" href="#install">
+<span>Get started</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="east">east</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-[1.5px] border-on-surface text-on-surface px-7 py-3.5 rounded-full text-label-btn font-label-btn hover:bg-surface-container-lowest/60 backdrop-blur-sm transition-all duration-150" href="#how-it-works">
+<span>See how it works</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="play_circle">play_circle</span>
+</a>
+</div>
+<!-- Social Proof / Extension Metrics Badge -->
+<div class="pt-4 flex flex-col sm:flex-row sm:items-center gap-4 text-on-surface-variant text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-bold text-on-surface">4.9/5</span>
+<span>rating</span>
+</div>
+<span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<div>Available for <strong class="text-on-surface font-semibold">Chrome, Arc &amp; Brave</strong></div>
+<span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<div class="inline-flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary-container" data-icon="verified_user">verified_user</span>
+<span>Zero blocklists required</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Tactile Dashboard / Chrome Extension Popup Preview -->
+<div class="lg:col-span-6 relative">
+<!-- Floating Glass Ambient Halo -->
+<div class="absolute -inset-2 bg-gradient-to-tr from-primary-container/20 to-secondary-container/20 rounded-[32px] blur-2xl -z-10"></div>
+<!-- Surface Tier 2 Container -->
+<div class="bg-surface-container-lowest/70 backdrop-blur-xl border border-surface-container-lowest/90 rounded-[28px] p-6 md:p-8 shadow-[0_24px_48px_-12px_rgba(30,30,30,0.10),0_8px_16px_-4px_rgba(255,122,33,0.06)] relative overflow-hidden">
+<!-- Extension Window Header -->
+<div class="flex items-center justify-between pb-6 border-b border-surface-container-highest/60">
+<div class="flex items-center gap-2.5">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-80"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary-container"></span>
+</span>
+<span class="text-label-caps font-label-caps text-on-surface tracking-wider">
+                SESSION ACTIVE • 34:12 REMAINING
+              </span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-body-sm font-body-sm text-on-surface-variant font-mono">
+                25m sprint
+              </span>
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="more_horiz">more_horiz</span>
+</div>
+</div>
+</div>
+<!-- Current Aim Pill & Editing Widget -->
+<div class="mt-6 p-4 rounded-[18px] bg-surface-container-lowest/80 border border-surface-container-highest/50">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-label-caps font-label-caps text-on-surface-variant tracking-wider">CURRENT AIM</span>
+<button class="inline-flex items-center gap-1 text-label-caps font-label-caps text-primary-container hover:underline">
+<span class="material-symbols-outlined text-[14px]" data-icon="edit">edit</span>
+<span>Refine</span>
+</button>
+</div>
+<p class="text-headline-sm font-headline-sm text-on-surface tracking-normal leading-snug">
+              “Finalizing Q3 product teardown and competitive pricing matrix”
+            </p>
+</div>
+<!-- Focal Progress Ring & Alignment Meter -->
+<div class="my-7 flex flex-col sm:flex-row items-center justify-between gap-6 px-2">
+<div class="relative w-36 h-36 flex items-center justify-center shrink-0">
+<!-- Dual-Ring SVG Dial -->
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 120 120">
+<!-- Inactive Track -->
+<circle cx="60" cy="60" fill="none" r="48" stroke="#FFE3CF" stroke-width="8"></circle>
+<!-- Active Stroke: 88% circumference of r=48 is ~ 301.6 * 0.88 = 265.4 -->
+<circle cx="60" cy="60" fill="none" r="48" stroke="#FF7A21" stroke-dasharray="301.6" stroke-dashoffset="36.2" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<!-- Center Metric Stack -->
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="text-headline-md font-headline-md text-on-surface tracking-tight leading-none">88%</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant mt-1">ON AIM</span>
+</div>
+</div>
+<!-- Context Signal Telemetry Badges -->
+<div class="flex flex-col gap-2.5 w-full">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Semantic Alignment:</span>
+<span class="font-bold text-on-surface">High (0.88 Cosine)</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary-container h-2 rounded-full" style="width: 88%"></div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Context Scope:</span>
+<span class="text-on-surface font-semibold">Docs, Notion, Spreadsheet</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Local Privacy Engine:</span>
+<span class="inline-flex items-center gap-1 font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-primary-container" data-icon="lock">lock</span>
+<span>On-Device Embeddings</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Drift Notification Banner (Amber state, strictly non-punitive, warm accent) -->
+<div class="p-4 rounded-[20px] bg-primary-fixed/80 border border-secondary-container flex flex-col gap-3">
+<div class="flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface" data-icon="tips_and_updates">tips_and_updates</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface leading-snug">
+<strong>Gentle nudge:</strong> Active tab <em>“Mechanical Keyboard Forum”</em> drifts from current aim. Resume aim or adjust timer?
+              </p>
+</div>
+<!-- Interactivity Actions -->
+<div class="flex items-center gap-2 pl-8">
+<button class="bg-on-surface text-surface-container-lowest px-4 py-2 rounded-full text-label-btn font-label-btn text-xs hover:bg-black transition-colors">
+                Stay Focused
+              </button>
+<button class="bg-surface-container-lowest/90 border border-secondary-container text-on-surface px-4 py-2 rounded-full text-label-btn font-label-btn text-xs hover:bg-surface-container-lowest transition-colors">
+                Adjust Aim
+              </button>
+</div>
+</div>
+<!-- Mini Stats Bar -->
+<div class="mt-6 pt-5 border-t border-surface-container-highest/60 grid grid-cols-3 gap-2 text-center">
+<div>
+<span class="block text-headline-sm font-headline-sm text-on-surface">3.5 hrs</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Today Focused</span>
+</div>
+<div class="border-x border-surface-container-highest/60">
+<span class="block text-headline-sm font-headline-sm text-secondary">4 times</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Drift Caught</span>
+</div>
+<div>
+<span class="block text-headline-sm font-headline-sm text-primary">6 days</span>
+<span class="text-label-caps font-label-caps text-on-surface-variant">Aim Streak</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Features Section (Bento Glassmorphism Grid) -->
+<section class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-20 border-t border-surface-container-highest/50" id="features">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary-fixed/50 border border-secondary-fixed text-label-caps font-label-caps text-on-surface mb-4">
+        SMART CONTEXTUAL CLARITY
+      </div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface uppercase tracking-tight">
+        Focus by context, not by restriction
+      </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-3">
+        Traditional site blockers fail the moment you need Wikipedia or YouTube for research. Aimly reads context, preserving your creative velocity.
+      </p>
+</div>
+<!-- 3 Frosted Glass Bento Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1: One-line goals -->
+<div class="bg-surface-container-lowest/65 backdrop-blur-md border border-surface-container-lowest/90 rounded-[24px] p-8 sm:p-9 shadow-[0_16px_36px_-12px_rgba(30,30,30,0.06),0_4px_12px_-2px_rgba(255,122,33,0.04)] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between">
+<div>
+<!-- Clean geometric reticle mark in orange -->
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed/60 border border-primary-container/30 flex items-center justify-center text-primary-container mb-6">
+<span class="material-symbols-outlined text-[28px]" data-icon="filter_center_focus">filter_center_focus</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-3 tracking-normal">
+            One-line goals
+          </h3>
+<p class="text-body-md font-body-md text-on-surface-variant">
+            Set a single sentence describing your current objective. Aimly aligns your session to that mission without rigid site blacklists.
+          </p>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container-highest/50">
+<div class="text-label-caps font-label-caps text-on-surface-variant mb-2">ACTIVE GOAL TESTAMENT</div>
+<div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-surface-container text-body-sm font-body-sm text-on-surface border border-outline-variant/40">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-medium">Draft investor presentation deck</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Smart drift detection -->
+<div class="bg-surface-container-lowest/65 backdrop-blur-md border border-surface-container-lowest/90 rounded-[24px] p-8 sm:p-9 shadow-[0_16px_36px_-12px_rgba(30,30,30,0.06),0_4px_12px_-2px_rgba(255,122,33,0.04)] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between">
+<div>
+<!-- Compass / Radar wave in amber -->
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed/50 border border-secondary-container/40 flex items-center justify-center text-secondary mb-6">
+<span class="material-symbols-outlined text-[28px]" data-icon="radar">radar</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-3 tracking-normal">
+            Smart drift detection
+          </h3>
+<p class="text-body-md font-body-md text-on-surface-variant">
+            Our on-device language model recognizes when you wander down rabbit holes and gently nudges you back before hours are lost.
+          </p>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container-highest/50">
+<div class="text-label-caps font-label-caps text-on-surface-variant mb-2">TELEMETRY NUDGE STATE</div>
+<div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-secondary-container/20 border border-secondary-container/60 text-body-sm font-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="adjust">adjust</span>
+<span class="font-medium">Low friction nudge • Amber state</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Insights & peak velocity -->
+<div class="bg-surface-container-lowest/65 backdrop-blur-md border border-surface-container-lowest/90 rounded-[24px] p-8 sm:p-9 shadow-[0_16px_36px_-12px_rgba(30,30,30,0.06),0_4px_12px_-2px_rgba(255,122,33,0.04)] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between">
+<div>
+<!-- Circadian / bar telemetry icon in primary orange -->
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed/60 border border-primary-container/30 flex items-center justify-center text-primary-container mb-6">
+<span class="material-symbols-outlined text-[28px]" data-icon="leaderboard">leaderboard</span>
+</div>
+<h3 class="text-headline-md font-headline-md text-on-surface mb-3 tracking-normal">
+            Insights that show your best focus hours
+          </h3>
+<p class="text-body-md font-body-md text-on-surface-variant">
+            Discover your true peak deep-work windows. Visual telemetry maps your cognitive flow across morning, afternoon, and evening sprints.
+          </p>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container-highest/50 flex items-end justify-between">
+<div>
+<div class="text-label-caps font-label-caps text-on-surface-variant mb-1">OPTIMAL SPRINT WINDOW</div>
+<div class="text-headline-lg font-headline-lg text-on-surface leading-none">9:30 AM</div>
+</div>
+<div class="inline-flex items-center gap-1 text-label-caps font-label-caps text-primary-container bg-primary-fixed/50 px-2.5 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+<span>+42% Retention</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Telemetry Showcase Section -->
+<section class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-12" id="telemetry">
+<div class="bg-surface-container-lowest/80 backdrop-blur-lg border border-surface-container-lowest/90 rounded-[28px] p-8 md:p-12 shadow-sm">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+<div class="max-w-xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed text-label-caps font-label-caps text-on-surface mb-3">
+            CHROMIUM EMBEDDED ENGINE
+          </div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">
+            Calm, ambient physics. Zero gamified guilt.
+          </h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-3">
+            Aimly discards streak anxiety and punitive block walls. If you drift, we treat it as natural human rhythm, not failure.
+          </p>
+<div class="mt-8 flex flex-wrap gap-4">
+<div class="flex items-center gap-3 p-3.5 rounded-2xl bg-surface-container border border-surface-container-high">
+<span class="material-symbols-outlined text-primary-container text-[24px]" data-icon="memory">memory</span>
+<div>
+<div class="text-label-btn font-label-btn text-on-surface">Local Wasm Inference</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Runs offline on your laptop</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3.5 rounded-2xl bg-surface-container border border-surface-container-high">
+<span class="material-symbols-outlined text-secondary text-[24px]" data-icon="shield">shield</span>
+<div>
+<div class="text-label-btn font-label-btn text-on-surface">Zero Data Brokering</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Zero URLs sent to cloud</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Telemetry Geometric Visualizer -->
+<div class="w-full lg:w-auto shrink-0 flex flex-col items-center">
+<div class="p-6 rounded-3xl bg-surface-container-low border border-outline-variant/30 text-center w-full sm:w-80">
+<span class="text-label-caps font-label-caps text-on-surface-variant uppercase">Current Cognitive Velocity</span>
+<div class="text-stat-counter font-stat-counter text-on-surface mt-2 mb-1 tracking-tight">4.2<span class="text-headline-md font-headline-md text-primary-container">x</span></div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Deep session coherence multiplier</p>
+<div class="mt-6 flex justify-between items-end h-16 gap-2 px-4">
+<div class="w-full bg-primary-fixed rounded-t-md h-8"></div>
+<div class="w-full bg-primary-fixed rounded-t-md h-12"></div>
+<div class="w-full bg-primary-container rounded-t-md h-16"></div>
+<div class="w-full bg-secondary-container rounded-t-md h-10"></div>
+<div class="w-full bg-primary-fixed rounded-t-md h-14"></div>
+</div>
+<div class="flex justify-between text-label-caps font-label-caps text-on-surface-variant mt-2 px-3">
+<span>9A</span><span>10A</span><span>11A</span><span>12P</span><span>1P</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Privacy First Pledge Callout -->
+<section class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-8">
+<div class="rounded-3xl p-6 md:p-8 bg-surface-container border border-surface-container-highest flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[26px]" data-icon="policy">policy</span>
+</div>
+<div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">We only analyze pages during active sessions</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            All context analysis is evaluated locally in your browser. No browsing history is stored or sold.
+          </p>
+</div>
+</div>
+<a class="shrink-0 inline-flex items-center gap-2 text-label-btn font-label-btn text-on-surface hover:text-primary-container transition-colors" href="#extension-security">
+<span>Read Security Architecture</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</section>
+<!-- Shared Component: Footer -->
+<footer class="docked full-width bottom bg-surface-container-low border-t border-surface-container-highest mt-16">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-12 flex flex-col md:flex-row justify-between items-center gap-6 w-full">
+<!-- Brand & Copyright -->
+<div class="flex flex-col md:flex-row items-center gap-3 text-center md:text-left">
+<div class="flex items-center gap-2">
+<div class="relative w-6 h-6 flex items-center justify-center">
+<span class="absolute inset-0 rounded-full border-[2px] border-primary-container"></span>
+<span class="w-2 h-2 rounded-full bg-on-surface"></span>
+</div>
+<span class="text-headline-sm font-headline-sm text-on-surface font-extrabold tracking-tight">Aimly</span>
+</div>
+<span class="hidden md:inline-block text-outline-variant">•</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          © 2024 Aimly Technologies Inc. Set your aim. Stay on it.
+        </p>
+</div>
+<!-- Links Hierarchy -->
+<nav class="flex flex-wrap items-center justify-center gap-6 text-label-caps font-label-caps">
+<a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200 hover:underline" href="#privacy">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200 hover:underline" href="#terms">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200 hover:underline" href="#telemetry-guide">Telemetry Guide</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200 hover:underline" href="#status">System Status</a>
+<a class="text-on-surface-variant hover:text-primary-container transition-colors duration-200 hover:underline" href="#support">Contact Support</a>
+</nav>
+</div>
+</footer>
+</body></html>

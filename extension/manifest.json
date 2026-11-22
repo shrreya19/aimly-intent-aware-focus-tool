@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Aimly Focus Assistant",
+  "version": "1.0.0",
+  "description": "Real-time semantic intent verification for focus sessions.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting",
+    "activeTab",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Aimly Focus Assistant",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["overlay.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

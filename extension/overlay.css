@@ -1,0 +1,193 @@
+:host {
+  --primary: #FF7A21;
+  --amber: #FFB422;
+  --ink: #1E1E1E;
+  --cream: #F3E6D3;
+  --soft-orange: #FFE3CF;
+  --card-bg: rgba(255, 255, 255, 0.94);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.aimly-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 30, 30, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: aimlyFadeIn 0.25s ease-out;
+}
+
+.aimly-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+  width: 100%;
+  max-width: 440px;
+  padding: 32px 28px;
+  text-align: center;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255, 122, 33, 0.1);
+  color: var(--ink);
+  animation: aimlySlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aimly-icon-container {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 180, 34, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px auto;
+  border: 2px solid var(--amber);
+}
+
+.aimly-icon {
+  width: 28px;
+  height: 28px;
+  fill: var(--ink);
+}
+
+.aimly-heading {
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.aimly-goal-chip {
+  display: inline-block;
+  background: var(--soft-orange);
+  color: var(--ink);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 700;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 122, 33, 0.2);
+}
+
+.aimly-match-badge {
+  display: inline-block;
+  background: rgba(255, 180, 34, 0.25);
+  color: var(--ink);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+}
+
+.aimly-strict-hint {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555555;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.aimly-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.aimly-btn {
+  height: 48px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.aimly-btn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.aimly-btn-primary {
+  background: var(--primary);
+  color: var(--ink);
+  box-shadow: 0 4px 12px rgba(255, 122, 33, 0.3);
+}
+
+.aimly-btn-primary:hover {
+  background: #E56715;
+  transform: translateY(-1px);
+}
+
+.aimly-btn-secondary {
+  background: #FFFFFF;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+}
+
+.aimly-btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.aimly-btn-strict {
+  background: var(--ink);
+  color: #FFFFFF;
+}
+
+.aimly-btn-strict:hover {
+  background: #000000;
+  transform: translateY(-1px);
+}
+
+.aimly-feedback-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: #666666;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+.aimly-feedback-link:hover {
+  color: var(--ink);
+}
+
+@keyframes aimlyFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes aimlySlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}

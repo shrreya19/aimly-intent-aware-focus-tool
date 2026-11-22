@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aimly • Session Report: Study DSA topic graphs</title>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#dcc2af",
+            "on-primary-container": "#5f2600",
+            "on-background": "#1b1b1c",
+            "on-surface-variant": "#584237",
+            "surface-variant": "#e5e2e1",
+            "surface-container-high": "#eae7e7",
+            "inverse-surface": "#303030",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#ffb690",
+            "surface-dim": "#dcd9d9",
+            "tertiary": "#6f5a4b",
+            "outline": "#8c7265",
+            "surface-container-low": "#f6f3f2",
+            "surface": "#fcf9f8",
+            "tertiary-fixed": "#f9ddca",
+            "secondary-fixed": "#ffddae",
+            "on-error": "#ffffff",
+            "on-secondary-fixed-variant": "#604100",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#281800",
+            "surface-tint": "#9d4400",
+            "on-primary-fixed-variant": "#783200",
+            "on-tertiary-container": "#453426",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#e0c0b1",
+            "error": "#ba1a1a",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#27190d",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#ffdbca",
+            "on-surface": "#1b1b1c",
+            "surface-container-highest": "#e5e2e1",
+            "primary-container": "#ff7a21",
+            "secondary-container": "#feb320",
+            "surface-container": "#f0eded",
+            "secondary": "#7f5600",
+            "tertiary-container": "#b49c8a",
+            "secondary-fixed-dim": "#ffba40",
+            "background": "#fcf9f8",
+            "inverse-primary": "#ffb690",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#f3f0ef",
+            "on-primary-fixed": "#331100",
+            "on-secondary-container": "#6b4800",
+            "on-tertiary-fixed-variant": "#554335",
+            "surface-bright": "#fcf9f8",
+            "primary": "#9d4400"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "margin": "2.5rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "timer-display": ["Plus Jakarta Sans"],
+            "timer-display-mobile": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "timer-display": ["72px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "timer-display-mobile": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "0.03em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Frosted glass surface styles matching design guidance */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.68);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 8px 32px -4px rgba(255, 122, 33, 0.07), 0 2px 10px -1px rgba(30, 30, 30, 0.03);
+    }
+    .glass-panel-elevated {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 16px 40px -6px rgba(255, 122, 33, 0.12), 0 4px 14px -2px rgba(30, 30, 30, 0.05);
+    }
+    .glass-slab {
+      background: rgba(255, 255, 255, 0.50);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen relative overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Ambient Light Depth Plane (diffuse glowing warm amber/orange radial blobs) -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<!-- Blob A: Primary Orange -->
+<div class="absolute -top-24 left-1/4 w-[480px] h-[480px] rounded-full bg-primary-container opacity-20 blur-[100px] transform -translate-x-1/2"></div>
+<!-- Blob B: Secondary Amber -->
+<div class="absolute top-[340px] right-[-100px] w-[520px] h-[520px] rounded-full bg-secondary-container opacity-25 blur-[120px]"></div>
+<!-- Blob C: Soft Low Depth Warmth -->
+<div class="absolute bottom-10 left-[-80px] w-[450px] h-[450px] rounded-full bg-primary-fixed-dim opacity-20 blur-[110px]"></div>
+</div>
+<!-- SHARED COMPONENT 1: TopNavBar (Web / Desktop & Mobile top bar) -->
+<!-- Executing style_shell_layout, style_bg_color, style_separation_logic, style_active_navigation, etc. -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md border-b border-outline-variant/40 dark:border-outline/20 shadow-sm dark:shadow-none">
+<div class="max-w-7xl mx-auto h-16 flex items-center justify-between px-space-lg md:px-margin">
+<!-- Brand & Breadcrumb Cluster -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary shadow-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">adjust</span>
+</div>
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed tracking-tight">Aimly</span>
+</a>
+<!-- Desktop Navigation Links (Sessions is active) -->
+<nav class="hidden md:flex items-center gap-6 pl-4 border-l border-outline-variant/30">
+<a class="text-on-surface-variant dark:text-tertiary-fixed-dim font-label-lg hover:text-on-surface dark:hover:text-surface-bright pb-1 transition-colors duration-150" href="#">Dashboard</a>
+<!-- Active State: Sessions (matching Report Intent) -->
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed font-label-lg pb-1" href="#">Sessions</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed-dim font-label-lg hover:text-on-surface dark:hover:text-surface-bright pb-1 transition-colors duration-150" href="#">Analytics</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed-dim font-label-lg hover:text-on-surface dark:hover:text-surface-bright pb-1 transition-colors duration-150" href="#">Settings</a>
+</nav>
+</div>
+<!-- Trailing Action & Profile Cluster -->
+<div class="flex items-center gap-3">
+<!-- Start Session Primary Action Button -->
+<button class="hidden sm:inline-flex items-center gap-2 bg-primary-container hover:bg-secondary-container text-on-surface font-label-lg px-5 py-2 rounded-full transition-all duration-150 scale-98 active:scale-95 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Start Session</span>
+</button>
+<!-- Notification & Help Icon Actions -->
+<button aria-label="Notifications" class="p-2 rounded-full hover:bg-surface-container-high/60 dark:hover:bg-inverse-surface/80 text-on-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button aria-label="Help" class="p-2 rounded-full hover:bg-surface-container-high/60 dark:hover:bg-inverse-surface/80 text-on-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+<!-- User Profile Avatar with detailed Prompt -->
+<div class="relative ml-1 pl-2 border-l border-outline-variant/40">
+<img alt="User profile photo" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-fixed-dim" data-alt="A clean, polished profile portrait of a modern software engineer wearing a minimal dark crewneck, illuminated by warm natural desk light against a calm architectural background. High clarity, warm soft amber tones, gentle contrast, light-mode palette aligned with focus application identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnb6Qv6WerIQjeEFLWV037FF7jWJ6OnPn2_GmlxN9WhwboBYuBt84rL8AYaIzue5gi7Mgt_nYP3-e-PuoV3JZgH86MpzO1x7dt_AKX1_PgORD3oBqW4LPUB6YK913FQQv5HJ5sXwr2bUMhP1pnjaNW40jEHydFoDiES-pcefg_0Thf1eSjoma-7chgFeP_EpzKSecgiqkimvkKgn2CZ95HsxmebOd9WysviH5CXgKr-Vd4ItcAR-_Y"/>
+<div class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-container ring-2 ring-surface"></div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Container (Bounded to max 1280px with responsive margins) -->
+<main class="max-w-7xl mx-auto pt-24 pb-28 md:pb-20 px-4 md:px-margin space-y-6">
+<!-- Breadcrumb Indicator -->
+<nav class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Sessions</span>
+</a>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-bold">Report: Study DSA topic graphs</span>
+<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface text-[10px] uppercase font-bold tracking-wider">Archived Run</span>
+</nav>
+<!-- SECTION 1: Header Section (Session Summary & Big Focus Score Hero Card) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- Left 8-Cols: Goal, Metadata, Session Details -->
+<div class="lg:col-span-8 glass-panel rounded-lg p-6 md:p-8 flex flex-col justify-between relative overflow-hidden">
+<!-- Subtle radial sheen -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed-dim/30 rounded-full blur-3xl pointer-events-none"></div>
+<div>
+<!-- Status Badge + Session Mode Pill -->
+<div class="flex flex-wrap items-center gap-2.5 mb-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm border border-primary-fixed-dim">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+              Completed
+            </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/80 text-on-surface text-label-sm font-label-sm border border-outline-variant/50 shadow-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">lock</span>
+              Strict Lock
+            </span>
+<span class="inline-flex items-center gap-1 text-on-surface-variant text-label-sm font-label-sm px-2 py-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+              Autonomous Tab Defense: Active
+            </span>
+</div>
+<!-- Goal Headline Prominently Displayed -->
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight mb-2">
+            Study DSA topic graphs
+          </h1>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+            Targeting Breadth-First Search (BFS), Depth-First Search (DFS), topological sorting, and cycle detection mechanics on directed acyclic graphs.
+          </p>
+</div>
+<!-- Key Metadata Row -->
+<div class="mt-8 pt-6 border-t border-outline-variant/30 grid grid-cols-2 sm:grid-cols-3 gap-4">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-wider mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+              Timeline
+            </span>
+<span class="text-body-sm font-body-sm font-bold text-on-surface">Today, Oct 24</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">2:15 PM – 3:00 PM</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-wider mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+              Duration
+            </span>
+<span class="text-body-sm font-body-sm font-bold text-on-surface">45 min completed</span>
+<span class="text-label-sm font-label-sm text-primary">100% of planned target</span>
+</div>
+<div class="flex flex-col col-span-2 sm:col-span-1">
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-wider mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+              Intent Alignment
+            </span>
+<span class="text-body-sm font-body-sm font-bold text-on-surface">Computer Science</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Aimly ML Model v2.4</span>
+</div>
+</div>
+</div>
+<!-- Right 4-Cols: Focus Score Highlight Card -->
+<div class="lg:col-span-4 glass-panel-elevated rounded-lg p-6 md:p-8 flex flex-col justify-between relative overflow-hidden border border-white">
+<!-- Amber halo in background -->
+<div class="absolute -bottom-10 -right-10 w-44 h-44 bg-secondary-container/30 rounded-full blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-tertiary uppercase tracking-widest flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">speed</span>
+              Focus Score
+            </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+              +6% vs avg
+            </span>
+</div>
+<!-- Hero Score Value -->
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-timer-display font-timer-display text-primary-container tracking-tighter">88</span>
+<span class="text-headline-md font-headline-md text-tertiary-container">/100</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            Exceptional deep attention index with swift recovery after brief drift interruptions.
+          </p>
+</div>
+<!-- Streak & Quality Pills -->
+<div class="mt-6 space-y-2.5">
+<div class="p-3 rounded-DEFAULT bg-primary-fixed/40 border border-primary-fixed-dim/50 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[13px]">
+                🔥
+              </span>
+<span class="text-label-sm font-label-sm font-bold text-on-primary-fixed">Streak extended to 6 days</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold">+150 XP</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant px-1">
+<span>Cognitive Depth: <strong class="text-on-surface">Very High</strong></span>
+<span>Distraction Rate: <strong class="text-primary-container">15%</strong></span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Session Timeline Chart (Relevance Score Across Session) -->
+<section class="glass-panel rounded-lg p-6 md:p-8 space-y-6">
+<!-- Section Header with Legend -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Relevance Score Across Session</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-tertiary text-label-sm font-label-sm">45 Min Span</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+            Continuous real-time tracking of active page relevance against "DSA topic graphs"
+          </p>
+</div>
+<!-- Chart Legend Pills -->
+<div class="flex flex-wrap items-center gap-3 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="text-on-surface font-medium">On-Aim (&gt;80%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-secondary-fixed-dim"></span>
+<span class="text-on-surface font-medium">Transitional (50–80%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+<span class="text-on-surface font-medium">Drifted (&lt;50% Amber)</span>
+</div>
+</div>
+</div>
+<!-- Timeline SVG Area Visualization with Annotations -->
+<div class="relative w-full pt-4 pb-2">
+<!-- Interactive Drift Marker Callouts (Responsive Floating Cards) -->
+<div class="hidden sm:block absolute left-[39%] top-2 -translate-x-1/2 z-20">
+<div class="glass-panel-elevated px-3 py-1.5 rounded-DEFAULT shadow-md border border-white flex items-center gap-2 text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
+<span class="font-bold text-on-surface">18m: Twitter / X (3m)</span>
+<span class="text-primary-container font-semibold">Nudge Sent</span>
+</div>
+</div>
+<div class="hidden sm:block absolute left-[71%] top-10 -translate-x-1/2 z-20">
+<div class="glass-panel-elevated px-3 py-1.5 rounded-DEFAULT shadow-md border border-white flex items-center gap-2 text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-bold text-on-surface">32m: Hacker News (2m)</span>
+<span class="text-on-surface-variant font-medium">Tab Auto-Closed</span>
+</div>
+</div>
+<!-- SVG Timeline Curve Graphic -->
+<div class="w-full h-56 md:h-64 relative">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 900 240">
+<defs>
+<!-- Sunlit warm gradient under the curve -->
+<lineargradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#FF7A21" stop-opacity="0.35"></stop>
+<stop offset="50%" stop-color="#FFB422" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#FCF9F8" stop-opacity="0.0"></stop>
+</lineargradient>
+<!-- Threshold line markers -->
+<lineargradient id="lineGrad" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#FF7A21"></stop>
+<stop offset="38%" stop-color="#FF7A21"></stop>
+<stop offset="41%" stop-color="#FEB320"></stop>
+<stop offset="48%" stop-color="#FF7A21"></stop>
+<stop offset="70%" stop-color="#FEB320"></stop>
+<stop offset="76%" stop-color="#FF7A21"></stop>
+<stop offset="100%" stop-color="#FF7A21"></stop>
+</lineargradient>
+</defs>
+<!-- Gridlines & Axis Guides -->
+<!-- 100% guide -->
+<line stroke="rgba(140, 114, 101, 0.15)" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="900" y1="20" y2="20"></line>
+<!-- 80% On-Aim guide -->
+<line stroke="rgba(255, 122, 33, 0.25)" stroke-dasharray="2 2" stroke-width="1" x1="0" x2="900" y1="64" y2="64"></line>
+<!-- 50% Threshold guide -->
+<line stroke="rgba(140, 114, 101, 0.12)" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="900" y1="130" y2="130"></line>
+<!-- 0% guide -->
+<line stroke="rgba(140, 114, 101, 0.25)" stroke-width="1" x1="0" x2="900" y1="220" y2="220"></line>
+<!-- Filled Area Curve -->
+<path d="M 0,40 
+                     C 60,35 120,30 200,32
+                     C 280,34 320,50 340,90
+                     C 355,165 375,175 390,160
+                     C 410,70 450,30 520,28
+                     C 580,26 610,60 635,135
+                     C 650,150 665,130 680,60
+                     C 720,30 810,25 900,35
+                     L 900,220 L 0,220 Z" fill="url(#areaGradient)"></path>
+<!-- The Main Dynamic Trajectory Line -->
+<path d="M 0,40 
+                     C 60,35 120,30 200,32
+                     C 280,34 320,50 340,90
+                     C 355,165 375,175 390,160
+                     C 410,70 450,30 520,28
+                     C 580,26 610,60 635,135
+                     C 650,150 665,130 680,60
+                     C 720,30 810,25 900,35" fill="none" stroke="url(#lineGrad)" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Milestone Points & Focus Drift Markers -->
+<!-- Start Point -->
+<circle cx="10" cy="40" fill="#FF7A21" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<!-- Drift 1 Marker @ 18m -->
+<circle class="animate-pulse" cx="365" cy="168" fill="#FEB320" fill-opacity="0.3" r="8"></circle>
+<circle cx="365" cy="168" fill="#FEB320" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
+<line opacity="0.6" stroke="#FEB320" stroke-dasharray="2 3" stroke-width="1.5" x1="365" x2="365" y1="168" y2="40"></line>
+<!-- Drift 2 Marker @ 32m -->
+<circle class="animate-pulse" cx="642" cy="142" fill="#FEB320" fill-opacity="0.3" r="8"></circle>
+<circle cx="642" cy="142" fill="#FEB320" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
+<line opacity="0.6" stroke="#FEB320" stroke-dasharray="2 3" stroke-width="1.5" x1="642" x2="642" y1="142" y2="70"></line>
+<!-- End Point @ 45m -->
+<circle cx="895" cy="35" fill="#FF7A21" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
+</svg>
+<!-- Y-Axis Labels -->
+<div class="absolute left-1 top-3 text-[10px] font-bold text-tertiary">100%</div>
+<div class="absolute left-1 top-[56px] text-[10px] font-bold text-primary">80% AIM</div>
+<div class="absolute left-1 top-[120px] text-[10px] font-bold text-outline">50%</div>
+<div class="absolute left-1 bottom-1 text-[10px] font-bold text-outline">0%</div>
+</div>
+<!-- X-Axis Timeline Labels -->
+<div class="flex justify-between items-center text-label-sm font-label-sm text-tertiary pt-2 border-t border-outline-variant/30 px-2">
+<span>0m (Start)</span>
+<span>10m</span>
+<span class="text-secondary font-bold">18m • Drift Nudge</span>
+<span>25m (Deep Flow)</span>
+<span class="text-secondary font-bold">32m • Drift Catch</span>
+<span>40m</span>
+<span>45m (Complete)</span>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Two-Column Analytical Cards -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Card: Top Distracting Domains (7 Columns) -->
+<div class="lg:col-span-6 glass-panel rounded-lg p-6 md:p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-secondary-fixed/50 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">public_off</span>
+</span>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Top Distracting Domains</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Detected excursions outside active curriculum</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm font-bold">
+              3 Off-Path Sites
+            </span>
+</div>
+<!-- Distribution Bars -->
+<div class="space-y-4 my-6">
+<!-- Item 1: twitter.com / x.com -->
+<div>
+<div class="flex justify-between items-center text-label-md font-label-md mb-1.5">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-md bg-inverse-surface text-surface flex items-center justify-center text-[10px] font-bold">𝕏</div>
+<span class="text-on-surface font-bold">twitter.com / x.com</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant">3m 42s</span>
+<span class="text-primary-container font-extrabold">45%</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-primary-container" style="width: 45%;"></div>
+</div>
+</div>
+<!-- Item 2: news.ycombinator.com -->
+<div>
+<div class="flex justify-between items-center text-label-md font-label-md mb-1.5">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-md bg-primary-container text-on-primary flex items-center justify-center text-[10px] font-bold">Y</div>
+<span class="text-on-surface font-bold">news.ycombinator.com</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant">2m 15s</span>
+<span class="text-secondary-container font-extrabold">28%</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-secondary-container" style="width: 28%;"></div>
+</div>
+</div>
+<!-- Item 3: youtube.com -->
+<div>
+<div class="flex justify-between items-center text-label-md font-label-md mb-1.5">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-md bg-surface-variant text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px]">play_circle</span>
+</div>
+<span class="text-on-surface font-bold">youtube.com</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant">1m 10s</span>
+<span class="text-tertiary font-bold">15%</span>
+</div>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-tertiary-container" style="width: 15%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary Note at bottom of card -->
+<div class="p-3.5 rounded-DEFAULT bg-surface-container-lowest/80 border border-outline-variant/40 flex items-center justify-between text-body-sm font-body-sm">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule</span>
+<span>Total drift time: <strong class="text-primary-container">7m 07s</strong> (15% of session)</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Shielded: 37m 53s</span>
+</div>
+</div>
+<!-- Right Card: Session Highlights & Impact (6 Columns) -->
+<div class="lg:col-span-6 glass-panel rounded-lg p-6 md:p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-primary-fixed/70 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">insights</span>
+</span>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Session Highlights &amp; Impact</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Key cognitive health metrics for this run</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm font-bold">
+              Optimal Flow
+            </span>
+</div>
+<!-- Bento Grid of Key Metric Tiles -->
+<div class="grid grid-cols-2 gap-3 my-4">
+<!-- Metric 1: Deep Focus Ratio -->
+<div class="glass-slab p-4 rounded-DEFAULT">
+<div class="flex items-center justify-between text-tertiary mb-1">
+<span class="text-label-sm font-label-sm uppercase font-bold">Deep Focus Ratio</span>
+<span class="material-symbols-outlined text-[16px] text-primary">psychology</span>
+</div>
+<div class="text-headline-md font-headline-md text-on-surface font-extrabold">85%</div>
+<span class="text-label-sm font-label-sm text-primary font-bold">+12% vs last week</span>
+</div>
+<!-- Metric 2: Longest Uninterrupted Streak -->
+<div class="glass-slab p-4 rounded-DEFAULT">
+<div class="flex items-center justify-between text-tertiary mb-1">
+<span class="text-label-sm font-label-sm uppercase font-bold">Longest Streak</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">hourglass_top</span>
+</div>
+<div class="text-headline-md font-headline-md text-on-surface font-extrabold">22 min</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Solid uninterrupted block</span>
+</div>
+<!-- Metric 3: Nudges Triggered -->
+<div class="glass-slab p-4 rounded-DEFAULT">
+<div class="flex items-center justify-between text-tertiary mb-1">
+<span class="text-label-sm font-label-sm uppercase font-bold">Nudges Sent</span>
+<span class="material-symbols-outlined text-[16px] text-primary-container">notifications_active</span>
+</div>
+<div class="text-headline-md font-headline-md text-on-surface font-extrabold">2 Nudges</div>
+<span class="text-label-sm font-label-sm text-primary font-semibold">100% recovered under 90s</span>
+</div>
+<!-- Metric 4: Shield Intervention -->
+<div class="glass-slab p-4 rounded-DEFAULT">
+<div class="flex items-center justify-between text-tertiary mb-1">
+<span class="text-label-sm font-label-sm uppercase font-bold">Tabs Auto-Closed</span>
+<span class="material-symbols-outlined text-[16px] text-outline">tab_close</span>
+</div>
+<div class="text-headline-md font-headline-md text-on-surface font-extrabold">1 Tab</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Infinite scroll intercepted</span>
+</div>
+</div>
+</div>
+<!-- Bottom Impact callout -->
+<div class="p-3.5 rounded-DEFAULT bg-primary-fixed/30 border border-primary-fixed-dim/40 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]">stars</span>
+<p class="text-body-sm font-body-sm text-on-primary-fixed">
+<strong>Aimly AI Recommendation:</strong> Keep review blocks under 50 min. Your alertness dips slightly around the 30-minute mark.
+          </p>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Page Visits Log Table -->
+<section class="glass-panel rounded-lg p-6 md:p-8 space-y-5">
+<!-- Table Header & Filter Chips -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Page Activity &amp; Relevance Logs</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Real-time classification based on tab titles and token context</p>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center gap-2">
+<button class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-surface text-label-sm font-label-sm shadow-xs transition-transform active:scale-95" type="button">
+            All Visits (24)
+          </button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-label-sm font-label-sm border border-outline-variant/40 transition-colors" type="button">
+            Flagged as Drift (3)
+          </button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-label-sm font-label-sm border border-outline-variant/40 transition-colors" type="button">
+            Verified (21)
+          </button>
+</div>
+</div>
+<!-- Logs Table (Responsive Glass Container) -->
+<div class="overflow-x-auto rounded-DEFAULT border border-outline-variant/30">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/70 border-b border-outline-variant/30 text-label-sm font-label-sm text-tertiary uppercase tracking-wider">
+<th class="py-3 px-4">Page Title &amp; Context</th>
+<th class="py-3 px-4">Domain</th>
+<th class="py-3 px-4">Duration</th>
+<th class="py-3 px-4">Relevance Score</th>
+<th class="py-3 px-4 text-right">Feedback</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-sm font-body-sm">
+<!-- Row 1: LeetCode Graph Theory -->
+<tr class="hover:bg-surface-container-lowest/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<div>
+<span class="font-bold text-on-surface block">Graph Theory &amp; Traversal Algorithms - LeetCode</span>
+<span class="text-[12px] text-tertiary">Problem #200 &amp; #133 Discussion Board</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-surface-container text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[13px] text-primary">terminal</span>
+                  leetcode.com
+                </span>
+</td>
+<td class="py-3.5 px-4 font-medium text-on-surface">18m 10s</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                  96% Relevant
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<span class="text-label-sm font-label-sm text-tertiary">Verified</span>
+</td>
+</tr>
+<!-- Row 2: GeeksforGeeks Dijkstra -->
+<tr class="hover:bg-surface-container-lowest/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<div>
+<span class="font-bold text-on-surface block">Dijkstra's Algorithm Explained - GeeksforGeeks</span>
+<span class="text-[12px] text-tertiary">Priority Queue implementation code samples</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-surface-container text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[13px] text-primary">code</span>
+                  geeksforgeeks.org
+                </span>
+</td>
+<td class="py-3.5 px-4 font-medium text-on-surface">12m 45s</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                  92% Relevant
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<span class="text-label-sm font-label-sm text-tertiary">Verified</span>
+</td>
+</tr>
+<!-- Row 3: NeetCode 150 Roadmap -->
+<tr class="hover:bg-surface-container-lowest/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<div>
+<span class="font-bold text-on-surface block">NeetCode 150 Roadmap - Graph Section</span>
+<span class="text-[12px] text-tertiary">Curriculum tracking checklist</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-surface-container text-on-surface-variant text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[13px] text-primary">account_tree</span>
+                  neetcode.io
+                </span>
+</td>
+<td class="py-3.5 px-4 font-medium text-on-surface">6m 58s</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-label-sm font-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                  89% Relevant
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<span class="text-label-sm font-label-sm text-tertiary">Verified</span>
+</td>
+</tr>
+<!-- Row 4: Feed / X (Drift Flagged) -->
+<tr class="bg-secondary-fixed/15 hover:bg-secondary-fixed/25 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<div>
+<span class="font-bold text-on-surface block flex items-center gap-2">
+                      Feed / X (Drift flagged)
+                      <span class="text-[11px] px-2 py-0.2 rounded bg-secondary-container/40 text-on-secondary-fixed font-semibold">Nudged at 18m</span>
+</span>
+<span class="text-[12px] text-outline">Following timeline scrolling</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-surface-container-lowest text-on-surface text-label-sm font-label-sm border border-outline-variant/30">
+                  x.com
+                </span>
+</td>
+<td class="py-3.5 px-4 font-medium text-secondary-container">3m 42s</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-fixed-dim text-on-secondary-fixed text-label-sm font-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                  18% Drift
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="inline-flex items-center gap-1 text-primary hover:text-on-primary-fixed-variant text-label-sm font-label-sm hover:underline" type="button">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+                  Mark as relevant
+                </button>
+</td>
+</tr>
+<!-- Row 5: Hacker News (Drift Flagged) -->
+<tr class="bg-secondary-fixed/15 hover:bg-secondary-fixed/25 transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<div>
+<span class="font-bold text-on-surface block flex items-center gap-2">
+                      Hacker News: New Ask HN (Drift flagged)
+                      <span class="text-[11px] px-2 py-0.2 rounded bg-secondary-container/40 text-on-secondary-fixed font-semibold">Closed at 32m</span>
+</span>
+<span class="text-[12px] text-outline">Thread: "What tools do you use for deep focus?"</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-surface-container-lowest text-on-surface text-label-sm font-label-sm border border-outline-variant/30">
+                  news.ycombinator.com
+                </span>
+</td>
+<td class="py-3.5 px-4 font-medium text-secondary-container">2m 15s</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-fixed-dim text-on-secondary-fixed text-label-sm font-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                  22% Drift
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="inline-flex items-center gap-1 text-primary hover:text-on-primary-fixed-variant text-label-sm font-label-sm hover:underline" type="button">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+                  Mark as relevant
+                </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Training Helper note -->
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant pt-2">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
+          Clicking "Mark as relevant" updates Aimly's intent vectors for future DSA study sessions.
+        </span>
+<a class="text-primary hover:underline font-semibold" href="#">Export Full CSV Logs</a>
+</div>
+</section>
+<!-- SECTION 5: Bottom Action Bar / CTA -->
+<section class="glass-panel-elevated rounded-lg p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 border border-white">
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">flag</span>
+</div>
+<div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface">Ready to continue your momentum?</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Recommended 5 min rest before starting "System Design: Graph Caching"</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<!-- Secondary Action: Back to Dashboard / Share -->
+<a class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-surface-container-lowest/80 hover:bg-primary-fixed/30 text-on-surface font-label-lg px-6 py-3 rounded-full border border-outline-variant/40 transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Share report</span>
+</a>
+<!-- Primary High-Emphasis Pill Button -->
+<a class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 bg-primary-container hover:bg-secondary-container text-on-surface font-label-lg px-7 py-3 rounded-full transition-all duration-150 transform hover:scale-[1.02] active:scale-95 shadow-md" href="#">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span>Start another session</span>
+</a>
+</div>
+</section>
+</main>
+<!-- SHARED COMPONENT 2: BottomNavBar (Responsive Mobile Only: md:hidden) -->
+<!-- Executing style_shell_layout, labels: ["Focus", "Reports", "Trends", "Settings"], active: Reports -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-md py-space-xs md:hidden bg-surface/85 dark:bg-inverse-surface/85 backdrop-blur-lg border-t border-outline-variant/40 dark:border-outline/20 shadow-lg dark:shadow-none">
+<!-- Focus Item -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-tertiary-fixed-dim px-3 py-1.5 hover:text-on-surface dark:hover:text-surface-bright transition-colors scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined text-[22px]">timer</span>
+<span class="text-label-sm font-label-sm mt-0.5">Focus</span>
+</a>
+<!-- Reports Item (ACTIVE STATE based on Report Page Intent) -->
+<a class="flex flex-col items-center justify-center bg-primary-fixed dark:bg-primary-container text-on-primary-fixed dark:text-on-primary-container rounded-full px-4 py-1.5 transition-all scale-95 active:scale-90 shadow-sm" href="#">
+<span class="material-symbols-outlined text-[22px] fill-icon">bar_chart</span>
+<span class="text-label-sm font-label-sm font-bold mt-0.5">Reports</span>
+</a>
+<!-- Trends Item -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-tertiary-fixed-dim px-3 py-1.5 hover:text-on-surface dark:hover:text-surface-bright transition-colors scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined text-[22px]">insights</span>
+<span class="text-label-sm font-label-sm mt-0.5">Trends</span>
+</a>
+<!-- Settings Item -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-tertiary-fixed-dim px-3 py-1.5 hover:text-on-surface dark:hover:text-surface-bright transition-colors scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+<span class="text-label-sm font-label-sm mt-0.5">Settings</span>
+</a>
+</nav>
+<!-- Interactive JavaScript for micro-interactions (e.g. feedback toggle) -->
+<script>
+    document.querySelectorAll('button:has(.material-symbols-outlined)').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (this.textContent.includes('Mark as relevant')) {
+          e.preventDefault();
+          this.innerHTML = '<span class="material-symbols-outlined text-[15px] fill-icon text-primary">done_all</span> <span class="text-on-surface font-semibold">Trained & Saved</span>';
+          this.classList.remove('text-primary');
+          this.classList.add('text-on-surface');
+        }
+      });
+    });
+  </script>
+</body></html>

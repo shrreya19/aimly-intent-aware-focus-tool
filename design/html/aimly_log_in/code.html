@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Log in to Aimly — Deep Work Without Rigid Blocklists</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#27190d",
+            "inverse-primary": "#ffb690",
+            "on-background": "#1b1b1c",
+            "on-tertiary-fixed-variant": "#554335",
+            "on-primary": "#ffffff",
+            "surface-tint": "#9d4400",
+            "tertiary-container": "#b49c8a",
+            "on-primary-fixed": "#331100",
+            "on-secondary-fixed": "#281800",
+            "surface-container-high": "#eae7e7",
+            "error": "#ba1a1a",
+            "inverse-on-surface": "#f3f0ef",
+            "surface-variant": "#e5e2e1",
+            "on-primary-container": "#5f2600",
+            "outline": "#8c7265",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f6f3f2",
+            "tertiary-fixed": "#f9ddca",
+            "surface-container": "#f0eded",
+            "inverse-surface": "#303030",
+            "surface-container-highest": "#e5e2e1",
+            "background": "#fcf9f8",
+            "outline-variant": "#e0c0b1",
+            "secondary-fixed-dim": "#ffba40",
+            "on-tertiary-container": "#453426",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#dcc2af",
+            "primary-container": "#ff7a21",
+            "secondary-container": "#feb320",
+            "surface": "#fcf9f8",
+            "surface-bright": "#fcf9f8",
+            "on-primary-fixed-variant": "#783200",
+            "primary-fixed": "#ffdbca",
+            "surface-dim": "#dcd9d9",
+            "secondary": "#7f5600",
+            "primary": "#9d4400",
+            "on-secondary-fixed-variant": "#604100"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "margin": "2.5rem"
+          },
+          "fontFamily": {
+            "timer-display-mobile": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "timer-display": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "timer-display-mobile": ["48px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "timer-display": ["72px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "0.03em", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Warm cream foundation */
+    body {
+      background-color: #F3E6D3;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-on-surface antialiased flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-inverse-surface">
+<!-- Ambient Radiant Depth Blobs (Base plane) -->
+<div aria-hidden="true" class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+<div class="absolute -top-32 left-1/4 w-[420px] h-[420px] rounded-full bg-primary-container opacity-25 blur-[90px]"></div>
+<div class="absolute top-1/3 -right-24 w-[500px] h-[500px] rounded-full bg-secondary-container opacity-20 blur-[110px]"></div>
+<div class="absolute bottom-10 left-10 w-[360px] h-[360px] rounded-full bg-primary-container opacity-15 blur-[85px]"></div>
+<div class="absolute -bottom-20 right-1/3 w-[450px] h-[450px] rounded-full bg-secondary-fixed-dim opacity-20 blur-[100px]"></div>
+</div>
+<!-- Shared Component Anchor: TopNavBar (Transactional mode suppressed from clutter, retaining brand anchor) -->
+<header class="w-full bg-surface/70 backdrop-blur-md border-b border-outline-variant/30 sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-space-md md:px-margin max-w-7xl mx-auto h-16">
+<a class="flex items-center gap-2.5 font-headline-md text-headline-md font-extrabold tracking-tight text-on-surface active:scale-[0.98] transition-transform duration-100" href="#">
+<!-- Concentric geometric focus mark -->
+<span class="relative flex h-8 w-8 items-center justify-center">
+<span class="absolute inset-0 rounded-full border-2 border-primary-container opacity-30 animate-ping"></span>
+<span class="absolute inset-1 rounded-full border-2 border-primary-container"></span>
+<span class="h-3 w-3 rounded-full bg-primary-container shadow-sm"></span>
+</span>
+<span>Aimly</span>
+</a>
+<!-- Quick Context Switcher / Helper -->
+<div class="flex items-center gap-4">
+<span class="hidden sm:inline-flex text-on-surface-variant font-body-sm text-body-sm">Need a new workspace?</span>
+<a class="px-5 py-2 rounded-full font-label-lg text-label-lg bg-surface-container-lowest/80 text-on-surface border border-surface-container-lowest hover:border-outline-variant shadow-sm hover:text-primary transition-all active:scale-[0.98]" href="#">
+          Sign Up
+        </a>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas: Split-Screen Layout -->
+<main class="relative z-10 flex-grow flex items-center justify-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-margin py-8 md:py-12">
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- LEFT COLUMN: Frosted Glass Form Card (Primary Action Canvas) -->
+<div class="lg:col-span-6 flex justify-center w-full order-2 lg:order-1">
+<div class="w-full max-w-[490px] bg-white/70 backdrop-blur-md rounded-3xl p-6 sm:p-9 md:p-10 border border-white/80 shadow-[0_16px_40px_-6px_rgba(255,122,33,0.12),0_4px_16px_-2px_rgba(30,30,30,0.05)] transition-all">
+<!-- Card Header & Badge -->
+<div class="space-y-2.5 mb-8">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-surface font-label-sm text-label-sm tracking-wider uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              WELCOME BACK
+            </div>
+<h1 class="font-headline-lg text-headline-lg font-extrabold text-on-surface tracking-tight">
+              Log in to Aimly
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Resume your focus sessions and view your flow analytics.
+            </p>
+</div>
+<!-- Social Quick Auth Stack -->
+<div class="space-y-3 mb-6">
+<button class="w-full h-12 px-6 rounded-full bg-white/80 hover:bg-white text-inverse-surface border border-white font-label-lg text-label-lg flex items-center justify-center gap-3 transition-all duration-150 shadow-sm active:scale-[0.98]" type="button">
+<!-- Minimalist Google SVG Icon -->
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span>Continue with Google</span>
+</button>
+<button class="w-full h-12 px-6 rounded-full bg-white/70 hover:bg-[#FFE3CF] text-inverse-surface border border-white/90 font-label-lg text-label-lg flex items-center justify-center gap-2.5 transition-all duration-150 shadow-sm active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[19px] text-on-surface-variant">fingerprint</span>
+<span>Single Sign-On (SSO)</span>
+</button>
+</div>
+<!-- Divider -->
+<div class="relative flex items-center justify-center my-6">
+<div class="border-t border-outline-variant/40 w-full"></div>
+<span class="bg-white/90 px-3 font-label-sm text-label-sm text-on-surface-variant rounded-full mx-2 uppercase tracking-wider backdrop-blur-xs">
+              or log in with email
+            </span>
+<div class="border-t border-outline-variant/40 w-full"></div>
+</div>
+<!-- Login Form Elements -->
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<!-- Email Field -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface" for="email">Email address</label>
+<div class="relative">
+<input class="w-full h-[52px] px-5 rounded-full bg-[#FFE3CF]/60 border border-white/90 text-inverse-surface placeholder:text-inverse-surface/40 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all" id="email" name="email" placeholder="you@work.com" required="" type="email"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-xl">
+                  alternate_email
+                </span>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="block font-label-md text-label-md text-on-surface" for="password">Password</label>
+<a class="font-label-md text-label-md text-primary hover:text-on-primary-fixed-variant transition-colors underline-offset-2 hover:underline" href="#">
+                  Forgot password?
+                </a>
+</div>
+<div class="relative">
+<input class="w-full h-[52px] px-5 rounded-full bg-[#FFE3CF]/60 border border-white/90 text-inverse-surface placeholder:text-inverse-surface/40 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all" id="password" name="password" placeholder="••••••••••••" required="" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-on-surface focus:outline-none" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+</div>
+<!-- Options Row: Remember Me -->
+<div class="flex items-center pt-1 pb-2">
+<label class="flex items-center gap-2.5 cursor-pointer select-none">
+<input checked="" class="w-[20px] h-[20px] rounded-full border-2 border-primary-container text-primary-container focus:ring-primary-container focus:ring-offset-0 bg-white/70" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">Remember this device for 30 days</span>
+</label>
+</div>
+<!-- Call to Action Button: PRIMARY ORANGE (#FF7A21) with INK (#1E1E1E) text strictly adhered -->
+<button class="w-full h-[48px] px-7 rounded-full bg-primary-container text-[#1E1E1E] font-label-lg text-label-lg hover:bg-secondary-container transition-all duration-150 shadow-[0_10px_25px_-5px_rgba(255,122,33,0.35)] hover:scale-[1.01] active:scale-[0.98] flex items-center justify-center gap-2" type="submit">
+<span>Log in</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<!-- Bottom Navigation Link -->
+<div class="mt-7 text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Don't have an account? 
+              <a class="font-bold text-on-surface hover:text-primary transition-colors underline-offset-4 hover:underline ml-1" href="#">
+                Sign up
+              </a>
+</p>
+</div>
+<!-- Chrome Extension Footnote -->
+<div class="mt-6 pt-5 border-t border-outline-variant/30 flex items-center justify-center gap-2 text-on-surface-variant/80 font-body-sm text-body-sm">
+<span class="w-2 h-2 rounded-full bg-[#34A853]"></span>
+<span>Chrome Extension connected</span>
+<span class="text-outline-variant">•</span>
+<span>Version 2.4</span>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Brand Visual Canvas (Geometric Rings, Ambient Testimonial & Flow Metrics) -->
+<div class="lg:col-span-6 flex flex-col justify-center space-y-8 pl-0 lg:pl-6 order-1 lg:order-2">
+<!-- Geometric Ring Showcase + Brand Header -->
+<div class="space-y-6">
+<div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/60 border border-white/80 shadow-sm backdrop-blur-md">
+<span class="flex h-5 w-5 items-center justify-center rounded-full bg-primary-container text-[#1E1E1E]">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</span>
+<span class="font-label-md text-label-md text-inverse-surface tracking-wider">AIMS &amp; AMBIENT INTENTION SYSTEM</span>
+</div>
+<h2 class="font-headline-lg lg:font-display-hero text-headline-lg lg:text-display-hero text-[#1E1E1E] tracking-tight font-extrabold uppercase leading-[1.08]">
+            DEEP WORK WITHOUT RIGID BLOCKLISTS.
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
+            Aimly gently nudges you when your browser navigation drifts away from your stated intention.
+          </p>
+</div>
+<!-- Abstract Concentric Visual Element with Kinetic Geometry -->
+<div class="relative py-4">
+<div class="w-full max-w-md h-40 rounded-3xl bg-white/40 border border-white/70 backdrop-blur-md p-5 flex items-center justify-between shadow-[0_8px_32px_-4px_rgba(255,122,33,0.08)]">
+<!-- Dial Segment Visualization -->
+<div class="flex items-center gap-4">
+<div class="relative w-20 h-20 flex items-center justify-center">
+<svg class="w-20 h-20 -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="40" stroke="rgba(30, 30, 30, 0.08)" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="none" r="40" stroke="#FF7A21" stroke-dasharray="251.2" stroke-dashoffset="65" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm font-extrabold text-[#1E1E1E]">74%</span>
+</div>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block">ACTIVE SESSION</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Design System Flow</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">37 min in current target</span>
+</div>
+</div>
+<!-- Mini Pulse Badge -->
+<div class="hidden sm:flex flex-col items-end">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFE3CF] text-[#1E1E1E] font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span>
+                In Zone
+              </span>
+</div>
+</div>
+</div>
+<!-- Frosted Glass Testimonial & Metric Card -->
+<div class="w-full max-w-lg bg-white/65 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-white/80 shadow-[0_16px_40px_-6px_rgba(255,122,33,0.14),0_4px_12px_-2px_rgba(30,30,30,0.06)] space-y-4">
+<div class="flex items-start justify-between gap-4">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider block mb-1">
+                Average daily focus gained per member
+              </span>
+<div class="font-timer-display text-timer-display font-extrabold text-[#1E1E1E] leading-none tracking-tight">
+                2.8 hrs
+              </div>
+</div>
+<span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FFE3CF]/80 border border-white text-primary">
+<span class="material-symbols-outlined text-2xl">trending_up</span>
+</span>
+</div>
+<div class="pt-3 border-t border-white/60 flex flex-wrap items-center justify-between gap-3">
+<!-- Mini Badge specified -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/30 border border-secondary-container/50 text-[#1E1E1E] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm text-secondary">verified_user</span>
+<span>Gentle Amber Drift Alert: 0 harsh lockouts</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm text-primary">auto_awesome</span>
+<span>94.2% intention retention</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Shared Component Anchor: Footer -->
+<footer class="w-full bg-surface-container-lowest/50 backdrop-blur-sm border-t border-outline-variant/30 mt-auto z-10">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-space-md md:px-margin max-w-7xl mx-auto py-space-md gap-space-sm text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Aimly</span>
+<span class="text-outline-variant">|</span>
+<span>© 2024 Aimly Inc. Designed for pure focus.</span>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-6 font-label-sm text-label-sm">
+<a class="hover:text-primary transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors duration-150" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors duration-150" href="#">Security</a>
+<a class="hover:text-primary transition-colors duration-150" href="#">Extension Permissions</a>
+</div>
+</div>
+</footer>
+</body></html>

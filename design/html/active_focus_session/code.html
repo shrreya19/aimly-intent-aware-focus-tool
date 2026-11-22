@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aimly - Active Focus Session</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#9d4400",
+            "surface-container-high": "#eae7e7",
+            "on-tertiary-container": "#453426",
+            "surface-container-highest": "#e5e2e1",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#f3f0ef",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#783200",
+            "outline": "#8c7265",
+            "surface-bright": "#fcf9f8",
+            "surface-dim": "#dcd9d9",
+            "background": "#fcf9f8",
+            "tertiary-container": "#b49c8a",
+            "secondary-container": "#feb320",
+            "secondary-fixed": "#ffddae",
+            "surface": "#fcf9f8",
+            "error-container": "#ffdad6",
+            "on-primary-fixed": "#331100",
+            "on-tertiary-fixed-variant": "#554335",
+            "on-tertiary-fixed": "#27190d",
+            "on-secondary-fixed": "#281800",
+            "outline-variant": "#e0c0b1",
+            "surface-container-lowest": "#ffffff",
+            "primary-container": "#ff7a21",
+            "surface-tint": "#9d4400",
+            "on-primary-container": "#5f2600",
+            "primary-fixed": "#ffdbca",
+            "error": "#ba1a1a",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#f9ddca",
+            "primary-fixed-dim": "#ffb690",
+            "secondary": "#7f5600",
+            "on-surface": "#1b1b1c",
+            "tertiary-fixed-dim": "#dcc2af",
+            "surface-container-low": "#f6f3f2",
+            "inverse-primary": "#ffb690",
+            "secondary-fixed-dim": "#ffba40",
+            "on-background": "#1b1b1c",
+            "surface-container": "#f0eded",
+            "on-secondary-fixed-variant": "#604100",
+            "on-primary": "#ffffff",
+            "on-surface-variant": "#584237",
+            "on-error-container": "#93000a",
+            "surface-variant": "#e5e2e1",
+            "tertiary": "#6f5a4b",
+            "on-secondary-container": "#6b4800",
+            "inverse-surface": "#303030"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-hero-mobile": ["Plus Jakarta Sans"],
+            "stat-counter": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-hero": ["Plus Jakarta Sans"],
+            "display-timer": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-timer-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-caps": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["24px", { "lineHeight": "28px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-hero-mobile": ["28px", { "lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "800" }],
+            "stat-counter": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "600" }],
+            "headline-hero": ["40px", { "lineHeight": "44px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "display-timer": ["72px", { "lineHeight": "76px", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+            "headline-md": ["18px", { "lineHeight": "22px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "display-timer-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }],
+            "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    /* Warm Cream Page Foundation */
+    body {
+      background-color: #F3E6D3;
+      color: #1E1E1E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Pulsing Radiance */
+    @keyframes subtle-pulse {
+      0%, 100% { transform: scale(1); opacity: 0.18; }
+      50% { transform: scale(1.08); opacity: 0.24; }
+    }
+    .animate-blob-1 {
+      animation: subtle-pulse 10s ease-in-out infinite alternate;
+    }
+    .animate-blob-2 {
+      animation: subtle-pulse 12s ease-in-out infinite alternate-reverse;
+    }
+
+    /* Circular Progress Head Glow */
+    .timer-ring-head {
+      filter: drop-shadow(0 0 12px rgba(255, 122, 33, 0.7));
+    }
+    
+    /* Tabular display numbers */
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative flex">
+<!-- ========================================== -->
+<!-- ATMOSPHERIC BACKGROUND (NO PLANTS/LEAVES)   -->
+<!-- ========================================== -->
+<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+<!-- Top-Right Radiant Orange Glow -->
+<div class="absolute -top-32 -right-32 w-[580px] h-[580px] rounded-full bg-[#FF7A21] blur-[120px] opacity-25 animate-blob-1"></div>
+<!-- Bottom-Left Radiant Amber Glow -->
+<div class="absolute -bottom-40 left-12 w-[620px] h-[620px] rounded-full bg-[#FFB422] blur-[140px] opacity-25 animate-blob-2"></div>
+<!-- Subtle Mid-Canvas Refraction Ring Blob -->
+<div class="absolute top-1/2 left-1/3 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-[#FFE3CF] blur-[100px] opacity-40 pointer-events-none"></div>
+</div>
+<!-- ========================================== -->
+<!-- SHARED COMPONENT 1: SideNavBar (Icon Rail) -->
+<!-- ========================================== -->
+<aside class="fixed left-0 top-0 h-full w-[72px] flex flex-col justify-between items-center py-6 z-40 bg-surface-container-low/70 dark:bg-inverse-surface/70 backdrop-blur-xl border-r border-outline-variant/30 dark:border-outline/20 shadow-[0_8px_32px_0_rgba(255,122,33,0.06)]">
+<!-- Brand Anchor Top -->
+<div class="flex flex-col items-center gap-6 w-full">
+<div class="flex flex-col items-center cursor-pointer group" title="Aimly Deep Work">
+<div class="w-11 h-11 rounded-full bg-gradient-to-tr from-[#FF7A21] to-[#FFB422] flex items-center justify-center shadow-[0_4px_16px_rgba(255,122,33,0.35)] transition-transform duration-200 group-hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-[#1E1E1E] font-bold text-[22px]" data-icon="adjust">adjust</span>
+</div>
+<span class="text-[10px] font-extrabold uppercase tracking-widest text-[#1E1E1E] mt-1.5 opacity-90">Aimly</span>
+</div>
+<!-- Main Navigation Rail -->
+<!-- Tab Labels: ["Focus", "Analytics", "Goals", "Rules", "Settings"] -->
+<!-- Active Tab: "Focus" (Primary Intent of this screen) -->
+<nav aria-label="Main Navigation" class="flex flex-col items-center gap-3 w-full px-2">
+<!-- Tab: Focus (ACTIVE) -->
+<a aria-label="Focus" class="bg-primary-fixed text-on-primary-fixed-variant rounded-full p-3 transition-colors duration-200 flex items-center justify-center group relative shadow-sm" href="#focus" title="Focus">
+<span class="material-symbols-outlined text-[24px] text-[#FF7A21]" data-icon="center_focus_strong" style="font-variation-settings: 'FILL' 1;">center_focus_strong</span>
+<span class="sr-only">Focus</span>
+</a>
+<!-- Tab: Analytics (INACTIVE) -->
+<a aria-label="Analytics" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/40 rounded-full p-3 transition-colors duration-200 flex items-center justify-center hover:bg-surface-container dark:hover:bg-surface-container-highest transition-all duration-150 scale-95 active:scale-90" href="#analytics" title="Analytics">
+<span class="material-symbols-outlined text-[24px] text-[#584237]" data-icon="bar_chart">bar_chart</span>
+<span class="sr-only">Analytics</span>
+</a>
+<!-- Tab: Goals (INACTIVE) -->
+<a aria-label="Goals" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/40 rounded-full p-3 transition-colors duration-200 flex items-center justify-center hover:bg-surface-container dark:hover:bg-surface-container-highest transition-all duration-150 scale-95 active:scale-90" href="#goals" title="Goals">
+<span class="material-symbols-outlined text-[24px] text-[#584237]" data-icon="target">target</span>
+<span class="sr-only">Goals</span>
+</a>
+<!-- Tab: Rules (INACTIVE) -->
+<a aria-label="Rules" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/40 rounded-full p-3 transition-colors duration-200 flex items-center justify-center hover:bg-surface-container dark:hover:bg-surface-container-highest transition-all duration-150 scale-95 active:scale-90" href="#rules" title="Rules">
+<span class="material-symbols-outlined text-[24px] text-[#584237]" data-icon="verified_user">verified_user</span>
+<span class="sr-only">Rules</span>
+</a>
+<!-- Tab: Settings (INACTIVE) -->
+<a aria-label="Settings" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/40 rounded-full p-3 transition-colors duration-200 flex items-center justify-center hover:bg-surface-container dark:hover:bg-surface-container-highest transition-all duration-150 scale-95 active:scale-90" href="#settings" title="Settings">
+<span class="material-symbols-outlined text-[24px] text-[#584237]" data-icon="settings">settings</span>
+<span class="sr-only">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Rail CTA + Footer Help -->
+<div class="flex flex-col items-center gap-3 w-full px-2">
+<!-- Quick Add Session CTA -->
+<button class="w-10 h-10 rounded-full bg-white/70 hover:bg-[#FFE3CF] text-[#1E1E1E] flex items-center justify-center transition-all duration-200 shadow-sm border border-white/80 active:scale-90" title="Quick Add Goal">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</button>
+<!-- Footer Tab: Help -->
+<a aria-label="Help" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/40 rounded-full p-3 transition-colors duration-200 flex items-center justify-center hover:bg-surface-container dark:hover:bg-surface-container-highest transition-all duration-150 scale-95 active:scale-90" href="#help" title="Help">
+<span class="material-symbols-outlined text-[22px] text-[#584237]" data-icon="help_outline">help_outline</span>
+<span class="sr-only">Help</span>
+</a>
+</div>
+</aside>
+<!-- ========================================== -->
+<!-- SHARED COMPONENT 2: TopNavBar              -->
+<!-- ========================================== -->
+<header class="fixed top-0 right-0 left-[72px] h-16 z-30 bg-surface-container-low/60 dark:bg-inverse-surface/60 backdrop-blur-md border-b border-outline-variant/20 dark:border-outline/20 shadow-[0_4px_20px_0_rgba(255,122,33,0.04)]">
+<div class="flex justify-between items-center h-full px-6 max-w-[1280px] mx-auto w-full">
+<!-- Left side: Session State Pill & Search -->
+<div class="flex items-center gap-4">
+<!-- Active Session Live Indicator -->
+<div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/70 border border-white/80 shadow-sm backdrop-blur-md">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF7A21] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF7A21]"></span>
+</span>
+<span class="font-label-caps text-label-caps text-[#1E1E1E] tracking-wider uppercase font-bold">
+            Active Session • In Progress
+          </span>
+</div>
+<!-- Search Input -->
+<div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/50 border border-white/70 text-[#1E1E1E] focus-within:ring-2 focus-within:ring-[#FF7A21] transition-all w-60">
+<span class="material-symbols-outlined text-[18px] text-[#584237]" data-icon="search">search</span>
+<input class="bg-transparent border-none p-0 text-xs focus:ring-0 placeholder:text-[#584237]/60 text-[#1E1E1E] font-medium w-full" placeholder="Jump to rule or site..." type="text"/>
+</div>
+</div>
+<!-- Right side: Notifications, End Focus Button & User Avatar -->
+<div class="flex items-center gap-3">
+<!-- Notification button -->
+<button aria-label="Notifications" class="w-9 h-9 rounded-full flex items-center justify-center text-[#584237] hover:text-[#1E1E1E] hover:bg-surface-container-high/50 dark:hover:bg-surface-container-highest/30 rounded-full transition-colors active:scale-95" title="Notifications">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<!-- Trailing Primary Action: End Focus -->
+<button class="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#1E1E1E] hover:bg-[#2C2C2C] text-white text-xs font-semibold tracking-wide transition-all shadow-sm active:scale-95">
+<span>End Focus</span>
+</button>
+<!-- Profile Avatar Ring with Warm Amber Ring -->
+<div class="flex items-center pl-1">
+<div class="w-8 h-8 rounded-full ring-2 ring-[#FFB422] p-0.5 bg-white shadow-sm flex items-center justify-center overflow-hidden">
+<img alt="User profile avatar with warm amber border ring" class="w-full h-full object-cover rounded-full" data-alt="A focused digital professional working at a warm wooden desk with warm cinematic amber ambient rim lighting, crisp studio portrait aesthetic, warm cream and deep charcoal tones with high visual fidelity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIed_cOR0zg-IVjO_-d3ObHqWcOjQJIh5gu1at5RBCSWmpSg_LYTsb6CbHeqhdseY8Ml0TjvBvHgvVEIBW5HjTdKf6trnQNUUNqKtXQ2CgV2hT-bIIVlUVMcYwBlkMOnVicSqTMsGfQgo3_P72GtrnLwTtiNgxL2AwT6e4qRydjDvC1yYEDXTBXvL32GvO6UeFrr8c5jhD7oR5DK9petKKTksgItJeYag6Zg4b23NKZZHkya-W1O9Y"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================== -->
+<!-- MAIN CONTENT CANVAS                        -->
+<!-- ========================================== -->
+<main class="flex-1 ml-[72px] mt-16 p-6 md:p-8 min-h-[calc(100vh-64px)] relative z-10 flex flex-col justify-start">
+<div class="max-w-[1280px] w-full mx-auto space-y-6">
+<!-- ========================================== -->
+<!-- 1. HEADER / BREADCRUMB AREA                -->
+<!-- ========================================== -->
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="space-y-1.5">
+<!-- Mode Pill & Metadata Row -->
+<div class="flex items-center gap-2.5 flex-wrap">
+<!-- Mode badge in a pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-white/90 backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-[#1E1E1E]" data-icon="lock">lock</span>
+<span class="font-label-caps text-label-caps uppercase text-[#1E1E1E]">Strict Mode</span>
+</div>
+<!-- Session timestamp indicator -->
+<span class="text-xs font-semibold text-[#584237]/80 flex items-center gap-1">
+<span>Started 26 mins ago</span>
+<span class="text-[#FF7A21]">•</span>
+<span>Target: 45 min</span>
+</span>
+</div>
+<!-- Session Title / Goal -->
+<div class="flex items-center gap-3">
+<h1 class="font-headline-hero text-headline-hero-mobile md:text-headline-hero text-[#1E1E1E] font-extrabold tracking-tight">
+              Study DSA topic graphs
+            </h1>
+<button class="p-1.5 rounded-full hover:bg-white/60 text-[#584237] hover:text-[#1E1E1E] transition-colors" title="Edit goal title">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+<!-- Drift Counter Chip & Extension Quick Badge -->
+<div class="flex items-center gap-3 self-start md:self-center">
+<!-- Drift Counter Chip: Amber #FFB422 with #1E1E1E bold text -->
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFB422] text-[#1E1E1E] shadow-sm font-label-caps text-label-caps tracking-wider transition-transform hover:scale-102">
+<span class="w-2 h-2 rounded-full bg-[#1E1E1E] animate-ping"></span>
+<span class="material-symbols-outlined text-[16px] text-[#1E1E1E]" data-icon="warning">warning</span>
+<span>1 DRIFT DETECTED</span>
+</div>
+<!-- Reset / Context menu pill -->
+<button class="p-2 rounded-full bg-white/60 hover:bg-white/80 border border-white/70 text-[#1E1E1E] transition-all shadow-sm" title="Session Options">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 2. GRID LAYOUT: Center Stage & Side Stats  -->
+<!-- ========================================== -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- ========================================== -->
+<!-- CENTER-LEFT HERO CARD: The Countdown Stage -->
+<!-- ========================================== -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col">
+<div class="relative overflow-hidden rounded-3xl bg-white/65 backdrop-blur-xl border border-white/70 p-8 shadow-[0_8px_32px_0_rgba(255,122,33,0.08)] flex flex-col items-center justify-between min-h-[510px]">
+<!-- Top Subtle Card Indicator: Sync Info -->
+<div class="w-full flex items-center justify-between pb-4 border-b border-[#1E1E1E]/5">
+<div class="flex items-center gap-2 text-xs font-semibold text-[#1E1E1E]/80">
+<span class="inline-block w-2 h-2 rounded-full bg-[#FF7A21]"></span>
+<span>Chrome Extension active</span>
+<span class="text-[#FF7A21]">•</span>
+<span class="text-[#584237]/70">Tab checking enabled</span>
+</div>
+<span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#FFE3CF] text-[#1E1E1E]">
+                Synced Live
+              </span>
+</div>
+<!-- Focus Stage Core: Circular Countdown Ring -->
+<div class="relative my-6 flex flex-col items-center justify-center">
+<!-- Ambient Glow behind the ring -->
+<div class="absolute w-64 h-64 rounded-full bg-[#FF7A21]/15 blur-2xl pointer-events-none"></div>
+<!-- SVG Countdown Ring -->
+<div class="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 280 280">
+<!-- Background Track (#FFE3CF or transparent soft rim) -->
+<circle class="opacity-80" cx="140" cy="140" fill="transparent" r="115" stroke="#FFE3CF" stroke-linecap="round" stroke-width="14"></circle>
+<!-- Active Meter: #FF7A21 with ambient drop shadow bloom -->
+<!-- 18:42 remaining of 45:00 = ~58% elapsed, ~42% remaining -->
+<!-- Circumference = 2 * PI * 115 ~= 722.56. Dashoffset ~= 300 -->
+<circle class="timer-ring-head transition-all duration-1000 ease-out" cx="140" cy="140" fill="transparent" r="115" stroke="#FF7A21" stroke-dasharray="722.56" stroke-dashoffset="302" stroke-linecap="round" stroke-width="14"></circle>
+</svg>
+<!-- Center Readout -->
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-label-caps text-label-caps tracking-widest uppercase text-[#584237]/75 font-extrabold mb-1">
+                    FOCUS TIME
+                  </span>
+<!-- Tabular Huge Timer Display -->
+<div class="font-display-timer text-display-timer-mobile md:text-display-timer text-[#1E1E1E] tabular-nums font-extrabold tracking-tight">
+                    18:42
+                  </div>
+<span class="font-label-caps text-label-caps tracking-widest uppercase text-[#FF7A21] font-bold mt-1">
+                    REMAINING OF 45:00
+                  </span>
+</div>
+</div>
+</div>
+<!-- Play / Pause & End Session Action Bar -->
+<div class="w-full flex flex-col sm:flex-row items-center justify-center gap-3 pt-4 border-t border-[#1E1E1E]/5">
+<!-- Primary Pill Button: Pause Session (Background #FF7A21, text #1E1E1E) -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#FF7A21] hover:bg-[#F06B10] text-[#1E1E1E] font-bold text-sm tracking-wide shadow-[0_4px_20px_rgba(255,122,33,0.30)] transition-all hover:scale-[1.02] active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined text-[20px]" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span>
+<span>Pause Session</span>
+</button>
+<!-- Secondary Pill Button: End Session (Subtle confirmation trigger / ink outline) -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/70 hover:bg-white text-[#1E1E1E] font-semibold text-sm tracking-wide border border-[#1E1E1E]/15 transition-all hover:border-[#1E1E1E]/30 active:scale-95 cursor-pointer group" title="Hold or click to end session">
+<span class="material-symbols-outlined text-[18px] text-[#584237] group-hover:text-[#1E1E1E]" data-icon="stop">stop</span>
+<span>End Session</span>
+<span class="text-[10px] text-[#584237]/60 font-normal ml-0.5">(Hold to end)</span>
+</button>
+<!-- Add 5 Minutes Quick Extend Pill -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-3.5 rounded-full bg-[#FFE3CF]/80 hover:bg-[#FFE3CF] text-[#1E1E1E] font-semibold text-xs tracking-wide transition-all active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined text-[16px]" data-icon="more_time">more_time</span>
+<span>+5m</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- SIDE COLUMN / SECONDARY CARDS (Right Col)  -->
+<!-- ========================================== -->
+<div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-6">
+<!-- Card 1: On-goal streak frosted card -->
+<div class="rounded-3xl bg-white/65 backdrop-blur-xl border border-white/70 p-6 shadow-[0_8px_32px_0_rgba(255,122,33,0.06)] flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-label-caps uppercase text-[#584237] font-bold tracking-wider">
+                Focus Momentum
+              </span>
+<span class="p-1 rounded-full bg-[#FFE3CF] text-[#FF7A21] flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+</span>
+</div>
+<!-- Big Stat -->
+<div class="my-2">
+<div class="font-stat-counter text-stat-counter text-[#1E1E1E] font-extrabold tracking-tight">
+                14 min
+              </div>
+<p class="font-body-md text-body-md text-[#584237] font-medium mt-0.5">
+                Current uninterrupted on-goal streak
+              </p>
+</div>
+<!-- Thin Orange Progress Bar: 14 min against 45 min target (~31%) -->
+<div class="space-y-1.5 my-3">
+<div class="w-full bg-[#FFE3CF]/60 h-2.5 rounded-full overflow-hidden p-0.5">
+<div class="bg-[#FF7A21] h-full rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(255,122,33,0.5)]" style="width: 31.1%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-semibold text-[#584237]/75">
+<span>14m current</span>
+<span>Target: 45m</span>
+</div>
+</div>
+<!-- Longest & Secondary Stats -->
+<div class="pt-3 border-t border-[#1E1E1E]/5 flex items-center justify-between text-xs font-semibold">
+<span class="text-[#1E1E1E]/80">Longest this session: <strong class="text-[#1E1E1E]">14 min</strong></span>
+</div>
+<!-- Secondary Stat Chips -->
+<div class="grid grid-cols-2 gap-2.5 mt-3 pt-3 border-t border-[#1E1E1E]/5">
+<div class="px-3 py-2 rounded-2xl bg-white/70 border border-white/80 flex flex-col">
+<span class="text-[10px] uppercase font-bold text-[#584237]/70 tracking-wider">Quality</span>
+<span class="text-base font-extrabold text-[#1E1E1E]">96%</span>
+</div>
+<div class="px-3 py-2 rounded-2xl bg-white/70 border border-white/80 flex flex-col">
+<span class="text-[10px] uppercase font-bold text-[#584237]/70 tracking-wider">Tabs Checked</span>
+<span class="text-base font-extrabold text-[#1E1E1E]">34</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Live Activity Feed frosted card -->
+<div class="rounded-3xl bg-white/65 backdrop-blur-xl border border-white/70 p-6 shadow-[0_8px_32px_0_rgba(255,122,33,0.06)] flex flex-col">
+<!-- Feed Header with Pulsing Radar Dot -->
+<div class="flex items-center justify-between pb-3.5 border-b border-[#1E1E1E]/5">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF7A21] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF7A21]"></span>
+</span>
+<h3 class="font-headline-md text-headline-md text-[#1E1E1E] font-bold">Live Page Feed</h3>
+</div>
+<span class="text-[11px] font-semibold text-[#584237]/70">Monitored tabs</span>
+</div>
+<!-- Feed Items List -->
+<div class="divide-y divide-[#1E1E1E]/5 mt-1 space-y-0.5">
+<!-- Item 1: LeetCode (Relevant) -->
+<div class="py-3 flex items-start justify-between gap-3 group">
+<div class="flex items-start gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-[#FF7A21] mt-0.5 shrink-0" data-icon="code">code</span>
+<div class="min-w-0">
+<p class="text-xs font-bold text-[#1E1E1E] truncate group-hover:text-primary transition-colors">
+                      LeetCode - Graph Theory &amp; BFS/DFS Solutions
+                    </p>
+<span class="text-[11px] text-[#584237]/70">Just now</span>
+</div>
+</div>
+<!-- Tag: Relevant (Orange #FF7A21 pill with #1E1E1E text) -->
+<span class="shrink-0 px-2.5 py-0.5 rounded-full bg-[#FF7A21] text-[#1E1E1E] font-label-caps text-[10px] font-bold uppercase tracking-wider">
+                  Relevant
+                </span>
+</div>
+<!-- Item 2: GeeksforGeeks (Relevant) -->
+<div class="py-3 flex items-start justify-between gap-3 group">
+<div class="flex items-start gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-[#FF7A21] mt-0.5 shrink-0" data-icon="article">article</span>
+<div class="min-w-0">
+<p class="text-xs font-bold text-[#1E1E1E] truncate group-hover:text-primary transition-colors">
+                      GeeksforGeeks - Dijkstra's Shortest Path Algorithm
+                    </p>
+<span class="text-[11px] text-[#584237]/70">4m ago</span>
+</div>
+</div>
+<!-- Tag: Relevant -->
+<span class="shrink-0 px-2.5 py-0.5 rounded-full bg-[#FF7A21] text-[#1E1E1E] font-label-caps text-[10px] font-bold uppercase tracking-wider">
+                  Relevant
+                </span>
+</div>
+<!-- Item 3: YouTube (Relevant) -->
+<div class="py-3 flex items-start justify-between gap-3 group">
+<div class="flex items-start gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-[#FF7A21] mt-0.5 shrink-0" data-icon="headphones">headphones</span>
+<div class="min-w-0">
+<p class="text-xs font-bold text-[#1E1E1E] truncate group-hover:text-primary transition-colors">
+                      YouTube - Lo-Fi Chill Beats for Coding
+                    </p>
+<span class="text-[11px] text-[#584237]/70">12m ago</span>
+</div>
+</div>
+<!-- Tag: Relevant -->
+<span class="shrink-0 px-2.5 py-0.5 rounded-full bg-[#FF7A21] text-[#1E1E1E] font-label-caps text-[10px] font-bold uppercase tracking-wider">
+                  Relevant
+                </span>
+</div>
+<!-- Item 4: Twitter / X (Drifting - Amber alert) -->
+<div class="py-3 flex items-start justify-between gap-3 group bg-[#FFB422]/10 -mx-3 px-3 rounded-2xl transition-colors">
+<div class="flex items-start gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-[#7f5600] mt-0.5 shrink-0" data-icon="warning">warning</span>
+<div class="min-w-0">
+<p class="text-xs font-bold text-[#1E1E1E] truncate">
+                      Twitter / X - Trending Tech News
+                    </p>
+<span class="text-[11px] text-[#584237]/90 font-medium">18m ago • Gentle warning shown</span>
+</div>
+</div>
+<!-- Tag: Drifting (Amber #FFB422 pill with #1E1E1E text - NO RED) -->
+<span class="shrink-0 px-2.5 py-0.5 rounded-full bg-[#FFB422] text-[#1E1E1E] font-label-caps text-[10px] font-bold uppercase tracking-wider shadow-sm">
+                  Drifting
+                </span>
+</div>
+<!-- Item 5: GitHub (Relevant) -->
+<div class="py-3 flex items-start justify-between gap-3 group">
+<div class="flex items-start gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-[#FF7A21] mt-0.5 shrink-0" data-icon="folder">folder</span>
+<div class="min-w-0">
+<p class="text-xs font-bold text-[#1E1E1E] truncate group-hover:text-primary transition-colors">
+                      GitHub - algorithm-visualizer / graphs
+                    </p>
+<span class="text-[11px] text-[#584237]/70">22m ago</span>
+</div>
+</div>
+<!-- Tag: Relevant -->
+<span class="shrink-0 px-2.5 py-0.5 rounded-full bg-[#FF7A21] text-[#1E1E1E] font-label-caps text-[10px] font-bold uppercase tracking-wider">
+                  Relevant
+                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Lightweight Micro-Interaction script for pause toggle -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Gentle pause button click feedback
+      const pauseBtn = document.querySelector('button:has([data-icon="pause"])');
+      if (pauseBtn) {
+        let isPaused = false;
+        pauseBtn.addEventListener('click', () => {
+          isPaused = !isPaused;
+          const label = pauseBtn.querySelector('span:not(.material-symbols-outlined)');
+          const icon = pauseBtn.querySelector('.material-symbols-outlined');
+          if (isPaused) {
+            label.textContent = 'Resume Session';
+            icon.textContent = 'play_arrow';
+            pauseBtn.classList.replace('bg-[#FF7A21]', 'bg-[#1E1E1E]');
+            pauseBtn.classList.replace('text-[#1E1E1E]', 'text-white');
+          } else {
+            label.textContent = 'Pause Session';
+            icon.textContent = 'pause';
+            pauseBtn.classList.replace('bg-[#1E1E1E]', 'bg-[#FF7A21]');
+            pauseBtn.classList.replace('text-white', 'text-[#1E1E1E]');
+          }
+        });
+      }
+    });
+  </script>
+</body></html>
