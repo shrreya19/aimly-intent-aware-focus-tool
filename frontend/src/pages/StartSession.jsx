@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
-import { PlayCircle, RotateCcw, Shield, ShieldAlert, Sparkles } from 'lucide-react';
+import PreSessionModal from '../components/PreSessionModal';
+import ExtensionModal from '../components/ExtensionModal';
+import { PlayCircle, RotateCcw, Shield, ShieldAlert, Sparkles, Zap, Puzzle, AlertCircle } from 'lucide-react';
 
 export default function StartSession() {
   const [goal, setGoal] = useState('');
@@ -11,6 +13,10 @@ export default function StartSession() {
   const [lastGoal, setLastGoal] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  // Pre-session guide modal state
+  const [showPreSessionModal, setShowPreSessionModal] = useState(false);
+  const [isExtensionModalOpen, setIsExtensionModalOpen] = useState(false);
 
   const { activeSession, refreshActiveSession } = useAuth();
   const navigate = useNavigate();
@@ -37,13 +43,21 @@ export default function StartSession() {
     loadLastGoal();
   }, []);
 
-  const handleStartSession = async (e) => {
+  // Triggered when user clicks "Start Focus Session" button
+  const handleInitiateStart = (e) => {
     e?.preventDefault();
     if (goal.trim().length < 3) {
       setError('Please enter a goal with at least 3 characters.');
       return;
     }
+    setError('');
+    // Open the guide modal so the evaluator knows the 2 options
+    setShowPreSessionModal(true);
+  };
 
+  // Actually creates the session and navigates to the active session
+  const handleConfirmStart = async () => {
+    setShowPreSessionModal(false);
     setLoading(true);
     setError('');
 
@@ -62,28 +76,13 @@ export default function StartSession() {
     }
   };
 
-  const handleResumeLastGoal = async () => {
-    if (!lastGoal) return;
-    setGoal(lastGoal.goal);
-    setDuration(lastGoal.duration_minutes || 25);
-    setMode(lastGoal.mode || 'soft');
-
-    setLoading(true);
-    setError('');
-
-    try {
-      await api.sessions.start({
-        goal: lastGoal.goal,
-        duration_minutes: lastGoal.duration_minutes || 25,
-        mode: lastGoal.mode || 'soft',
-      });
-      await refreshActiveSession();
-      navigate('/active');
-    } catch (err) {
-      setError(err.message || 'Failed to start session');
-    } finally {
-      setLoading(false);
-    }
+  const handleResumeLastGoal = (targetGoal) => {
+    const resumeGoal = targetGoal || lastGoal;
+    if (!resumeGoal) return;
+    setGoal(resumeGoal.goal);
+    setDuration(resumeGoal.duration_minutes || 25);
+    setMode(resumeGoal.mode || 'soft');
+    setShowPreSessionModal(true);
   };
 
   const durations = [15, 25, 45, 60];
@@ -98,6 +97,28 @@ export default function StartSession() {
         <p className="text-xs md:text-sm font-semibold text-ink-secondary mt-1">
           Define your focus intention. Aimly will safeguard your attention.
         </p>
+      </div>
+
+      {/* Professor / Evaluator Info Banner */}
+      <div className="p-4 rounded-2xl bg-amber/20 border border-amber/40 text-xs text-ink flex items-start justify-between gap-3 shadow-xs">
+        <div className="flex items-start gap-2.5">
+          <Sparkles className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+          <div className="space-y-1">
+            <p className="font-extrabold text-ink">
+              🎓 Evaluator & Professor Note:
+            </p>
+            <p className="text-[11px] text-ink-secondary font-medium leading-relaxed">
+              Due to browser security, tab monitoring requires either our <strong>In-Browser Simulator (Instant • No Install)</strong> or the <strong>Chrome Extension (.zip)</strong>. Both options will be presented when you click start!
+            </p>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={() => setIsExtensionModalOpen(true)}
+          className="px-3 py-1.5 rounded-full bg-white border border-ink/10 text-[10px] font-black uppercase tracking-wider text-ink hover:bg-soft-orange shrink-0 cursor-pointer shadow-2xs"
+        >
+          Extension Guide
+        </button>
       </div>
 
       {error && (
@@ -198,9 +219,9 @@ export default function StartSession() {
 
         {/* Start Button */}
         <button
-          onClick={handleStartSession}
+          onClick={handleInitiateStart}
           disabled={loading || goal.trim().length < 3}
-          className="w-full h-14 rounded-full bg-primary text-ink text-base font-black hover:bg-primary-hover shadow-md flex items-center justify-center gap-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02]"
+          className="w-full h-14 rounded-full bg-primary text-ink text-base font-black hover:bg-primary-hover shadow-md flex items-center justify-center gap-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:scale-[1.02] cursor-pointer"
         >
           {loading ? (
             <span>Initiating Session...</span>
@@ -234,15 +255,35 @@ export default function StartSession() {
           </div>
 
           <button
-            onClick={handleResumeLastGoal}
+            onClick={() => handleResumeLastGoal()}
             disabled={loading}
-            className="w-12 h-12 rounded-full bg-primary hover:bg-primary-hover text-ink flex items-center justify-center shadow-md shrink-0 transition-transform hover:scale-110"
+            className="w-12 h-12 rounded-full bg-primary hover:bg-primary-hover text-ink flex items-center justify-center shadow-md shrink-0 transition-transform hover:scale-110 cursor-pointer"
             title="Start with this goal"
           >
             <RotateCcw className="w-5 h-5" />
           </button>
         </div>
       )}
+
+      {/* Pre-Session Evaluator & Drift Options Guide Modal */}
+      <PreSessionModal
+        isOpen={showPreSessionModal}
+        onClose={() => setShowPreSessionModal(false)}
+        onConfirmStart={handleConfirmStart}
+        goal={goal}
+        duration={duration}
+        mode={mode}
+        onOpenExtensionGuide={() => {
+          setShowPreSessionModal(false);
+          setIsExtensionModalOpen(true);
+        }}
+      />
+
+      {/* Chrome Extension Setup Modal */}
+      <ExtensionModal
+        isOpen={isExtensionModalOpen}
+        onClose={() => setIsExtensionModalOpen(false)}
+      />
     </div>
   );
 }
