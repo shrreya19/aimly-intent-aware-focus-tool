@@ -44,14 +44,19 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
-];
+  process.env.FRONTEND_URL,
+].filter(Boolean);
 
 app.use(
   cors({
     origin: (origin, callback) => {
       // Allow requests with no origin (like mobile apps, curl, or extension background scripts)
       if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin) || origin.startsWith('chrome-extension://')) {
+      if (
+        allowedOrigins.includes(origin) ||
+        origin.startsWith('chrome-extension://') ||
+        origin.endsWith('.vercel.app')
+      ) {
         return callback(null, true);
       }
       // In development / demo, allow local connections
@@ -61,7 +66,7 @@ app.use(
       callback(new Error('Blocked by CORS policy'));
     },
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Client-Date', 'X-Client-Timezone'],
   })
 );
