@@ -1,7 +1,7 @@
 // Aimly Popup Logic (Manifest V3)
 
-const BACKEND_URL = 'http://localhost:8000';
-const WEB_APP_URL = 'http://localhost:5173';
+const BACKEND_URL = 'https://aimly-backend-7xcs.onrender.com';
+const WEB_APP_URL = 'https://aimly-intent-aware-focus-tool.vercel.app';
 
 let currentSession = null;
 let currentToken = null;

@@ -50,20 +50,9 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps, curl, or extension background scripts)
-      if (!origin) return callback(null, true);
-      if (
-        allowedOrigins.includes(origin) ||
-        origin.startsWith('chrome-extension://') ||
-        origin.endsWith('.vercel.app')
-      ) {
-        return callback(null, true);
-      }
-      // In development / demo, allow local connections
-      if (process.env.NODE_ENV !== 'production') {
-        return callback(null, true);
-      }
-      callback(new Error('Blocked by CORS policy'));
+      // Allow all origins (mobile apps, curl, extension background scripts, Vercel, localhost)
+      // Returning callback(null, true) sets Access-Control-Allow-Origin to the caller's origin dynamically
+      return callback(null, true);
     },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],

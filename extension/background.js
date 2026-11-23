@@ -1,6 +1,7 @@
 // Aimly Background Service Worker (Manifest V3)
 
-const BACKEND_URL = 'http://localhost:8000';
+const BACKEND_URL = 'https://aimly-backend-7xcs.onrender.com';
+const WEB_APP_URL = 'https://aimly-intent-aware-focus-tool.vercel.app';
 let activeTimers = new Map(); // tabId -> timerId
 
 // Helper to get stored auth token
@@ -152,7 +153,7 @@ async function performRelevanceCheck(tabId, tabUrl, session) {
       let domain = 'unknown';
       try {
         domain = new URL(tabUrl).hostname.replace(/^www\./, '');
-      } catch {}
+      } catch { }
 
       const overlayPayload = {
         action: 'SHOW_DRIFT_OVERLAY',
@@ -173,7 +174,7 @@ async function performRelevanceCheck(tabId, tabUrl, session) {
             files: ['content.js'],
           });
           setTimeout(() => {
-            chrome.tabs.sendMessage(tabId, overlayPayload).catch(() => {});
+            chrome.tabs.sendMessage(tabId, overlayPayload).catch(() => { });
           }, 150);
         } catch (injectErr) {
           console.warn('[Aimly Background] Could not show overlay:', injectErr.message);
@@ -192,7 +193,7 @@ chrome.tabs.onActivated.addListener(async (activeInfo) => {
     if (tab && tab.url) {
       scheduleRelevanceCheck(tab.id, tab.url);
     }
-  } catch {}
+  } catch { }
 });
 
 // Listen to Tab Update (completed status or SPA in-page navigation)
