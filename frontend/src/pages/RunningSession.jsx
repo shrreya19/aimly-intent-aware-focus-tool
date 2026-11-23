@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import ExtensionModal from '../components/ExtensionModal';
+import SemanticDriftOverlay from '../components/SemanticDriftOverlay';
 import confetti from 'canvas-confetti';
 import {
   Play,
@@ -14,6 +16,10 @@ import {
   ExternalLink,
   Flame,
   Coffee,
+  Puzzle,
+  Zap,
+  ArrowRight,
+  Download,
 } from 'lucide-react';
 
 export default function RunningSession() {
@@ -32,6 +38,15 @@ export default function RunningSession() {
   const [breaksUsed, setBreaksUsed] = useState(0);
   const [redeemingBreak, setRedeemingBreak] = useState(false);
   const [breakToast, setBreakToast] = useState('');
+
+  // Simulator & Extension state
+  const [testOption, setTestOption] = useState('simulator'); // 'simulator' | 'extension'
+  const [isExtensionModalOpen, setIsExtensionModalOpen] = useState(false);
+  const [driftOverlayData, setDriftOverlayData] = useState(null);
+  const [customUrl, setCustomUrl] = useState('');
+  const [customTitle, setCustomTitle] = useState('');
+  const [simulating, setSimulating] = useState(false);
+  const [simToast, setSimToast] = useState(null);
 
   const navigate = useNavigate();
   const pollTimerRef = useRef(null);
@@ -235,6 +250,76 @@ export default function RunningSession() {
     }
   };
 
+  // Run Semantic Simulation
+  const handleRunSimulation = async (simUrlToUse, simTitleToUse) => {
+    if (!session?.id) return;
+    const targetUrl = simUrlToUse || customUrl || 'https://www.youtube.com/watch?v=lifestyle-vlog';
+    const targetTitle = simTitleToUse || customTitle || 'Daily Lifestyle Vlog - What I Eat in a Day';
+
+    setSimulating(true);
+    setSimToast(null);
+    try {
+      const res = await api.relevance.check({
+        session_id: session.id,
+        url: targetUrl,
+        title: targetTitle,
+        description: targetTitle,
+      });
+
+      // Refresh report data
+      const reportRes = await api.sessions.getReport(session.id).catch(() => null);
+      if (reportRes) {
+        setVisitedPages(reportRes.drift_timeline || []);
+        setDriftsCount(reportRes.drift_count || 0);
+        computeOnGoalStreak(reportRes.drift_timeline || []);
+      }
+
+      if (res.is_drift) {
+        let domain = 'unknown';
+        try {
+          domain = new URL(targetUrl).hostname.replace(/^www\./, '');
+        } catch {}
+        setDriftOverlayData({
+          goal: session.goal,
+          score: res.score,
+          mode: session.mode,
+          domain,
+          pageTitle: targetTitle,
+          pageVisitId: res.page_visit_id,
+        });
+      } else {
+        setSimToast({
+          type: 'success',
+          text: `✅ Aligned with goal! Match: ${Math.round(res.score * 100)}% ("${targetTitle}")`,
+        });
+        setTimeout(() => setSimToast(null), 5000);
+      }
+    } catch (err) {
+      setSimToast({
+        type: 'error',
+        text: `Simulation error: ${err.message}`,
+      });
+      setTimeout(() => setSimToast(null), 5000);
+    } finally {
+      setSimulating(false);
+    }
+  };
+
+  // Feedback Submission for model learning
+  const handleFeedback = async (pageVisitId, domain, label) => {
+    try {
+      await api.relevance.feedback({ page_visit_id: pageVisitId, domain, label });
+      setDriftOverlayData(null);
+      setSimToast({
+        type: 'success',
+        text: `Feedback submitted: Domain "${domain}" updated in user profile!`,
+      });
+      setTimeout(() => setSimToast(null), 4000);
+    } catch (err) {
+      console.warn('Feedback failed:', err.message);
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
@@ -396,6 +481,223 @@ export default function RunningSession() {
         )}
       </div>
 
+      {/* Intent-Aware Semantic Enforcement Options (In-Browser Simulator vs Chrome Extension) */}
+      <div className="glass-panel p-6 shadow-frosted space-y-5">
+        {/* Header and Toggle */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-ink/10 pb-4">
+          <div>
+            <div className="flex items-center gap-2">
+              <Zap className="w-5 h-5 text-primary" />
+              <h2 className="text-base font-black uppercase tracking-wide text-ink">
+                Test Intent Engine (Choose Option)
+              </h2>
+            </div>
+            <p className="text-xs text-ink-secondary font-medium mt-0.5">
+              Experience the core ML semantic drift detection without leaving your browser, or install the Chrome Extension.
+            </p>
+          </div>
+
+          <div className="flex items-center bg-soft-orange/50 p-1 rounded-full border border-primary/20 shrink-0 self-start sm:self-auto">
+            <button
+              onClick={() => setTestOption('simulator')}
+              className={`px-4 py-1.5 rounded-full text-xs font-black transition-all cursor-pointer ${
+                testOption === 'simulator'
+                  ? 'bg-primary text-ink shadow-xs'
+                  : 'text-ink-secondary hover:text-ink'
+              }`}
+            >
+              ⚡ Live Simulator (Instant)
+            </button>
+            <button
+              onClick={() => setTestOption('extension')}
+              className={`px-4 py-1.5 rounded-full text-xs font-black transition-all cursor-pointer ${
+                testOption === 'extension'
+                  ? 'bg-primary text-ink shadow-xs'
+                  : 'text-ink-secondary hover:text-ink'
+              }`}
+            >
+              🧩 Chrome Extension (.zip)
+            </button>
+          </div>
+        </div>
+
+        {/* Option 1: In-Browser Simulator */}
+        {testOption === 'simulator' && (
+          <div className="space-y-4">
+            <div className="p-3 rounded-2xl bg-cream/70 border border-ink/5 flex items-start gap-2.5 text-xs text-ink">
+              <Sparkles className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <p className="text-[11px] leading-relaxed">
+                <strong>Professor / Evaluator Quick Test:</strong> Click any preset below to simulate visiting that page while focusing on <strong>"{session?.goal}"</strong>. The live backend will evaluate semantic relevance in real-time!
+              </p>
+            </div>
+
+            {/* Quick Test Preset Buttons */}
+            <div>
+              <p className="text-[11px] font-black uppercase tracking-wider text-ink-muted mb-2">
+                1-Click Preset Simulations:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <button
+                  type="button"
+                  disabled={simulating}
+                  onClick={() =>
+                    handleRunSimulation(
+                      'https://www.youtube.com/watch?v=daily-vlog',
+                      'Daily Lifestyle Vlog: Weekend in NYC'
+                    )
+                  }
+                  className="p-3 rounded-2xl bg-white/70 hover:bg-white border border-amber/50 hover:border-amber text-left flex items-center justify-between text-xs font-bold text-ink shadow-2xs transition-all hover:scale-[1.01] cursor-pointer"
+                >
+                  <div className="truncate">
+                    <span className="inline-block px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-black mr-2">
+                      Off-Intent (Drift)
+                    </span>
+                    <span className="truncate">📺 YouTube: Lifestyle Vlog</span>
+                  </div>
+                  <span className="text-[10px] font-black text-amber shrink-0 ml-2">Simulate →</span>
+                </button>
+
+                <button
+                  type="button"
+                  disabled={simulating}
+                  onClick={() =>
+                    handleRunSimulation(
+                      'https://leetcode.com/problems/binary-tree-inorder-traversal',
+                      'Binary Tree Inorder Traversal - LeetCode'
+                    )
+                  }
+                  className="p-3 rounded-2xl bg-white/70 hover:bg-white border border-emerald-300 hover:border-emerald-500 text-left flex items-center justify-between text-xs font-bold text-ink shadow-2xs transition-all hover:scale-[1.01] cursor-pointer"
+                >
+                  <div className="truncate">
+                    <span className="inline-block px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black mr-2">
+                      On-Intent (Focus)
+                    </span>
+                    <span className="truncate">💻 LeetCode: Binary Tree</span>
+                  </div>
+                  <span className="text-[10px] font-black text-emerald-600 shrink-0 ml-2">Simulate →</span>
+                </button>
+
+                <button
+                  type="button"
+                  disabled={simulating}
+                  onClick={() =>
+                    handleRunSimulation(
+                      'https://www.instagram.com/reels/comedy-trending',
+                      'Viral Comedy Shorts & Memes - Instagram Reels'
+                    )
+                  }
+                  className="p-3 rounded-2xl bg-white/70 hover:bg-white border border-amber/50 hover:border-amber text-left flex items-center justify-between text-xs font-bold text-ink shadow-2xs transition-all hover:scale-[1.01] cursor-pointer"
+                >
+                  <div className="truncate">
+                    <span className="inline-block px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-black mr-2">
+                      Off-Intent (Drift)
+                    </span>
+                    <span className="truncate">📸 Instagram: Funny Reels</span>
+                  </div>
+                  <span className="text-[10px] font-black text-amber shrink-0 ml-2">Simulate →</span>
+                </button>
+
+                <button
+                  type="button"
+                  disabled={simulating}
+                  onClick={() =>
+                    handleRunSimulation(
+                      'https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7',
+                      "Dijkstra's Shortest Path Algorithm - GeeksforGeeks"
+                    )
+                  }
+                  className="p-3 rounded-2xl bg-white/70 hover:bg-white border border-emerald-300 hover:border-emerald-500 text-left flex items-center justify-between text-xs font-bold text-ink shadow-2xs transition-all hover:scale-[1.01] cursor-pointer"
+                >
+                  <div className="truncate">
+                    <span className="inline-block px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black mr-2">
+                      On-Intent (Focus)
+                    </span>
+                    <span className="truncate">📚 GeeksforGeeks: Dijkstra</span>
+                  </div>
+                  <span className="text-[10px] font-black text-emerald-600 shrink-0 ml-2">Simulate →</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Custom URL and Title Simulation */}
+            <div className="pt-2 border-t border-ink/5">
+              <p className="text-[11px] font-black uppercase tracking-wider text-ink-muted mb-2">
+                Or Test Any Custom Page:
+              </p>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <input
+                  type="text"
+                  placeholder="URL (e.g. reddit.com/r/gaming)"
+                  value={customUrl}
+                  onChange={(e) => setCustomUrl(e.target.value)}
+                  className="flex-1 h-10 px-3.5 rounded-full glass-input text-xs font-semibold text-ink"
+                />
+                <input
+                  type="text"
+                  placeholder="Page Title (e.g. Top PC Games of 2026)"
+                  value={customTitle}
+                  onChange={(e) => setCustomTitle(e.target.value)}
+                  className="flex-1 h-10 px-3.5 rounded-full glass-input text-xs font-semibold text-ink"
+                />
+                <button
+                  type="button"
+                  disabled={simulating || (!customUrl && !customTitle)}
+                  onClick={() => handleRunSimulation(customUrl, customTitle)}
+                  className="h-10 px-6 rounded-full bg-ink text-white hover:bg-black text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all disabled:opacity-40 cursor-pointer shrink-0"
+                >
+                  {simulating ? 'Analyzing...' : 'Test Visit'}
+                </button>
+              </div>
+            </div>
+
+            {/* Simulation Toast Notification */}
+            {simToast && (
+              <div
+                className={`p-3 rounded-2xl text-xs font-bold ${
+                  simToast.type === 'error'
+                    ? 'bg-red-50 text-red-800 border border-red-200'
+                    : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                } animate-fadeIn`}
+              >
+                {simToast.text}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Option 2: Chrome Extension Setup */}
+        {testOption === 'extension' && (
+          <div className="p-4 rounded-2xl bg-white/70 border border-ink/10 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h3 className="text-sm font-black text-ink uppercase flex items-center gap-2">
+                <Puzzle className="w-4 h-4 text-primary" />
+                Aimly Chrome Extension (Manifest V3)
+              </h3>
+              <p className="text-xs text-ink-secondary leading-relaxed">
+                Monitors active tabs across your browser in real time and automatically injects the drift overlay on distracting websites (like YouTube, Reddit, Instagram).
+              </p>
+            </div>
+            <div className="flex items-center gap-2 shrink-0">
+              <a
+                href="/aimly-extension.zip"
+                download="aimly-extension.zip"
+                className="h-10 px-5 rounded-full bg-primary text-ink text-xs font-black uppercase tracking-wider hover:bg-primary-hover shadow-sm flex items-center gap-1.5 transition-all cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download .zip</span>
+              </a>
+              <button
+                type="button"
+                onClick={() => setIsExtensionModalOpen(true)}
+                className="h-10 px-4 rounded-full bg-white border border-ink/20 text-ink text-xs font-extrabold hover:bg-black/5 transition-all cursor-pointer"
+              >
+                Setup Guide
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* On-Goal Streak & Real-time Live Feed */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* On-Goal Streak Card */}
@@ -503,13 +805,35 @@ export default function RunningSession() {
 
             <button
               onClick={() => setShowConfirmModal(false)}
-              className="w-full py-2 text-xs font-bold text-ink-muted hover:text-ink transition-colors"
+              className="w-full py-2 text-xs font-bold text-ink-muted hover:text-ink transition-colors cursor-pointer"
             >
               Resume Focusing
             </button>
           </div>
         </div>
       )}
+
+      {/* Semantic Drift Warning Overlay (In-Browser Experience) */}
+      <SemanticDriftOverlay
+        isOpen={!!driftOverlayData}
+        onClose={() => setDriftOverlayData(null)}
+        goal={driftOverlayData?.goal}
+        score={driftOverlayData?.score}
+        mode={driftOverlayData?.mode}
+        domain={driftOverlayData?.domain}
+        pageTitle={driftOverlayData?.pageTitle}
+        pageVisitId={driftOverlayData?.pageVisitId}
+        onFeedback={handleFeedback}
+        onRedeemBreak={handleRedeemBreak}
+        onDiscardSession={() => handleEndSession('discarded')}
+        rewardsSummary={rewardsSummary}
+      />
+
+      {/* Extension Setup Modal */}
+      <ExtensionModal
+        isOpen={isExtensionModalOpen}
+        onClose={() => setIsExtensionModalOpen(false)}
+      />
     </div>
   );
 }

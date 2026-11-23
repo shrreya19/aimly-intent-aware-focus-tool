@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Target, ShieldCheck, Zap, ArrowRight, Activity, Cpu } from 'lucide-react';
+import { Target, ShieldCheck, Zap, ArrowRight, Activity, Cpu, Puzzle } from 'lucide-react';
+import ExtensionModal from '../components/ExtensionModal';
 
 export default function Landing() {
+  const [isExtensionModalOpen, setIsExtensionModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen text-ink px-4 py-8 md:py-16 max-w-6xl mx-auto flex flex-col justify-between">
       {/* Top Navigation */}
@@ -13,7 +16,14 @@ export default function Landing() {
           </div>
           <span className="text-xl font-black tracking-wider uppercase">AIMLY</span>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
+          <button
+            onClick={() => setIsExtensionModalOpen(true)}
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-extrabold text-ink hover:text-primary transition-colors px-3 py-2 cursor-pointer"
+          >
+            <Puzzle className="w-3.5 h-3.5 text-primary" />
+            <span>Extension (.zip)</span>
+          </button>
           <Link
             to="/login"
             className="text-sm font-bold text-ink hover:text-primary transition-colors px-3 py-2"
@@ -118,10 +128,22 @@ export default function Landing() {
       <footer className="mt-16 text-center text-xs text-ink-muted font-semibold flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-ink/10 pt-8">
         <div>AIMLY • Human-Computer Interaction Course Project</div>
         <div className="flex gap-4">
+          <button
+            onClick={() => setIsExtensionModalOpen(true)}
+            className="hover:text-ink cursor-pointer"
+          >
+            Download Extension (.zip)
+          </button>
           <Link to="/login" className="hover:text-ink">Log In</Link>
           <Link to="/signup" className="hover:text-ink">Sign Up</Link>
         </div>
       </footer>
+
+      {/* Extension Setup Modal */}
+      <ExtensionModal
+        isOpen={isExtensionModalOpen}
+        onClose={() => setIsExtensionModalOpen(false)}
+      />
     </div>
   );
 }

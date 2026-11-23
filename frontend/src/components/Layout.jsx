@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import ExtensionModal from './ExtensionModal';
 import {
   LayoutDashboard,
   PlayCircle,
@@ -10,10 +11,12 @@ import {
   LogOut,
   Target,
   Sparkles,
+  Puzzle,
 } from 'lucide-react';
 
 export default function Layout() {
   const { user, logout, activeSession, rewardsSummary } = useAuth();
+  const [isExtensionModalOpen, setIsExtensionModalOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -124,6 +127,20 @@ export default function Layout() {
             </div>
           )}
 
+          {/* Chrome Extension Button */}
+          <button
+            onClick={() => setIsExtensionModalOpen(true)}
+            className="mt-3 w-full py-2.5 px-3 rounded-2xl bg-white/70 hover:bg-white border border-ink/10 flex items-center justify-between text-xs font-bold text-ink shadow-2xs transition-all hover:scale-[1.01] cursor-pointer"
+          >
+            <div className="flex items-center gap-2">
+              <Puzzle className="w-4 h-4 text-primary" />
+              <span>Chrome Extension</span>
+            </div>
+            <span className="text-[10px] bg-primary/20 text-ink px-2 py-0.5 rounded-full font-black">
+              .ZIP
+            </span>
+          </button>
+
           {/* User Profile & Logout */}
           <div className="pt-6 mt-6 border-t border-ink/10 flex items-center justify-between px-2">
             <div className="flex items-center gap-3 overflow-hidden">
@@ -157,6 +174,12 @@ export default function Layout() {
       <main className="flex-1 p-4 md:p-8 max-w-7xl mx-auto w-full overflow-y-auto">
         <Outlet />
       </main>
+
+      {/* Chrome Extension Modal */}
+      <ExtensionModal
+        isOpen={isExtensionModalOpen}
+        onClose={() => setIsExtensionModalOpen(false)}
+      />
     </div>
   );
 }
