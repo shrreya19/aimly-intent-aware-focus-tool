@@ -68,12 +68,11 @@ function shouldSkipUrl(url) {
     const parsed = new URL(url);
     // Skip Aimly web app itself
     if (
-      parsed.hostname === 'localhost' &&
-      (parsed.port === '5173' || parsed.port === '3000')
+      (parsed.hostname === 'localhost' &&
+        (parsed.port === '5173' || parsed.port === '3000')) ||
+      parsed.hostname.includes('vercel.app') ||
+      parsed.hostname === 'aimly.app'
     ) {
-      return true;
-    }
-    if (parsed.hostname === 'aimly.app') {
       return true;
     }
   } catch {

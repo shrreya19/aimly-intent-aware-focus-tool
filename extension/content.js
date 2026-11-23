@@ -11,8 +11,11 @@
 
   // Auto-sync authentication token when user is on the Aimly web app
   if (
-    window.location.hostname === 'localhost' &&
-    (window.location.port === '5173' || window.location.port === '3000')
+    (window.location.hostname === 'localhost' &&
+      (window.location.port === '5173' || window.location.port === '3000')) ||
+    window.location.hostname.endsWith('.vercel.app') ||
+    window.location.hostname.includes('vercel.app') ||
+    window.location.hostname === 'aimly.app'
   ) {
     const syncToken = () => {
       try {
